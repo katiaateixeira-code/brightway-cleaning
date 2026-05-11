@@ -15,7 +15,8 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;}
 nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f0;box-shadow:0 1px 20px rgba(0,0,0,0.06);}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
-.logo-icon{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;}
+.logo-icon{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;overflow:hidden;position:relative;}
+.logo-icon img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;border-radius:10px;}
 .logo-name{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--navy);}
 .logo-sub{display:block;font-size:0.6rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:0.15em;}
 .nav-links{display:none;align-items:center;gap:2rem;}
@@ -97,7 +98,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
 .footer-inner{max-width:1200px;margin:0 auto;}
 .footer-top{display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:2rem;}
 .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
-.footer-logo-icon{width:36px;height:36px;background:var(--mid);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:900;}
+.footer-logo-icon{width:36px;height:36px;background:var(--mid);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:900;overflow:hidden;position:relative;}
+.footer-logo-icon img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;border-radius:8px;}
 .footer-tagline{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.6;}
 .footer-social{display:flex;gap:10px;margin-top:1rem;}
 .social-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;font-size:1rem;transition:all 0.2s;}
@@ -161,13 +163,11 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
 </style>
 </head>
 <body>
-
 <div class="toast" id="toast"></div>
-
 <nav>
   <div class="nav-inner">
     <div class="logo" onclick="goPage('home')">
-      <div class="logo-icon">B</div>
+      <div class="logo-icon" id="nav-logo-icon">B</div>
       <div><span class="logo-name">Brightway Cleaning</span><span class="logo-sub">UK</span></div>
     </div>
     <div class="nav-links">
@@ -202,7 +202,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
         <p class="hero-sub" id="h-sub">Premium residential cleaning and ironing services across the UK. Trusted, reliable, and always spotless.</p>
         <div class="hero-btns">
           <button class="btn-white" onclick="goSec('booking')">📅 Book a Service</button>
-          <a class="btn-wa" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
+          <a class="btn-wa" id="hero-wa-btn" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
         </div>
         <div class="hero-stats">
           <div><div class="stat-n" id="h-s1v">200+</div><div class="stat-l" id="h-s1l">Happy Clients</div></div>
@@ -253,8 +253,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
           <div class="step"><span class="step-num">03</span><span class="step-text">We reply to confirm your date, time and pricing.</span></div>
         </div>
         <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.8rem">
-          <a href="https://wa.me/447308102037" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#25D366;font-weight:600;font-size:0.9rem;text-decoration:none">💬 Or message us directly on WhatsApp</a>
-          <a href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#1877F2;font-weight:600;font-size:0.9rem;text-decoration:none">📘 Find us on Facebook</a>
+          <a id="wa-direct-link" href="https://wa.me/447308102037" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#25D366;font-weight:600;font-size:0.9rem;text-decoration:none">💬 Or message us directly on WhatsApp</a>
+          <a id="fb-direct-link" href="https://www.facebook.com/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#1877F2;font-weight:600;font-size:0.9rem;text-decoration:none">📘 Find us on Facebook</a>
         </div>
       </div>
       <div class="form-wrap">
@@ -298,7 +298,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
     <p>Book in under 2 minutes. We confirm via WhatsApp.</p>
     <div class="cta-btns">
       <button class="btn-white" onclick="goSec('booking')">Book Now</button>
-      <a class="btn-wa" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
+      <a class="btn-wa" id="cta-wa-btn" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
     </div>
   </section>
 
@@ -307,13 +307,13 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
       <div class="footer-top">
         <div>
           <div class="footer-logo">
-            <div class="footer-logo-icon">B</div>
+            <div class="footer-logo-icon" id="footer-logo-icon">B</div>
             <div><div style="font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1rem">Brightway Cleaning</div><div style="font-size:0.6rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.15em">UK</div></div>
           </div>
           <p class="footer-tagline">Premium cleaning services for UK homes.</p>
           <div class="footer-social">
-            <a class="social-btn" href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank">📘</a>
-            <a class="social-btn" href="https://wa.me/447308102037" target="_blank">💬</a>
+            <a class="social-btn" id="footer-fb-btn" href="https://www.facebook.com/" target="_blank">📘</a>
+            <a class="social-btn" id="footer-wa-btn" href="https://wa.me/447308102037" target="_blank">💬</a>
           </div>
         </div>
         <div class="footer-links">
@@ -325,9 +325,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
         </div>
         <div class="footer-links">
           <h4>Contact</h4>
-          <a href="tel:+447308102037">📞 +44 7308 102037</a>
-          <a href="https://wa.me/447308102037" target="_blank">💬 WhatsApp</a>
-          <a href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank">📘 Facebook</a>
+          <a id="footer-phone-link" href="tel:+447308102037">📞 +44 7308 102037</a>
+          <a id="footer-wa-link" href="https://wa.me/447308102037" target="_blank">💬 WhatsApp</a>
+          <a id="footer-fb-link" href="https://www.facebook.com/" target="_blank">📘 Facebook</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -349,11 +349,11 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
             <h2 style="font-size:1.3rem;color:var(--navy)">Admin Access</h2>
             <p style="font-size:0.85rem;color:var(--gray-mid);margin-top:4px">Brightway Cleaning Management</p>
           </div>
-          <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="adm-email" placeholder="admin@email.com"></div>
+          <div class="fg"><label class="fl">Email (qualquer)</label><input class="fi" type="email" id="adm-email" placeholder="admin@email.com"></div>
           <div class="fg"><label class="fl">Password</label><input class="fi" type="password" id="adm-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')adminLogin()"></div>
-          <p class="err-msg" id="adm-err" style="display:none;margin-bottom:0.8rem">Invalid credentials.</p>
+          <p class="err-msg" id="adm-err" style="display:none;margin-bottom:0.8rem">Senha incorreta.</p>
           <button class="btn-sub" onclick="adminLogin()">Sign In →</button>
-          <p style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:var(--gray-mid)">Use your Firebase Authentication email & password.</p>
+          <p style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:var(--gray-mid)">Use a senha padrão do administrador.</p>
         </div>
       </div>
     </div>
@@ -438,77 +438,40 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);paddin
 
         <!-- EDIT SITE -->
         <div class="adm-content" id="tab-site">
-          <!-- HERO -->
           <div class="card-box">
             <h3>🖼️ Hero Section</h3>
-            <div class="fg">
-              <label class="fl">Background Image URL</label>
-              <div id="prev-hero" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-hi" placeholder="https://images.unsplash.com/photo-...">
-              <small style="color:var(--gray-mid);font-size:0.75rem;margin-top:4px;display:block">Paste any image URL from Unsplash, imgbb, etc.</small>
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Main Title</label><input class="fi" id="cfg-ht" placeholder="Your Home,"></div>
-              <div class="fg"><label class="fl">Highlight Text (blue)</label><input class="fi" id="cfg-he" placeholder="Perfectly Clean."></div>
-            </div>
+            <div class="fg"><label class="fl">Background Image URL</label><div id="prev-hero" class="img-ph">No image set</div><input class="fi" id="cfg-hi" placeholder="https://images.unsplash.com/photo-..."><small style="color:var(--gray-mid);font-size:0.75rem;margin-top:4px;display:block">Paste any image URL from Unsplash, imgbb, etc.</small></div>
+            <div class="form-row"><div class="fg"><label class="fl">Main Title</label><input class="fi" id="cfg-ht" placeholder="Your Home,"></div><div class="fg"><label class="fl">Highlight Text (blue)</label><input class="fi" id="cfg-he" placeholder="Perfectly Clean."></div></div>
             <div class="fg"><label class="fl">Subtitle</label><textarea class="fi" id="cfg-hs" rows="2" style="resize:none"></textarea></div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Stat 1 Number</label><input class="fi" id="cfg-s1v" placeholder="200+"></div>
-              <div class="fg"><label class="fl">Stat 1 Label</label><input class="fi" id="cfg-s1l" placeholder="Happy Clients"></div>
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Stat 2 Number</label><input class="fi" id="cfg-s2v" placeholder="5★"></div>
-              <div class="fg"><label class="fl">Stat 2 Label</label><input class="fi" id="cfg-s2l" placeholder="Avg Rating"></div>
-            </div>
+            <div class="form-row"><div class="fg"><label class="fl">Stat 1 Number</label><input class="fi" id="cfg-s1v" placeholder="200+"></div><div class="fg"><label class="fl">Stat 1 Label</label><input class="fi" id="cfg-s1l" placeholder="Happy Clients"></div></div>
+            <div class="form-row"><div class="fg"><label class="fl">Stat 2 Number</label><input class="fi" id="cfg-s2v" placeholder="5★"></div><div class="fg"><label class="fl">Stat 2 Label</label><input class="fi" id="cfg-s2l" placeholder="Avg Rating"></div></div>
             <button class="btn-sub" style="background:var(--navy)" onclick="saveHero()">💾 Save Hero</button>
           </div>
-
-          <!-- CLEANING -->
           <div class="card-box">
             <h3>🧹 Cleaning Service</h3>
-            <div class="fg">
-              <label class="fl">Photo URL</label>
-              <div id="prev-cl" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-cli" placeholder="https://...">
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-clt" placeholder="Cleaning"></div>
-            </div>
+            <div class="fg"><label class="fl">Photo URL</label><div id="prev-cl" class="img-ph">No image set</div><input class="fi" id="cfg-cli" placeholder="https://..."></div>
+            <div class="form-row"><div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-clt" placeholder="Cleaning"></div></div>
             <div class="fg"><label class="fl">Description</label><textarea class="fi" id="cfg-cld" rows="2" style="resize:none" placeholder="Professional home cleaning services..."></textarea></div>
             <button class="btn-sub" style="background:var(--navy);margin-bottom:1.5rem" onclick="saveSvc('cleaning')">💾 Save Cleaning Info</button>
-            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem">
-              <div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div>
-              <div id="cl-prices"></div>
-              <div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap">
-                <input class="fi" id="new-cl-item" placeholder="e.g. Regular Cleaning" style="flex:1;min-width:140px">
-                <input class="fi" id="new-cl-price" placeholder="e.g. From £20/hr" style="width:140px">
-                <button class="abtn b" onclick="addPrice('cleaning')" style="padding:10px 16px">+ Add</button>
-              </div>
-            </div>
+            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem"><div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div><div id="cl-prices"></div><div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap"><input class="fi" id="new-cl-item" placeholder="e.g. Regular Cleaning" style="flex:1;min-width:140px"><input class="fi" id="new-cl-price" placeholder="e.g. From £20/hr" style="width:140px"><button class="abtn b" onclick="addPrice('cleaning')" style="padding:10px 16px">+ Add</button></div></div>
           </div>
-
-          <!-- IRONING -->
           <div class="card-box">
             <h3>👔 Ironing Service</h3>
-            <div class="fg">
-              <label class="fl">Photo URL</label>
-              <div id="prev-ir" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-iri" placeholder="https://...">
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-irt" placeholder="Ironing"></div>
-            </div>
+            <div class="fg"><label class="fl">Photo URL</label><div id="prev-ir" class="img-ph">No image set</div><input class="fi" id="cfg-iri" placeholder="https://..."></div>
+            <div class="form-row"><div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-irt" placeholder="Ironing"></div></div>
             <div class="fg"><label class="fl">Description</label><textarea class="fi" id="cfg-ird" rows="2" style="resize:none" placeholder="Professional ironing service..."></textarea></div>
             <button class="btn-sub" style="background:var(--navy);margin-bottom:1.5rem" onclick="saveSvc('ironing')">💾 Save Ironing Info</button>
-            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem">
-              <div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div>
-              <div id="ir-prices"></div>
-              <div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap">
-                <input class="fi" id="new-ir-item" placeholder="e.g. Shirt" style="flex:1;min-width:140px">
-                <input class="fi" id="new-ir-price" placeholder="e.g. £2.50" style="width:140px">
-                <button class="abtn b" onclick="addPrice('ironing')" style="padding:10px 16px">+ Add</button>
-              </div>
+            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem"><div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div><div id="ir-prices"></div><div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap"><input class="fi" id="new-ir-item" placeholder="e.g. Shirt" style="flex:1;min-width:140px"><input class="fi" id="new-ir-price" placeholder="e.g. £2.50" style="width:140px"><button class="abtn b" onclick="addPrice('ironing')" style="padding:10px 16px">+ Add</button></div></div>
+          </div>
+          <!-- BRANDING -->
+          <div class="card-box">
+            <h3>🏷️ Branding</h3>
+            <div class="fg"><label class="fl">Logo Image URL</label><div id="prev-logo" class="img-ph">No image set</div><input class="fi" id="cfg-logo" placeholder="https://your-logo.png"><small style="color:var(--gray-mid);font-size:0.75rem;margin-top:4px;display:block">Appears on navbar and footer. Leave empty for "B".</small></div>
+            <div class="form-row">
+              <div class="fg"><label class="fl">WhatsApp Number (with country code)</label><input class="fi" id="cfg-wa" placeholder="447308102037"></div>
+              <div class="fg"><label class="fl">Facebook Page URL</label><input class="fi" id="cfg-fb" placeholder="https://www.facebook.com/yourpage"></div>
             </div>
+            <button class="btn-sub" style="background:var(--navy)" onclick="saveBranding()">💾 Save Branding</button>
           </div>
         </div>
       </div>
@@ -521,7 +484,6 @@ import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-ap
 import{getFirestore,collection,doc,addDoc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,orderBy,where}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import{getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-// ⚠️ SUBSTITUI AQUI COM O TEU FIREBASE CONFIG
 const cfg={
   apiKey:"AIzaSyCAb51j-0XS91Kcn4jBLnCj5BE1c7wv-HQ",
   authDomain:"brightway-cleaning.firebaseapp.com",
@@ -562,8 +524,9 @@ window.submitBooking=async function(){
     await addDoc(collection(db,'bookings'),{name,phone,email,address,service,date,time,notes,status:'pending',paymentStatus:'pending',createdAt:new Date().toISOString()});
     await upsertClient({name,phone,email,address});
   }catch(e){}
+  const waNum = (await getDoc(doc(db,'siteConfig','branding'))).data()?.whatsapp || '447308102037';
   const msg=`Hello Brightway Cleaning! 🏠\n\nI'd like to book a service:\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📧 *Email:* ${email}\n📍 *Address:* ${address}\n🧹 *Service:* ${sl}\n📅 *Date:* ${date}\n🕐 *Time:* ${time}${notes?'\n📝 *Notes:* '+notes:''}\n\nPlease confirm my booking. Thank you!`;
-  window.open(`https://wa.me/447308102037?text=${encodeURIComponent(msg)}`,'_blank');
+  window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`,'_blank');
   ['f-name','f-phone','f-email','f-address','f-notes'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('f-service').value='';
   document.getElementById('f-date').value='';
@@ -594,10 +557,32 @@ async function loadSite(){
       if(c.s2v)document.getElementById('h-s2v').textContent=c.s2v;
       if(c.s2l)document.getElementById('h-s2l').textContent=c.s2l;
     }
+    await loadBranding();
   }catch(e){}
   renderSvcGrid();
 }
 
+async function loadBranding(){
+  const b = (await getDoc(doc(db,'siteConfig','branding'))).data();
+  const logo = b?.logo || '';
+  const wa = b?.whatsapp || '447308102037';
+  const fb = b?.facebook || 'https://www.facebook.com/';
+  const setLogo = (el) => {
+    if(!el) return;
+    if(logo){ el.innerHTML = `<img src="${logo}" alt="logo">`; }
+    else{ el.innerHTML = 'B'; }
+  };
+  setLogo(document.getElementById('nav-logo-icon'));
+  setLogo(document.getElementById('footer-logo-icon'));
+  const waLinks = document.querySelectorAll('#hero-wa-btn, #wa-direct-link, #cta-wa-btn, #footer-wa-btn, #footer-wa-link');
+  waLinks.forEach(a=>{ a.href = `https://wa.me/${wa}`; });
+  document.getElementById('footer-phone-link').href = `tel:+${wa}`;
+  document.getElementById('footer-phone-link').textContent = `📞 +${wa.replace(/(\d{3})(\d{4})(\d{3})/, '$1 $2 $3')}`;
+  const fbLinks = document.querySelectorAll('#fb-direct-link, #footer-fb-btn, #footer-fb-link');
+  fbLinks.forEach(a=>{ a.href = fb; });
+}
+
+// RENDER SERVICES (maintained as original)
 async function renderSvcGrid(){
   const grid=document.getElementById('svc-grid');
   try{
@@ -626,7 +611,7 @@ async function renderSvcGrid(){
   }catch(e){grid.innerHTML='<div class="loading">Could not load services.</div>';}
 }
 
-// ADMIN AUTH
+// ADMIN AUTH (hardcoded password)
 let loggedIn=false;
 let bks=[],cls=[],invs=[];
 
@@ -635,18 +620,25 @@ function checkAuth(){
   else{document.getElementById('adm-login').style.display='block';document.getElementById('adm-panel').style.display='none';}
 }
 
-window.adminLogin=async function(){
-  const email=document.getElementById('adm-email').value.trim();
+window.adminLogin=function(){
   const pass=document.getElementById('adm-pass').value;
   const err=document.getElementById('adm-err');
   err.style.display='none';
-  try{await signInWithEmailAndPassword(auth,email,pass);loggedIn=true;document.getElementById('adm-login').style.display='none';document.getElementById('adm-panel').style.display='block';loadAdmin();loadSiteCfg();toast('✅ Welcome!');}
-  catch(e){err.style.display='block';}
+  if(pass==='120121'){
+    loggedIn=true;
+    document.getElementById('adm-login').style.display='none';
+    document.getElementById('adm-panel').style.display='block';
+    loadAdmin();
+    loadSiteCfg();
+    toast('✅ Welcome!');
+  }else{
+    err.style.display='block';
+  }
 };
 
-window.adminLogout=async function(){await signOut(auth);loggedIn=false;goPage('home');toast('Logged out');};
-onAuthStateChanged(auth,u=>{if(u)loggedIn=true;});
+window.adminLogout=function(){loggedIn=false;goPage('home');toast('Logged out');};
 
+// restante das funções admin...
 window.switchTab=function(t){
   const tabs=['dashboard','bookings','clients','finance','invoices','site'];
   document.querySelectorAll('.adm-tab').forEach((x,i)=>x.classList.toggle('active',tabs[i]===t));
@@ -792,12 +784,15 @@ window.printInv=function(inv){
 // SITE SETTINGS
 async function loadSiteCfg(){
   try{
-    const[m,cl,ir,cp,ip]=await Promise.all([getDoc(doc(db,'siteConfig','main')),getDoc(doc(db,'siteConfig','cleaning')),getDoc(doc(db,'siteConfig','ironing')),getDocs(collection(db,'cleaningPrices')),getDocs(collection(db,'ironingPrices'))]);
+    const[m,cl,ir,cp,ip,b]=await Promise.all([
+      getDoc(doc(db,'siteConfig','main')),getDoc(doc(db,'siteConfig','cleaning')),getDoc(doc(db,'siteConfig','ironing')),
+      getDocs(collection(db,'cleaningPrices')),getDocs(collection(db,'ironingPrices')),getDoc(doc(db,'siteConfig','branding'))
+    ]);
     if(m.exists()){const c=m.data();if(c.heroImg){document.getElementById('cfg-hi').value=c.heroImg;setP('prev-hero',c.heroImg);}if(c.heroTitle)document.getElementById('cfg-ht').value=c.heroTitle;if(c.heroEm)document.getElementById('cfg-he').value=c.heroEm;if(c.heroSub)document.getElementById('cfg-hs').value=c.heroSub;if(c.s1v)document.getElementById('cfg-s1v').value=c.s1v;if(c.s1l)document.getElementById('cfg-s1l').value=c.s1l;if(c.s2v)document.getElementById('cfg-s2v').value=c.s2v;if(c.s2l)document.getElementById('cfg-s2l').value=c.s2l;}
     if(cl.exists()){const c=cl.data();if(c.img){document.getElementById('cfg-cli').value=c.img;setP('prev-cl',c.img);}if(c.title)document.getElementById('cfg-clt').value=c.title;if(c.desc)document.getElementById('cfg-cld').value=c.desc;}
     if(ir.exists()){const c=ir.data();if(c.img){document.getElementById('cfg-iri').value=c.img;setP('prev-ir',c.img);}if(c.title)document.getElementById('cfg-irt').value=c.title;if(c.desc)document.getElementById('cfg-ird').value=c.desc;}
-    renderPL('cleaning',cp.docs.map(d=>({id:d.id,...d.data()})));
-    renderPL('ironing',ip.docs.map(d=>({id:d.id,...d.data()})));
+    if(b.exists()){const c=b.data();if(c.logo){document.getElementById('cfg-logo').value=c.logo;setP('prev-logo',c.logo);}if(c.whatsapp)document.getElementById('cfg-wa').value=c.whatsapp;if(c.facebook)document.getElementById('cfg-fb').value=c.facebook;}
+    renderPL('cleaning',cp.docs.map(d=>({id:d.id,...d.data()})));renderPL('ironing',ip.docs.map(d=>({id:d.id,...d.data()})));
   }catch(e){}
 }
 
@@ -844,12 +839,17 @@ window.delPrice=async function(type,id){
   }catch(e){toast('Error','err');}
 };
 
-// Image preview on input blur
+window.saveBranding=async function(){
+  const d={logo:document.getElementById('cfg-logo').value.trim(),whatsapp:document.getElementById('cfg-wa').value.trim(),facebook:document.getElementById('cfg-fb').value.trim()};
+  try{await setDoc(doc(db,'siteConfig','branding'),d,{merge:true});setP('prev-logo',d.logo);loadBranding();toast('✅ Branding saved!');}catch(e){toast('Error','err');}
+};
+
 document.getElementById('cfg-hi').addEventListener('blur',function(){setP('prev-hero',this.value);});
 document.getElementById('cfg-cli').addEventListener('blur',function(){setP('prev-cl',this.value);});
 document.getElementById('cfg-iri').addEventListener('blur',function(){setP('prev-ir',this.value);});
+document.getElementById('cfg-logo').addEventListener('blur',function(){setP('prev-logo',this.value);});
 
 loadSite();
 </script>
 </body>
-</html>
+          </html>
