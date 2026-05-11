@@ -1,860 +1,705 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brightway Cleaning | Professional Cleaning Services UK</title>
-<meta name="description" content="Premium residential cleaning and ironing services across the UK.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{--navy:#0B1F3A;--blue:#1A3A6B;--mid:#2563EB;--light:#DBEAFE;--gray:#F1F5F9;--gray-mid:#94A3B8;--gray-dark:#334155;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--gray-dark);overflow-x:hidden;}
-h1,h2,h3,h4{font-family:'Playfair Display',serif;}
-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f0;box-shadow:0 1px 20px rgba(0,0,0,0.06);}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
-.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
-.logo-icon{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;}
-.logo-name{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--navy);}
-.logo-sub{display:block;font-size:0.6rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:0.15em;}
-.nav-links{display:none;align-items:center;gap:2rem;}
-.nav-links a{font-size:0.875rem;font-weight:500;color:var(--gray-dark);cursor:pointer;transition:color 0.2s;}
-.nav-links a:hover{color:var(--mid);}
-.nav-cta{background:var(--mid);color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:0.875rem;font-weight:600;cursor:pointer;display:none;font-family:'DM Sans',sans-serif;}
-.nav-cta:hover{background:var(--blue);}
-.menu-btn{background:none;border:none;cursor:pointer;padding:6px;color:var(--navy);}
-.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid #e2e8f0;z-index:999;padding:1rem 1.5rem;}
-.mobile-menu.open{display:block;}
-.mobile-menu a{display:block;padding:0.9rem 0;font-weight:500;color:var(--gray-dark);border-bottom:1px solid #f1f5f9;cursor:pointer;}
-.page{display:none;}.page.active{display:block;}
-.hero{min-height:100vh;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:center;padding-top:68px;}
-.hero-orb1{position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:rgba(37,99,235,0.25);border-radius:50%;filter:blur(80px);}
-.hero-orb2{position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:rgba(26,58,107,0.4);border-radius:50%;filter:blur(60px);}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:50px 50px;}
-.hero-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:4rem 1.5rem;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:100px;padding:6px 16px;margin-bottom:1.5rem;}
-.hero-badge span{font-size:0.75rem;color:rgba(255,255,255,0.85);font-weight:500;}
-.stars{color:#FBBF24;font-size:12px;letter-spacing:1px;}
-.hero h1{font-size:clamp(2.8rem,8vw,5rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:1.2rem;}
-.hero h1 em{color:var(--light);font-style:normal;display:block;}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2rem;max-width:480px;}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
-.btn-white{background:#fff;color:var(--navy);border:none;padding:13px 26px;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;}
-.btn-white:hover{background:var(--light);}
-.btn-wa{background:#25D366;color:#fff;border:none;padding:13px 26px;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:'DM Sans',sans-serif;}
-.btn-wa:hover{background:#1ebe5d;}
-.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;}
-.stat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#fff;}
-.stat-l{font-size:0.72rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;}
-.sec{padding:5rem 1.5rem;}
-.sec-inner{max-width:1200px;margin:0 auto;}
-.sec-label{display:inline-block;background:var(--light);color:var(--mid);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;padding:6px 14px;border-radius:100px;margin-bottom:1rem;}
-.sec-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--navy);margin-bottom:0.5rem;}
-.sec-sub{color:var(--gray-mid);font-size:0.95rem;line-height:1.7;}
-.svc-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:3rem;}
-.svc-card{border-radius:24px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,0.08);}
-.svc-img{width:100%;height:220px;object-fit:cover;display:block;}
-.svc-img-ph{width:100%;height:220px;display:flex;align-items:center;justify-content:center;font-size:4rem;}
-.svc-body{padding:2rem;background:#fff;}
-.svc-icon{font-size:1.8rem;display:block;margin-bottom:0.8rem;}
-.svc-title{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
-.svc-desc{font-size:0.88rem;color:var(--gray-mid);line-height:1.6;margin-bottom:1.5rem;}
-.price-tbl{width:100%;border-collapse:collapse;margin-bottom:1.5rem;}
-.price-tbl th{text-align:left;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-mid);padding:8px 0;border-bottom:2px solid #f1f5f9;}
-.price-tbl td{padding:10px 0;border-bottom:1px solid #f8fafc;font-size:0.88rem;color:var(--gray-dark);}
-.price-tbl td:last-child{text-align:right;font-weight:700;color:var(--navy);}
-.no-prices{text-align:center;padding:1.2rem;color:var(--gray-mid);font-size:0.85rem;background:var(--gray);border-radius:12px;margin-bottom:1.5rem;}
-.btn-book{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
-.btn-book:hover{background:var(--blue);}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;}
-.why-card{background:#fff;border-radius:20px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
-.why-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:0.8rem;}
-.why-card h4{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
-.why-card p{font-size:0.8rem;color:var(--gray-mid);line-height:1.6;}
-.booking-inner{max-width:1200px;margin:0 auto;display:grid;gap:3rem;align-items:start;}
-.booking-steps{margin-top:1.5rem;}
-.step{display:flex;gap:1rem;margin-bottom:1.2rem;}
-.step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--light);line-height:1;min-width:2rem;}
-.step-text{font-size:0.88rem;color:var(--gray-dark);line-height:1.6;padding-top:6px;}
-.form-wrap{background:var(--gray);border-radius:24px;padding:2rem;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.fg{margin-bottom:1rem;}
-.fl{display:block;font-size:0.68rem;font-weight:700;color:var(--gray-dark);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px;}
-.fi{width:100%;border:1.5px solid #e2e8f0;border-radius:10px;padding:11px 14px;font-size:0.88rem;font-family:'DM Sans',sans-serif;outline:none;background:#fff;transition:border-color 0.2s;color:var(--gray-dark);}
-.fi:focus{border-color:var(--mid);}
-.fi::placeholder{color:#cbd5e1;}
-.btn-sub{width:100%;background:#25D366;color:#fff;border:none;padding:15px;border-radius:12px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'DM Sans',sans-serif;}
-.btn-sub:hover{background:#1ebe5d;}
-.err-msg{color:#EF4444;font-size:0.78rem;margin-top:4px;display:none;}
-.cta-sec{background:var(--navy);padding:5rem 1.5rem;text-align:center;position:relative;overflow:hidden;}
-.cta-orb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:rgba(37,99,235,0.2);border-radius:50%;filter:blur(60px);}
-.cta-sec h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:0.8rem;position:relative;z-index:2;}
-.cta-sec p{color:rgba(255,255,255,0.55);margin-bottom:2rem;position:relative;z-index:2;}
-.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;}
-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);padding:3rem 1.5rem 2rem;}
-.footer-inner{max-width:1200px;margin:0 auto;}
-.footer-top{display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:2rem;}
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
-.footer-logo-icon{width:36px;height:36px;background:var(--mid);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:900;}
-.footer-tagline{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.6;}
-.footer-social{display:flex;gap:10px;margin-top:1rem;}
-.social-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;font-size:1rem;transition:all 0.2s;}
-.social-btn:hover{background:var(--mid);color:#fff;}
-.footer-links h4{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:1rem;}
-.footer-links a{display:block;font-size:0.85rem;color:rgba(255,255,255,0.55);margin-bottom:0.6rem;cursor:pointer;text-decoration:none;}
-.footer-links a:hover{color:#fff;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
-.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.3);}
-.admin-page{min-height:100vh;background:var(--gray);padding-top:68px;}
-.adm-login-wrap{max-width:420px;margin:0 auto;padding:4rem 1.5rem;}
-.adm-login-card{background:#fff;border-radius:24px;padding:2.5rem;box-shadow:0 4px 30px rgba(0,0,0,0.08);}
-.adm-logo{text-align:center;margin-bottom:2rem;}
-.adm-logo-icon{width:60px;height:60px;background:var(--navy);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.8rem;margin:0 auto 1rem;}
-.adm-wrap{max-width:1200px;margin:0 auto;padding:2rem 1.5rem;}
-.adm-tabs{display:flex;background:#fff;border-radius:16px;padding:6px;gap:4px;margin-bottom:2rem;overflow-x:auto;box-shadow:0 2px 15px rgba(0,0,0,0.06);}
-.adm-tab{flex:1;min-width:fit-content;padding:10px 14px;background:none;border:none;border-radius:12px;font-size:0.78rem;font-weight:600;color:var(--gray-mid);cursor:pointer;white-space:nowrap;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
-.adm-tab.active{background:var(--navy);color:#fff;}
-.adm-content{display:none;}.adm-content.active{display:block;}
-.card-box{background:#fff;border-radius:16px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);margin-bottom:1.5rem;}
-.card-box h3{font-size:1rem;color:var(--navy);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid #f1f5f9;}
-.stat-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem;}
-.stat-card{background:#fff;border-radius:16px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
-.sc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1rem;}
-.sc-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--navy);}
-.sc-lbl{font-size:0.7rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;}
-.tbl-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,0.05);margin-bottom:1.5rem;}
-.tbl-header{padding:1.2rem 1.5rem;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;}
-.tbl-header h3{font-size:1rem;color:var(--navy);}
-.adm-tbl{width:100%;border-collapse:collapse;font-size:0.82rem;}
-.adm-tbl th{text-align:left;padding:10px 16px;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-mid);background:var(--gray);}
-.adm-tbl td{padding:12px 16px;border-bottom:1px solid #f8fafc;color:var(--gray-dark);vertical-align:middle;}
-.adm-tbl tr:hover td{background:#fafbff;}
-.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-size:0.68rem;font-weight:700;}
-.bp{background:#FEF3C7;color:#92400E;}.bc{background:#DBEAFE;color:#1E40AF;}.bd{background:#DCFCE7;color:#166534;}.bx{background:#FEE2E2;color:#991B1B;}.bpd{background:#DCFCE7;color:#166534;}.bov{background:#FEE2E2;color:#991B1B;}
-.abtn{border:none;border-radius:8px;padding:5px 10px;font-size:0.72rem;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
-.abtn.g{background:#DCFCE7;color:#166534;}.abtn.b{background:#DBEAFE;color:#1E40AF;}.abtn.r{background:#FEE2E2;color:#991B1B;}
-.img-prev{width:100%;height:140px;object-fit:cover;border-radius:10px;display:block;margin-bottom:0.5rem;}
-.img-ph{width:100%;height:140px;border-radius:10px;background:var(--gray);display:flex;align-items:center;justify-content:center;color:var(--gray-mid);font-size:0.85rem;margin-bottom:0.5rem;}
-.prow{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #f1f5f9;}
-.prow:last-child{border-bottom:none;}
-.prow-name{flex:1;font-size:0.88rem;color:var(--gray-dark);}
-.prow-price{font-weight:700;color:var(--navy);font-size:0.88rem;min-width:80px;text-align:right;}
-.client-grid{display:grid;grid-template-columns:1fr;gap:1rem;}
-.client-card{background:#fff;border-radius:16px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
-.cav{width:44px;height:44px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;flex-shrink:0;}
-.loading{text-align:center;padding:2rem;color:var(--gray-mid);font-size:0.88rem;}
-.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9000;background:var(--navy);color:#fff;padding:14px 20px;border-radius:14px;font-size:0.875rem;font-weight:500;transform:translateY(80px);opacity:0;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.2);max-width:300px;}
-.toast.show{transform:translateY(0);opacity:1;}
-.toast.ok{border-left:4px solid #22C55E;}.toast.err{border-left:4px solid #EF4444;}
-@media(min-width:768px){
-  .nav-links{display:flex;}.nav-cta{display:block;}.menu-btn{display:none;}
-  .svc-grid{grid-template-columns:1fr 1fr;}
-  .booking-inner{grid-template-columns:1fr 1fr;}
-  .footer-top{grid-template-columns:1fr 1fr 1fr;}
-  .why-grid{grid-template-columns:repeat(4,1fr);}
-  .stat-cards{grid-template-columns:repeat(4,1fr);}
-  .client-grid{grid-template-columns:repeat(2,1fr);}
+import { useState, useRef } from "react";
+
+const SERVICES = [
+  { id: "house", icon: "🏠", title: "House Cleaning", desc: "Deep & regular residential cleaning", price: "£80", duration: "3h" },
+  { id: "ironing", icon: "👕", title: "Ironing", desc: "Professional ironing service", price: "£25", duration: "1h" },
+  { id: "office", icon: "🏢", title: "Office Cleaning", desc: "Commercial & office spaces", price: "£120", duration: "4h" },
+  { id: "airbnb", icon: "🛏", title: "Airbnb Cleaning", desc: "Fast turnaround for your guests", price: "£95", duration: "3h" },
+];
+
+const GALLERY_INIT = [
+  { id: 1, url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80", caption: "Spotless kitchen" },
+  { id: 2, url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80", caption: "Bathroom deep clean" },
+  { id: 3, url: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80", caption: "Living room refresh" },
+  { id: 4, url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80", caption: "Office cleaning" },
+  { id: 5, url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", caption: "Airbnb ready" },
+  { id: 6, url: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&q=80", caption: "Bedroom clean" },
+];
+
+const CLIENTS_INIT = [
+  { id: 1, name: "Sarah Mitchell", phone: "+44 7700 900123", address: "14 King St, London E1 6RF", services: 5, notes: "Prefers mornings" },
+  { id: 2, name: "James Carter", phone: "+44 7700 900456", address: "8 Queen Ave, London SE5 0RN", services: 2, notes: "Has a dog" },
+  { id: 3, name: "Emily Rose", phone: "+44 7700 900789", address: "22 Park Lane, London W1K 1BE", services: 8, notes: "Airbnb host" },
+];
+
+const BOOKINGS_INIT = [
+  { id: 1, clientId: 1, clientName: "Sarah Mitchell", service: "House Cleaning", date: "2026-05-12", time: "09:00", status: "confirmed", amount: 80 },
+  { id: 2, clientId: 3, clientName: "Emily Rose", service: "Airbnb Cleaning", date: "2026-05-12", time: "14:00", status: "confirmed", amount: 95 },
+  { id: 3, clientId: 2, clientName: "James Carter", service: "Ironing", date: "2026-05-13", time: "11:00", status: "pending", amount: 25 },
+  { id: 4, clientId: 1, clientName: "Sarah Mitchell", service: "House Cleaning", date: "2026-05-14", time: "09:00", status: "confirmed", amount: 80 },
+];
+
+const WEEK_DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const TIME_SLOTS = ["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"];
+
+const C = {
+  bg: "#FAFAFA", white: "#FFFFFF", black: "#0A0A0A",
+  g100: "#F5F5F5", g200: "#EBEBEB", g400: "#A3A3A3", g600: "#525252", g800: "#262626",
+  accent: "#1A6BFF", accentL: "#EEF4FF", accentD: "#1352CC",
+  green: "#16A34A", greenL: "#DCFCE7", orange: "#EA580C", orangeL: "#FFF0E6",
+  red: "#DC2626", redL: "#FEE2E2",
+};
+
+function inp(extra = {}) {
+  return { width: "100%", padding: "12px 14px", borderRadius: 10, border: `1.5px solid ${C.g200}`, fontSize: 15, fontFamily: "inherit", outline: "none", boxSizing: "border-box", ...extra };
 }
-@media(min-width:1024px){.client-grid{grid-template-columns:repeat(3,1fr);}}
-</style>
-</head>
-<body>
 
-<div class="toast" id="toast"></div>
+function btn(bg, color, extra = {}) {
+  return { background: bg, color, border: "none", borderRadius: 12, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", ...extra };
+}
 
-<nav>
-  <div class="nav-inner">
-    <div class="logo" onclick="goPage('home')">
-      <div class="logo-icon">B</div>
-      <div><span class="logo-name">Brightway Cleaning</span><span class="logo-sub">UK</span></div>
-    </div>
-    <div class="nav-links">
-      <a onclick="goSec('services')">Services</a>
-      <a onclick="goSec('booking')">Book Now</a>
-      <a onclick="goSec('about')">About</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:10px">
-      <button class="nav-cta" onclick="goSec('booking')">Book Now</button>
-      <button class="menu-btn" onclick="toggleMenu()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobile-menu">
-    <a onclick="goSec('services');closeMM()">Services</a>
-    <a onclick="goSec('booking');closeMM()">Book Now</a>
-    <a onclick="goSec('about');closeMM()">About</a>
-    <a onclick="goPage('admin');closeMM()" style="color:var(--mid)">⚙️ Admin</a>
-  </div>
-</nav>
+function getWeekDates(offset = 0) {
+  const today = new Date(2026, 4, 11);
+  const day = today.getDay();
+  const diff = today.getDate() - day + (day === 0 ? -6 : 1) + offset * 7;
+  return Array.from({ length: 7 }, (_, i) => { const d = new Date(today); d.setDate(diff + i); return d; });
+}
 
-<!-- HOME -->
-<div id="home" class="page active">
-  <section class="hero">
-    <div class="hero-orb1"></div><div class="hero-orb2"></div><div class="hero-grid"></div>
-    <div class="hero-img-bg" id="hero-bg"></div>
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge"><span class="stars">★★★★★</span><span id="h-badge">Trusted by 200+ families across the UK</span></div>
-        <h1 id="h-title">Your Home,<em id="h-em">Perfectly Clean.</em></h1>
-        <p class="hero-sub" id="h-sub">Premium residential cleaning and ironing services across the UK. Trusted, reliable, and always spotless.</p>
-        <div class="hero-btns">
-          <button class="btn-white" onclick="goSec('booking')">📅 Book a Service</button>
-          <a class="btn-wa" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
-        </div>
-        <div class="hero-stats">
-          <div><div class="stat-n" id="h-s1v">200+</div><div class="stat-l" id="h-s1l">Happy Clients</div></div>
-          <div><div class="stat-n" id="h-s2v">5★</div><div class="stat-l" id="h-s2l">Avg Rating</div></div>
-          <div><div class="stat-n" id="h-s3v">3yr</div><div class="stat-l" id="h-s3l">Experience</div></div>
-        </div>
+function WhatsAppIcon({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
+function Modal({ onClose, children, maxW = 520 }) {
+  return (
+    <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 300, display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}
+      onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
+      <div style={{ background: C.white, borderRadius: 24, padding: 40, width: "100%", maxWidth: maxW, maxHeight: "90vh", overflowY: "auto", position: "relative" }}>
+        <button onClick={onClose} style={{ position: "absolute", top: 18, right: 18, background: C.g100, border: "none", width: 30, height: 30, borderRadius: "50%", cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+        {children}
       </div>
     </div>
-    <svg style="position:absolute;bottom:0;left:0;right:0" viewBox="0 0 1440 60" fill="none"><path d="M0 60V20C240 0 480 40 720 20C960 0 1200 40 1440 20V60H0Z" fill="white"/></svg>
-  </section>
+  );
+}
 
-  <section class="sec" id="services" style="background:#fff">
-    <div class="sec-inner">
-      <div style="text-align:center">
-        <span class="sec-label">What We Offer</span>
-        <h2 class="sec-title">Our Services</h2>
-        <p class="sec-sub" style="margin:0 auto">Professional cleaning and ironing services tailored to your needs.</p>
-      </div>
-      <div class="svc-grid" id="svc-grid"><div class="loading">Loading services...</div></div>
-    </div>
-  </section>
+// ─── PUBLIC SITE ──────────────────────────────────────────────────────────────
+function PublicSite({ onAdminClick, gallery, setBookings }) {
+  const [bookingModal, setBookingModal] = useState(null);
+  const [lightbox, setLightbox] = useState(null);
+  const [step, setStep] = useState(1);
+  const [bd, setBd] = useState({ date: "", time: "", name: "", phone: "", address: "", notes: "" });
+  const [done, setDone] = useState(false);
 
-  <section class="sec" id="about" style="background:var(--gray)">
-    <div class="sec-inner">
-      <div style="text-align:center">
-        <span class="sec-label" style="background:var(--navy);color:#fff">Our Promise</span>
-        <h2 class="sec-title">Why Choose Brightway?</h2>
-        <p class="sec-sub" style="margin:0 auto">We combine professionalism with a personal touch.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card"><div class="why-icon" style="background:var(--light)">🛡️</div><h4>Trusted & Verified</h4><p>All our cleaners are fully vetted, insured, and background-checked.</p></div>
-        <div class="why-card"><div class="why-icon" style="background:#FEF3C7">🕐</div><h4>Flexible Scheduling</h4><p>Morning, afternoon, or weekend — we work around your timetable.</p></div>
-        <div class="why-card"><div class="why-icon" style="background:#DCFCE7">👍</div><h4>Guaranteed Quality</h4><p>Not satisfied? We come back. Your happiness is our priority.</p></div>
-        <div class="why-card"><div class="why-icon" style="background:#F3E8FF">📍</div><h4>Local & Reliable</h4><p>A UK-based team that knows your area and values your home.</p></div>
-      </div>
-    </div>
-  </section>
+  const scrollTo = id => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
-  <section class="sec" id="booking" style="background:#fff">
-    <div class="booking-inner">
-      <div>
-        <span class="sec-label">Book Online</span>
-        <h2 class="sec-title">Book a Service</h2>
-        <p class="sec-sub">Fill in your details and we'll confirm via WhatsApp.</p>
-        <div class="booking-steps">
-          <div class="step"><span class="step-num">01</span><span class="step-text">Fill in your details and choose your service.</span></div>
-          <div class="step"><span class="step-num">02</span><span class="step-text">Click confirm — WhatsApp opens automatically with all your booking details.</span></div>
-          <div class="step"><span class="step-num">03</span><span class="step-text">We reply to confirm your date, time and pricing.</span></div>
-        </div>
-        <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.8rem">
-          <a href="https://wa.me/447308102037" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#25D366;font-weight:600;font-size:0.9rem;text-decoration:none">💬 Or message us directly on WhatsApp</a>
-          <a href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#1877F2;font-weight:600;font-size:0.9rem;text-decoration:none">📘 Find us on Facebook</a>
-        </div>
-      </div>
-      <div class="form-wrap">
-        <div class="form-row">
-          <div class="fg"><label class="fl">Full Name *</label><input class="fi" id="f-name" placeholder="Jane Smith"></div>
-          <div class="fg"><label class="fl">Phone *</label><input class="fi" id="f-phone" placeholder="+44 7XXX XXXXXX" type="tel"></div>
-        </div>
-        <div class="fg"><label class="fl">Email *</label><input class="fi" id="f-email" placeholder="jane@email.com" type="email"></div>
-        <div class="fg"><label class="fl">Property Address *</label><input class="fi" id="f-address" placeholder="123 High Street, London, E1 6RF"></div>
-        <div class="fg">
-          <label class="fl">Service *</label>
-          <select class="fi" id="f-service">
-            <option value="">Select a service</option>
-            <option value="cleaning">Cleaning</option>
-            <option value="ironing">Ironing</option>
-            <option value="both">Cleaning + Ironing</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <div class="fg"><label class="fl">Preferred Date *</label><input class="fi" id="f-date" type="date"></div>
-          <div class="fg">
-            <label class="fl">Preferred Time *</label>
-            <select class="fi" id="f-time">
-              <option value="">Select time</option>
-              <option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option>
-              <option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option>
-              <option>16:00</option><option>17:00</option><option>18:00</option>
-            </select>
+  const openBooking = svc => { setBookingModal(svc); setStep(1); setBd({ date: "", time: "", name: "", phone: "", address: "", notes: "" }); setDone(false); };
+
+  const submit = () => {
+    setBookings(p => [...p, { id: Date.now(), clientId: null, clientName: bd.name, service: bookingModal.title, date: bd.date, time: bd.time, status: "pending", amount: parseInt(bookingModal.price.replace("£","")) }]);
+    setDone(true);
+  };
+
+  return (
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: C.bg }}>
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+      <style>{`*{box-sizing:border-box;margin:0;padding:0}`}</style>
+
+      {/* HEADER */}
+      <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(255,255,255,0.96)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${C.g200}` }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <img src="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg" alt="Brightway" style={{ width: 36, height: 36, borderRadius: 8, objectFit: "cover" }} onError={e => e.target.style.display="none"} />
+            <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: C.black }}>Brightway <span style={{ color: C.accent }}>Cleaning</span></span>
+          </div>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            {[["Services","services"],["Our Work","our-work"],["Contact","contact"]].map(([l,id]) => (
+              <button key={id} onClick={() => scrollTo(id)} style={{ background: "none", border: "none", padding: "8px 14px", borderRadius: 8, fontSize: 14, fontWeight: 500, color: C.g600, cursor: "pointer", fontFamily: "inherit" }}>{l}</button>
+            ))}
+            <button onClick={() => scrollTo("services")} style={{ background: C.black, color: C.white, border: "none", padding: "10px 20px", borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Book Now</button>
+            <button onClick={onAdminClick} style={{ background: "none", border: `1.5px solid ${C.g200}`, padding: "9px 16px", borderRadius: 10, fontSize: 13, fontWeight: 500, color: C.g400, cursor: "pointer", fontFamily: "inherit" }}>Admin</button>
           </div>
         </div>
-        <div class="fg"><label class="fl">Additional Notes</label><textarea class="fi" id="f-notes" rows="3" placeholder="Any special instructions..." style="resize:none"></textarea></div>
-        <p class="err-msg" id="form-err">Please fill in all required fields.</p>
-        <button class="btn-sub" onclick="submitBooking()">💬 Confirm Booking via WhatsApp</button>
-      </div>
-    </div>
-  </section>
+      </header>
 
-  <section class="cta-sec">
-    <div class="cta-orb"></div>
-    <h2>Ready for a Spotless Home?</h2>
-    <p>Book in under 2 minutes. We confirm via WhatsApp.</p>
-    <div class="cta-btns">
-      <button class="btn-white" onclick="goSec('booking')">Book Now</button>
-      <a class="btn-wa" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <div class="footer-logo">
-            <div class="footer-logo-icon">B</div>
-            <div><div style="font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1rem">Brightway Cleaning</div><div style="font-size:0.6rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.15em">UK</div></div>
-          </div>
-          <p class="footer-tagline">Premium cleaning services for UK homes.</p>
-          <div class="footer-social">
-            <a class="social-btn" href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank">📘</a>
-            <a class="social-btn" href="https://wa.me/447308102037" target="_blank">💬</a>
-          </div>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a onclick="goSec('services')">Services</a>
-          <a onclick="goSec('booking')">Book a Service</a>
-          <a onclick="goSec('about')">About Us</a>
-          <a onclick="goPage('admin')">Admin Portal</a>
-        </div>
-        <div class="footer-links">
-          <h4>Contact</h4>
-          <a href="tel:+447308102037">📞 +44 7308 102037</a>
-          <a href="https://wa.me/447308102037" target="_blank">💬 WhatsApp</a>
-          <a href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank">📘 Facebook</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Brightway Cleaning. All rights reserved.</p>
-        <p class="footer-copy">United Kingdom 🇬🇧</p>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<!-- ADMIN -->
-<div id="admin" class="page">
-  <div class="admin-page">
-    <div id="adm-login">
-      <div class="adm-login-wrap">
-        <div class="adm-login-card">
-          <div class="adm-logo">
-            <div class="adm-logo-icon">B</div>
-            <h2 style="font-size:1.3rem;color:var(--navy)">Admin Access</h2>
-            <p style="font-size:0.85rem;color:var(--gray-mid);margin-top:4px">Brightway Cleaning Management</p>
-          </div>
-          <!-- Apenas senha (e-mail removido) -->
-          <div class="fg"><label class="fl">Password</label><input class="fi" type="password" id="adm-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')adminLogin()"></div>
-          <p class="err-msg" id="adm-err" style="display:none;margin-bottom:0.8rem">Incorrect password.</p>
-          <button class="btn-sub" onclick="adminLogin()">Sign In →</button>
-          <p style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:var(--gray-mid)">Use a senha de administrador.</p>
-        </div>
-      </div>
-    </div>
-
-    <div id="adm-panel" style="display:none">
-      <div class="adm-wrap">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
-          <div><h2 style="font-size:1.5rem;color:var(--navy)">Admin Panel</h2><p style="font-size:0.85rem;color:var(--gray-mid)">Brightway Cleaning</p></div>
-          <div style="display:flex;gap:8px">
-            <button onclick="goPage('home')" style="background:var(--gray);border:none;border-radius:10px;padding:8px 14px;font-size:0.8rem;cursor:pointer;font-weight:600;font-family:'DM Sans',sans-serif">🌐 View Site</button>
-            <button onclick="adminLogout()" style="background:#FEE2E2;color:#991B1B;border:none;border-radius:10px;padding:8px 14px;font-size:0.8rem;cursor:pointer;font-weight:600;font-family:'DM Sans',sans-serif">Logout</button>
-          </div>
-        </div>
-        <div class="adm-tabs">
-          <button class="adm-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
-          <button class="adm-tab" onclick="switchTab('bookings')">📅 Bookings</button>
-          <button class="adm-tab" onclick="switchTab('clients')">👥 Clients</button>
-          <button class="adm-tab" onclick="switchTab('finance')">💷 Finance</button>
-          <button class="adm-tab" onclick="switchTab('invoices')">🧾 Invoices</button>
-          <button class="adm-tab" onclick="switchTab('site')">🎨 Edit Site</button>
-        </div>
-
-        <!-- DASHBOARD -->
-        <div class="adm-content active" id="tab-dashboard">
-          <div class="stat-cards">
-            <div class="stat-card"><div class="sc-icon" style="background:#DBEAFE">📅</div><div class="sc-val" id="s-tot">0</div><div class="sc-lbl">Total Bookings</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#FEF3C7">⏳</div><div class="sc-val" id="s-pen">0</div><div class="sc-lbl">Pending</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#DCFCE7">✅</div><div class="sc-val" id="s-don">0</div><div class="sc-lbl">Completed</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#F3E8FF">💷</div><div class="sc-val" id="s-rev">£0</div><div class="sc-lbl">Revenue</div></div>
-          </div>
-          <div class="tbl-card">
-            <div class="tbl-header"><h3>Recent Bookings</h3><button class="abtn b" onclick="switchTab('bookings')">View All →</button></div>
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date</th><th>Status</th><th>Payment</th></tr></thead><tbody id="dash-tbody"><tr><td colspan="5" class="loading">Loading...</td></tr></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- BOOKINGS -->
-        <div class="adm-content" id="tab-bookings">
-          <div class="card-box" style="display:flex;gap:10px;flex-wrap:wrap">
-            <input class="fi" id="sb" placeholder="Search by name or email..." style="flex:1;min-width:180px" oninput="renderBookings()">
-            <select class="fi" id="fs" style="width:150px" onchange="renderBookings()">
-              <option value="">All Statuses</option>
-              <option value="pending">Pending</option><option value="confirmed">Confirmed</option>
-              <option value="completed">Completed</option><option value="cancelled">Cancelled</option>
-            </select>
-          </div>
-          <div class="tbl-card">
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date/Time</th><th>Status</th><th>Payment</th><th>Amount</th><th>Actions</th></tr></thead><tbody id="bookings-tbody"><tr><td colspan="7" class="loading">Loading...</td></tr></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- CLIENTS -->
-        <div class="adm-content" id="tab-clients">
-          <div class="card-box" style="margin-bottom:1rem"><input class="fi" id="sc" placeholder="Search clients..." oninput="renderClients()"></div>
-          <div class="client-grid" id="clients-grid"><div class="loading">Loading...</div></div>
-        </div>
-
-        <!-- FINANCE -->
-        <div class="adm-content" id="tab-finance">
-          <div class="stat-cards">
-            <div class="stat-card"><div class="sc-icon" style="background:#DCFCE7">💷</div><div class="sc-val" id="fr">£0</div><div class="sc-lbl">Revenue</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#FEF3C7">⏳</div><div class="sc-val" id="fp">£0</div><div class="sc-lbl">Pending</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#FEE2E2">⚠️</div><div class="sc-val" id="fo">£0</div><div class="sc-lbl">Overdue</div></div>
-          </div>
-          <div class="tbl-card">
-            <div class="tbl-header"><h3>Outstanding Payments</h3></div>
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody id="fin-tbody"></tbody></table></div>
-          </div>
-          <div class="tbl-card">
-            <div class="tbl-header"><h3>Payment History</h3></div>
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date</th><th>Amount</th></tr></thead><tbody id="paid-tbody"></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- INVOICES -->
-        <div class="adm-content" id="tab-invoices">
-          <div class="card-box" style="margin-bottom:1rem"><input class="fi" id="si" placeholder="Search invoices..." oninput="renderInvoices()"></div>
-          <div class="tbl-card">
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Invoice #</th><th>Client</th><th>Service</th><th>Date</th><th>Due</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead><tbody id="inv-tbody"><tr><td colspan="8" class="loading">Loading...</td></tr></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- EDIT SITE -->
-        <div class="adm-content" id="tab-site">
-          <!-- HERO -->
-          <div class="card-box">
-            <h3>🖼️ Hero Section</h3>
-            <div class="fg">
-              <label class="fl">Background Image URL</label>
-              <div id="prev-hero" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-hi" placeholder="https://images.unsplash.com/photo-...">
-              <small style="color:var(--gray-mid);font-size:0.75rem;margin-top:4px;display:block">Paste any image URL from Unsplash, imgbb, etc.</small>
+      {/* HERO */}
+      <section style={{ paddingTop: 64, minHeight: "92vh", display: "flex", alignItems: "center", background: C.white, position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: 0, right: 0, width: "48%", height: "100%", background: `linear-gradient(135deg, ${C.accentL} 0%, #F0F7FF 100%)`, borderRadius: "0 0 0 80px" }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", position: "relative", zIndex: 1, width: "100%" }}>
+          <div>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: C.accentL, color: C.accent, padding: "6px 14px", borderRadius: 20, fontSize: 13, fontWeight: 600, marginBottom: 24 }}>✦ Professional Cleaning · London</div>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(38px,5vw,66px)", fontWeight: 700, color: C.black, lineHeight: 1.1, marginBottom: 24 }}>
+              Your Space,<br /><span style={{ color: C.accent }}>Spotlessly</span><br />Clean.
+            </h1>
+            <p style={{ fontSize: 17, color: C.g600, lineHeight: 1.7, marginBottom: 40, maxWidth: 440 }}>Premium residential and commercial cleaning in London. Trusted by hundreds of happy clients. Book in minutes.</p>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <button onClick={() => scrollTo("services")} style={{ background: C.black, color: C.white, border: "none", padding: "16px 32px", borderRadius: 12, fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Book a Clean →</button>
+              <a href="https://wa.me/447308102037" target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: C.white, padding: "16px 24px", borderRadius: 12, fontSize: 15, fontWeight: 600, textDecoration: "none" }}><WhatsAppIcon /> WhatsApp</a>
             </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Main Title</label><input class="fi" id="cfg-ht" placeholder="Your Home,"></div>
-              <div class="fg"><label class="fl">Highlight Text (blue)</label><input class="fi" id="cfg-he" placeholder="Perfectly Clean."></div>
+            <div style={{ display: "flex", gap: 32, marginTop: 48 }}>
+              {[["500+","Cleans done"],["5★","Average rating"],["3h","Avg. response"]].map(([n,l]) => (
+                <div key={l}><div style={{ fontSize: 24, fontWeight: 700, color: C.black, fontFamily: "'Playfair Display', serif" }}>{n}</div><div style={{ fontSize: 13, color: C.g400, marginTop: 2 }}>{l}</div></div>
+              ))}
             </div>
-            <div class="fg"><label class="fl">Subtitle</label><textarea class="fi" id="cfg-hs" rows="2" style="resize:none"></textarea></div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Stat 1 Number</label><input class="fi" id="cfg-s1v" placeholder="200+"></div>
-              <div class="fg"><label class="fl">Stat 1 Label</label><input class="fi" id="cfg-s1l" placeholder="Happy Clients"></div>
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Stat 2 Number</label><input class="fi" id="cfg-s2v" placeholder="5★"></div>
-              <div class="fg"><label class="fl">Stat 2 Label</label><input class="fi" id="cfg-s2l" placeholder="Avg Rating"></div>
-            </div>
-            <button class="btn-sub" style="background:var(--navy)" onclick="saveHero()">💾 Save Hero</button>
           </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+            {["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80","https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&q=80","https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=500&q=80","https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80"].map((url,i) => (
+              <div key={i} style={{ borderRadius: i===0?"20px 20px 8px 8px":12, overflow: "hidden", aspectRatio: i===0?"1/1.2":"1/1", boxShadow: "0 8px 32px rgba(0,0,0,0.1)" }}>
+                <img src={url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <!-- CLEANING -->
-          <div class="card-box">
-            <h3>🧹 Cleaning Service</h3>
-            <div class="fg">
-              <label class="fl">Photo URL</label>
-              <div id="prev-cl" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-cli" placeholder="https://...">
+      {/* SERVICES */}
+      <section id="services" style={{ padding: "100px 24px", background: C.bg }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 60 }}>
+            <div style={{ fontSize: 13, fontWeight: 600, color: C.accent, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>What We Offer</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 42, fontWeight: 700, color: C.black }}>Our Services</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 24 }}>
+            {SERVICES.map(svc => (
+              <div key={svc.id} style={{ background: C.white, borderRadius: 20, padding: 32, border: `1.5px solid ${C.g200}`, transition: "all 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.boxShadow="0 20px 60px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor=C.accent; }}
+                onMouseLeave={e => { e.currentTarget.style.transform=""; e.currentTarget.style.boxShadow=""; e.currentTarget.style.borderColor=C.g200; }}>
+                <div style={{ fontSize: 40, marginBottom: 16 }}>{svc.icon}</div>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: C.black, marginBottom: 8 }}>{svc.title}</h3>
+                <p style={{ fontSize: 14, color: C.g600, marginBottom: 24, lineHeight: 1.6 }}>{svc.desc}</p>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+                  <span style={{ fontSize: 26, fontWeight: 700, color: C.black }}>{svc.price}</span>
+                  <span style={{ fontSize: 13, color: C.g400, background: C.g100, padding: "4px 10px", borderRadius: 20 }}>~{svc.duration}</span>
+                </div>
+                <button onClick={() => openBooking(svc)} style={{ width: "100%", background: C.black, color: C.white, border: "none", padding: "14px", borderRadius: 12, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit", transition: "background 0.2s" }}
+                  onMouseEnter={e => e.currentTarget.style.background=C.accent}
+                  onMouseLeave={e => e.currentTarget.style.background=C.black}>Book Now →</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <section id="our-work" style={{ padding: "100px 24px", background: C.white }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 60 }}>
+            <div style={{ fontSize: 13, fontWeight: 600, color: C.accent, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 16 }}>Before & After</div>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 42, fontWeight: 700, color: C.black }}>Our Work</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))", gap: 16 }}>
+            {gallery.map(img => (
+              <div key={img.id} onClick={() => setLightbox(img)} style={{ borderRadius: 16, overflow: "hidden", aspectRatio: "4/3", cursor: "zoom-in", position: "relative" }}
+                onMouseEnter={e => e.currentTarget.querySelector(".ov").style.opacity="1"}
+                onMouseLeave={e => e.currentTarget.querySelector(".ov").style.opacity="0"}>
+                <img src={img.url} alt={img.caption} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <div className="ov" style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)", display: "flex", alignItems: "flex-end", padding: 16, opacity: 0, transition: "opacity 0.2s" }}>
+                  <span style={{ color: C.white, fontSize: 14, fontWeight: 600 }}>{img.caption}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" style={{ padding: "100px 24px", background: C.black }}>
+        <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 48, fontWeight: 700, color: C.white, marginBottom: 16 }}>Ready for a spotless space?</h2>
+          <p style={{ fontSize: 17, color: "rgba(255,255,255,0.6)", marginBottom: 40 }}>Book online or reach out directly — we respond within hours.</p>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <button onClick={() => scrollTo("services")} style={{ background: C.white, color: C.black, border: "none", padding: "16px 32px", borderRadius: 12, fontSize: 15, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Book Online</button>
+            <a href="https://wa.me/447308102037" target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: C.white, padding: "16px 24px", borderRadius: 12, fontSize: 15, fontWeight: 600, textDecoration: "none" }}><WhatsAppIcon /> Chat on WhatsApp</a>
+          </div>
+        </div>
+      </section>
+
+      <footer style={{ background: "#050505", padding: "28px 24px", textAlign: "center", color: "rgba(255,255,255,0.4)", fontSize: 13 }}>© 2026 Brightway Cleaning · London · All rights reserved</footer>
+
+      {/* WA FLOAT */}
+      <a href="https://wa.me/447308102037" target="_blank" rel="noreferrer" style={{ position: "fixed", bottom: 28, right: 28, width: 56, height: 56, borderRadius: "50%", background: "#25D366", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 24px rgba(37,211,102,0.4)", zIndex: 200, textDecoration: "none" }}><WhatsAppIcon size={28} /></a>
+
+      {/* BOOKING MODAL */}
+      {bookingModal && (
+        <Modal onClose={() => setBookingModal(null)}>
+          {done ? (
+            <div style={{ textAlign: "center", padding: "20px 0" }}>
+              <div style={{ fontSize: 56, marginBottom: 16 }}>✅</div>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: C.black, marginBottom: 12 }}>Booking Requested!</h3>
+              <p style={{ color: C.g600, lineHeight: 1.6, marginBottom: 24 }}>We'll confirm your booking via WhatsApp shortly.</p>
+              <a href="https://wa.me/447308102037" target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: C.white, padding: "14px 28px", borderRadius: 12, fontWeight: 600, textDecoration: "none", fontSize: 15 }}><WhatsAppIcon /> Chat with us</a>
             </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-clt" placeholder="Cleaning"></div>
+          ) : (
+            <>
+              <div style={{ marginBottom: 24 }}>
+                <div style={{ fontSize: 13, color: C.accent, fontWeight: 600, marginBottom: 4 }}>Booking</div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: C.black, marginBottom: 4 }}>{bookingModal.title}</h3>
+                <span style={{ fontSize: 22, fontWeight: 700, color: C.black }}>{bookingModal.price}</span>
+                <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+                  {[1,2].map(s => <div key={s} style={{ height: 4, flex: 1, borderRadius: 2, background: step >= s ? C.accent : C.g200, transition: "background 0.3s" }} />)}
+                </div>
+                <div style={{ fontSize: 12, color: C.g400, marginTop: 6 }}>Step {step} of 2</div>
+              </div>
+
+              {step === 1 && (
+                <div>
+                  <label style={{ display: "block", marginBottom: 16 }}>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: C.g800, display: "block", marginBottom: 6 }}>Select Date</span>
+                    <input type="date" value={bd.date} min="2026-05-11" onChange={e => setBd(p => ({...p, date: e.target.value}))} style={inp()} />
+                  </label>
+                  <div>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: C.g800, display: "block", marginBottom: 10 }}>Select Time</span>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8 }}>
+                      {TIME_SLOTS.map(t => (
+                        <button key={t} onClick={() => setBd(p => ({...p, time: t}))}
+                          style={{ padding: "10px", borderRadius: 10, border: `1.5px solid ${bd.time===t?C.accent:C.g200}`, background: bd.time===t?C.accentL:C.white, color: bd.time===t?C.accent:C.g600, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>{t}</button>
+                      ))}
+                    </div>
+                  </div>
+                  <button onClick={() => { if(bd.date&&bd.time) setStep(2); }} disabled={!bd.date||!bd.time}
+                    style={{ width: "100%", marginTop: 20, ...btn(bd.date&&bd.time?C.black:C.g200, bd.date&&bd.time?C.white:C.g400, { padding: "14px", cursor: bd.date&&bd.time?"pointer":"not-allowed" }) }}>Continue →</button>
+                </div>
+              )}
+
+              {step === 2 && (
+                <div>
+                  {[["name","Full Name","text"],["phone","Phone Number","tel"],["address","Address","text"]].map(([f,l,t]) => (
+                    <label key={f} style={{ display: "block", marginBottom: 16 }}>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: C.g800, display: "block", marginBottom: 6 }}>{l}</span>
+                      <input type={t} value={bd[f]} onChange={e => setBd(p => ({...p, [f]: e.target.value}))} style={inp()} />
+                    </label>
+                  ))}
+                  <label style={{ display: "block", marginBottom: 20 }}>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: C.g800, display: "block", marginBottom: 6 }}>Notes (optional)</span>
+                    <textarea value={bd.notes} onChange={e => setBd(p => ({...p, notes: e.target.value}))} rows={3} style={{ ...inp(), resize: "none" }} />
+                  </label>
+                  <div style={{ display: "flex", gap: 12 }}>
+                    <button onClick={() => setStep(1)} style={{ flex: 1, ...btn(C.g100, C.g800, { padding: "13px" }) }}>← Back</button>
+                    <button onClick={submit} disabled={!bd.name||!bd.phone||!bd.address}
+                      style={{ flex: 2, ...btn(bd.name&&bd.phone&&bd.address?C.black:C.g200, bd.name&&bd.phone&&bd.address?C.white:C.g400, { padding: "13px", cursor: bd.name&&bd.phone&&bd.address?"pointer":"not-allowed" }) }}>Confirm Booking ✓</button>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </Modal>
+      )}
+
+      {/* LIGHTBOX */}
+      {lightbox && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.92)", zIndex: 400, display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => setLightbox(null)}>
+          <div style={{ maxWidth: "90vw", maxHeight: "90vh", position: "relative" }} onClick={e => e.stopPropagation()}>
+            <img src={lightbox.url} alt={lightbox.caption} style={{ maxWidth: "100%", maxHeight: "80vh", borderRadius: 16, objectFit: "contain" }} />
+            <div style={{ color: C.white, textAlign: "center", marginTop: 12, fontSize: 15 }}>{lightbox.caption}</div>
+            <button onClick={() => setLightbox(null)} style={{ position: "absolute", top: -40, right: 0, background: "rgba(255,255,255,0.1)", border: "none", width: 32, height: 32, borderRadius: "50%", color: C.white, cursor: "pointer", fontSize: 16 }}>✕</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── ADMIN LOGIN ──────────────────────────────────────────────────────────────
+function AdminLogin({ onLogin, onBack }) {
+  const [pw, setPw] = useState("");
+  const [err, setErr] = useState(false);
+  const [shake, setShake] = useState(false);
+
+  const attempt = () => {
+    if (pw === "120121") { onLogin(); }
+    else { setErr(true); setShake(true); setTimeout(() => setShake(false), 500); }
+  };
+
+  return (
+    <div style={{ minHeight: "100vh", background: C.black, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Sans', sans-serif" }}>
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+      <style>{`@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}`}</style>
+      <div style={{ background: C.white, borderRadius: 24, padding: 48, width: "100%", maxWidth: 380, animation: shake ? "shake 0.4s" : "none" }}>
+        <div style={{ textAlign: "center", marginBottom: 32 }}>
+          <img src="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg" alt="" style={{ width: 52, height: 52, borderRadius: 12, objectFit: "cover", marginBottom: 16 }} onError={e => e.target.style.display="none"} />
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, marginBottom: 4, color: C.black }}>Admin Panel</h2>
+          <p style={{ fontSize: 14, color: C.g400 }}>Brightway Cleaning</p>
+        </div>
+        <label>
+          <span style={{ fontSize: 13, fontWeight: 600, color: C.g800, display: "block", marginBottom: 8 }}>Password</span>
+          <input type="password" value={pw} onChange={e => { setPw(e.target.value); setErr(false); }} onKeyDown={e => e.key==="Enter"&&attempt()}
+            placeholder="Enter password" style={{ ...inp(), border: `2px solid ${err?C.red:C.g200}` }} />
+        </label>
+        {err && <p style={{ fontSize: 13, color: C.red, marginTop: 8 }}>Incorrect password.</p>}
+        <button onClick={attempt} style={{ width: "100%", marginTop: 20, ...btn(C.black, C.white, { padding: "14px", fontSize: 15 }) }}>Sign In →</button>
+        <button onClick={onBack} style={{ width: "100%", marginTop: 10, ...btn("none", C.g400, { padding: "12px", fontSize: 14, border: `1.5px solid ${C.g200}` }) }}>← Back to Site</button>
+      </div>
+    </div>
+  );
+}
+
+// ─── ADMIN PANEL ──────────────────────────────────────────────────────────────
+function AdminPanel({ clients, setClients, bookings, setBookings, gallery, setGallery, onLogout, onViewSite }) {
+  const [tab, setTab] = useState("dashboard");
+  const [weekOffset, setWeekOffset] = useState(0);
+  const [calModal, setCalModal] = useState(null);
+  const [addClientModal, setAddClientModal] = useState(false);
+  const [editClientModal, setEditClientModal] = useState(null);
+  const [newClient, setNewClient] = useState({ name: "", phone: "", address: "", notes: "" });
+  const [newBk, setNewBk] = useState({ clientId: "", service: "" });
+  const [invoiceModal, setInvoiceModal] = useState(null);
+  const fileRef = useRef();
+
+  const weekDates = getWeekDates(weekOffset);
+  const totalRev = bookings.filter(b => b.status==="confirmed").reduce((s,b) => s+(b.amount||0), 0);
+  const pending = bookings.filter(b => b.status==="pending").length;
+  const thisWeek = bookings.filter(b => { const d=new Date(b.date); return d>=weekDates[0]&&d<=weekDates[6]; });
+
+  const slotBookings = (d, t) => bookings.filter(b => b.date===d.toISOString().split("T")[0]&&b.time===t);
+
+  const addClient = () => {
+    setClients(p => [...p, { id: Date.now(), ...newClient, services: 0 }]);
+    setNewClient({ name:"", phone:"", address:"", notes:"" });
+    setAddClientModal(false);
+  };
+
+  const saveClient = () => {
+    setClients(p => p.map(c => c.id===editClientModal.id ? editClientModal : c));
+    setEditClientModal(null);
+  };
+
+  const addBooking = () => {
+    if (!newBk.clientId || !newBk.service) return;
+    const client = clients.find(c => c.id===parseInt(newBk.clientId));
+    const svc = SERVICES.find(s => s.id===newBk.service);
+    setBookings(p => [...p, { id: Date.now(), clientId: client.id, clientName: client.name, service: svc.title, date: calModal.date, time: calModal.time, status: "confirmed", amount: parseInt(svc.price.replace("£","")) }]);
+    setClients(p => p.map(c => c.id===client.id ? {...c, services: c.services+1} : c));
+    setCalModal(null); setNewBk({ clientId:"", service:"" });
+  };
+
+  const TABS = [["dashboard","⬛","Dashboard"],["calendar","📅","Calendar"],["clients","👥","Clients"],["invoices","📄","Invoices"],["gallery","🖼","Gallery"]];
+
+  return (
+    <div style={{ display: "flex", minHeight: "100vh", fontFamily: "'DM Sans', sans-serif", background: C.bg }}>
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+      <style>{`*{box-sizing:border-box}`}</style>
+
+      {/* SIDEBAR */}
+      <aside style={{ width: 220, background: C.black, display: "flex", flexDirection: "column", position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 50 }}>
+        <div style={{ padding: "24px 20px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <img src="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg" alt="" style={{ width: 32, height: 32, borderRadius: 8, objectFit: "cover" }} onError={e => e.target.style.display="none"} />
+            <div><div style={{ fontSize: 13, fontWeight: 700, color: C.white }}>Brightway</div><div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)" }}>Admin Panel</div></div>
+          </div>
+        </div>
+        <nav style={{ flex: 1, padding: "16px 12px" }}>
+          {TABS.map(([id,icon,label]) => (
+            <button key={id} onClick={() => setTab(id)}
+              style={{ display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px", borderRadius: 10, border: "none", background: tab===id?"rgba(255,255,255,0.1)":"none", color: tab===id?C.white:"rgba(255,255,255,0.5)", fontSize: 14, fontWeight: tab===id?600:400, cursor: "pointer", fontFamily: "inherit", marginBottom: 4, textAlign: "left" }}>
+              <span style={{ fontSize: 16 }}>{icon}</span> {label}
+            </button>
+          ))}
+        </nav>
+        <div style={{ padding: "16px 12px", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+          <button onClick={onViewSite} style={{ display: "block", width: "100%", padding: "10px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.15)", background: "none", color: "rgba(255,255,255,0.6)", fontSize: 13, cursor: "pointer", fontFamily: "inherit", marginBottom: 8 }}>← View Site</button>
+          <button onClick={onLogout} style={{ display: "block", width: "100%", padding: "10px", borderRadius: 10, border: "none", background: "rgba(220,38,38,0.15)", color: "#FCA5A5", fontSize: 13, cursor: "pointer", fontFamily: "inherit" }}>Sign Out</button>
+        </div>
+      </aside>
+
+      {/* MAIN */}
+      <main style={{ marginLeft: 220, flex: 1, padding: 32 }}>
+
+        {/* DASHBOARD */}
+        {tab==="dashboard" && (
+          <div>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, marginBottom: 8, color: C.black }}>Dashboard</h1>
+            <p style={{ color: C.g400, fontSize: 14, marginBottom: 32 }}>Welcome back. Here's your business at a glance.</p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 20, marginBottom: 32 }}>
+              {[
+                [`£${totalRev}`,"Total Revenue","confirmed bookings",C.green,C.greenL],
+                [pending,"Pending","awaiting confirmation",C.orange,C.orangeL],
+                [thisWeek.length,"This Week","scheduled jobs",C.accent,C.accentL],
+                [clients.length,"Clients","registered",C.g800,C.g100],
+              ].map(([val,label,sub,col,bg]) => (
+                <div key={label} style={{ background: C.white, borderRadius: 16, padding: 24, border: `1.5px solid ${C.g200}` }}>
+                  <div style={{ fontSize: 13, color: C.g400, marginBottom: 8 }}>{label}</div>
+                  <div style={{ fontSize: 32, fontWeight: 700, color: C.black, marginBottom: 6, fontFamily: "'Playfair Display', serif" }}>{val}</div>
+                  <div style={{ display: "inline-block", fontSize: 12, color: col, background: bg, padding: "3px 10px", borderRadius: 20 }}>{sub}</div>
+                </div>
+              ))}
             </div>
-            <div class="fg"><label class="fl">Description</label><textarea class="fi" id="cfg-cld" rows="2" style="resize:none" placeholder="Professional home cleaning services..."></textarea></div>
-            <button class="btn-sub" style="background:var(--navy);margin-bottom:1.5rem" onclick="saveSvc('cleaning')">💾 Save Cleaning Info</button>
-            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem">
-              <div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div>
-              <div id="cl-prices"></div>
-              <div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap">
-                <input class="fi" id="new-cl-item" placeholder="e.g. Regular Cleaning" style="flex:1;min-width:140px">
-                <input class="fi" id="new-cl-price" placeholder="e.g. From £20/hr" style="width:140px">
-                <button class="abtn b" onclick="addPrice('cleaning')" style="padding:10px 16px">+ Add</button>
+            <div style={{ background: C.white, borderRadius: 16, border: `1.5px solid ${C.g200}`, overflow: "hidden" }}>
+              <div style={{ padding: "20px 24px", borderBottom: `1px solid ${C.g200}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700 }}>Recent Bookings</h3>
+                <button onClick={() => setTab("calendar")} style={{ ...btn(C.black, C.white, { padding: "8px 16px", fontSize: 13, borderRadius: 8 }) }}>View Calendar →</button>
+              </div>
+              {[...bookings].reverse().slice(0,6).map(b => (
+                <div key={b.id} style={{ padding: "16px 24px", borderBottom: `1px solid ${C.g100}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div><div style={{ fontSize: 15, fontWeight: 600, color: C.black }}>{b.clientName}</div><div style={{ fontSize: 13, color: C.g400 }}>{b.service} · {b.date} {b.time}</div></div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <span style={{ fontSize: 16, fontWeight: 700 }}>£{b.amount}</span>
+                    <span style={{ fontSize: 12, padding: "4px 10px", borderRadius: 20, background: b.status==="confirmed"?C.greenL:C.orangeL, color: b.status==="confirmed"?C.green:C.orange, fontWeight: 600 }}>{b.status}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* CALENDAR */}
+        {tab==="calendar" && (
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32 }}>
+              <div>
+                <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, marginBottom: 4, color: C.black }}>Calendar</h1>
+                <p style={{ color: C.g400, fontSize: 14 }}>Click any empty slot to add a booking</p>
+              </div>
+              <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                <button onClick={() => setWeekOffset(p => p-1)} style={{ width: 36, height: 36, borderRadius: 10, border: `1.5px solid ${C.g200}`, background: C.white, cursor: "pointer", fontSize: 16 }}>‹</button>
+                <span style={{ fontSize: 14, fontWeight: 600, color: C.black, minWidth: 180, textAlign: "center" }}>
+                  {weekDates[0].toLocaleDateString("en-GB",{day:"numeric",month:"short"})} – {weekDates[6].toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})}
+                </span>
+                <button onClick={() => setWeekOffset(p => p+1)} style={{ width: 36, height: 36, borderRadius: 10, border: `1.5px solid ${C.g200}`, background: C.white, cursor: "pointer", fontSize: 16 }}>›</button>
+                <button onClick={() => setWeekOffset(0)} style={{ padding: "8px 14px", borderRadius: 10, border: `1.5px solid ${C.g200}`, background: C.white, cursor: "pointer", fontSize: 13, fontWeight: 600, color: C.g600, fontFamily: "inherit" }}>Today</button>
+              </div>
+            </div>
+            <div style={{ background: C.white, borderRadius: 20, border: `1.5px solid ${C.g200}`, overflow: "auto" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "70px repeat(7,1fr)", minWidth: 900 }}>
+                <div style={{ padding: "16px 8px", borderBottom: `1.5px solid ${C.g200}` }} />
+                {weekDates.map((d,i) => {
+                  const isToday = d.toDateString()===new Date(2026,4,11).toDateString();
+                  return (
+                    <div key={i} style={{ padding: "14px 8px", borderBottom: `1.5px solid ${C.g200}`, textAlign: "center", borderLeft: i>0?`1px solid ${C.g100}`:"none" }}>
+                      <div style={{ fontSize: 12, color: C.g400, fontWeight: 500 }}>{WEEK_DAYS[i]}</div>
+                      <div style={{ fontSize: 18, fontWeight: 700, color: isToday?C.accent:C.black, width: 32, height: 32, borderRadius: "50%", background: isToday?C.accentL:"none", display: "flex", alignItems: "center", justifyContent: "center", margin: "4px auto 0" }}>{d.getDate()}</div>
+                    </div>
+                  );
+                })}
+                {TIME_SLOTS.map(time => (
+                  [
+                    <div key={`t-${time}`} style={{ padding: "12px 8px 12px 0", textAlign: "right", fontSize: 12, color: C.g400, fontWeight: 500, borderBottom: `1px solid ${C.g100}`, paddingRight: 10 }}>{time}</div>,
+                    ...weekDates.map((d,i) => {
+                      const dateStr = d.toISOString().split("T")[0];
+                      const sb = slotBookings(d, time);
+                      return (
+                        <div key={`${time}-${i}`} onClick={() => { if(sb.length===0) setCalModal({ date: dateStr, time }); }}
+                          style={{ minHeight: 56, padding: "4px 6px", borderBottom: `1px solid ${C.g100}`, borderLeft: i>0?`1px solid ${C.g100}`:"none", cursor: sb.length===0?"pointer":"default", transition: "background 0.15s" }}
+                          onMouseEnter={e => { if(sb.length===0) e.currentTarget.style.background=C.accentL; }}
+                          onMouseLeave={e => { e.currentTarget.style.background="transparent"; }}>
+                          {sb.map(b => (
+                            <div key={b.id} style={{ background: b.status==="confirmed"?C.accent:C.orange, color: C.white, borderRadius: 7, padding: "4px 7px", fontSize: 11, fontWeight: 600, marginBottom: 2 }}>
+                              <div>{b.clientName.split(" ")[0]}</div>
+                              <div style={{ fontWeight: 400, opacity: 0.85 }}>{b.service.replace(" Cleaning","")}</div>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })
+                  ]
+                ))}
               </div>
             </div>
           </div>
+        )}
 
-          <!-- IRONING -->
-          <div class="card-box">
-            <h3>👔 Ironing Service</h3>
-            <div class="fg">
-              <label class="fl">Photo URL</label>
-              <div id="prev-ir" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-iri" placeholder="https://...">
+        {/* CLIENTS */}
+        {tab==="clients" && (
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32 }}>
+              <div>
+                <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, marginBottom: 4, color: C.black }}>Clients</h1>
+                <p style={{ color: C.g400, fontSize: 14 }}>{clients.length} clients registered</p>
+              </div>
+              <button onClick={() => setAddClientModal(true)} style={{ ...btn(C.black, C.white, { padding: "12px 24px", fontSize: 14 }) }}>+ Add Client</button>
             </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-irt" placeholder="Ironing"></div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 20 }}>
+              {clients.map(c => (
+                <div key={c.id} style={{ background: C.white, borderRadius: 16, padding: 24, border: `1.5px solid ${C.g200}` }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: C.accentL, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, fontWeight: 700, color: C.accent }}>{c.name.charAt(0)}</div>
+                    <div style={{ display: "flex", gap: 6 }}>
+                      <button onClick={() => setEditClientModal({...c})} style={{ background: C.g100, border: "none", width: 32, height: 32, borderRadius: 8, cursor: "pointer" }}>✏️</button>
+                      <button onClick={() => setClients(p => p.filter(x => x.id!==c.id))} style={{ background: C.redL, border: "none", width: 32, height: 32, borderRadius: 8, cursor: "pointer" }}>🗑</button>
+                    </div>
+                  </div>
+                  <div style={{ fontSize: 17, fontWeight: 700, color: C.black, marginBottom: 6 }}>{c.name}</div>
+                  <div style={{ fontSize: 13, color: C.g600, lineHeight: 1.7, marginBottom: 14 }}>📞 {c.phone}<br />📍 {c.address}{c.notes&&<><br />💬 {c.notes}</>}</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <span style={{ fontSize: 12, color: C.g400 }}>{c.services} service{c.services!==1?"s":""} done</span>
+                    <button onClick={() => { setTab("calendar"); }} style={{ ...btn(C.black, C.white, { padding: "8px 14px", fontSize: 12, borderRadius: 8 }) }}>Add to Calendar</button>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div class="fg"><label class="fl">Description</label><textarea class="fi" id="cfg-ird" rows="2" style="resize:none" placeholder="Professional ironing service..."></textarea></div>
-            <button class="btn-sub" style="background:var(--navy);margin-bottom:1.5rem" onclick="saveSvc('ironing')">💾 Save Ironing Info</button>
-            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem">
-              <div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div>
-              <div id="ir-prices"></div>
-              <div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap">
-                <input class="fi" id="new-ir-item" placeholder="e.g. Shirt" style="flex:1;min-width:140px">
-                <input class="fi" id="new-ir-price" placeholder="e.g. £2.50" style="width:140px">
-                <button class="abtn b" onclick="addPrice('ironing')" style="padding:10px 16px">+ Add</button>
+          </div>
+        )}
+
+        {/* INVOICES */}
+        {tab==="invoices" && (
+          <div>
+            <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, marginBottom: 8, color: C.black }}>Invoices</h1>
+            <p style={{ color: C.g400, fontSize: 14, marginBottom: 32 }}>Generate and manage your invoices</p>
+            <div style={{ background: C.white, borderRadius: 16, border: `1.5px solid ${C.g200}`, overflow: "hidden" }}>
+              <div style={{ padding: "20px 24px", borderBottom: `1px solid ${C.g200}` }}><h3 style={{ margin: 0, fontSize: 16, fontWeight: 700 }}>All Bookings</h3></div>
+              {bookings.map(b => (
+                <div key={b.id} style={{ padding: "16px 24px", borderBottom: `1px solid ${C.g100}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div><div style={{ fontSize: 15, fontWeight: 600, color: C.black }}>{b.clientName}</div><div style={{ fontSize: 13, color: C.g400 }}>{b.service} · {b.date} {b.time}</div></div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <span style={{ fontSize: 18, fontWeight: 700 }}>£{b.amount}</span>
+                    <span style={{ fontSize: 12, padding: "4px 10px", borderRadius: 20, background: b.status==="confirmed"?C.greenL:C.orangeL, color: b.status==="confirmed"?C.green:C.orange, fontWeight: 600 }}>{b.status}</span>
+                    <button onClick={() => setInvoiceModal(b)} style={{ ...btn(C.black, C.white, { padding: "8px 16px", fontSize: 12, borderRadius: 8 }) }}>Invoice</button>
+                    <button onClick={() => setBookings(p => p.filter(x => x.id!==b.id))} style={{ background: C.redL, border: "none", width: 32, height: 32, borderRadius: 8, cursor: "pointer" }}>🗑</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* GALLERY */}
+        {tab==="gallery" && (
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32 }}>
+              <div>
+                <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, marginBottom: 4, color: C.black }}>Gallery</h1>
+                <p style={{ color: C.g400, fontSize: 14 }}>Manage photos shown on your website</p>
+              </div>
+              <button onClick={() => fileRef.current?.click()} style={{ ...btn(C.black, C.white, { padding: "12px 24px", fontSize: 14 }) }}>+ Upload Photos</button>
+              <input ref={fileRef} type="file" accept="image/*" multiple style={{ display: "none" }} onChange={e => {
+                Array.from(e.target.files).forEach(file => {
+                  const r = new FileReader();
+                  r.onload = ev => setGallery(p => [...p, { id: Date.now()+Math.random(), url: ev.target.result, caption: file.name.replace(/\.[^/.]+$/,"") }]);
+                  r.readAsDataURL(file);
+                });
+              }} />
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: 14 }}>
+              {gallery.map(img => (
+                <div key={img.id} style={{ borderRadius: 14, overflow: "hidden", position: "relative", aspectRatio: "4/3" }}>
+                  <img src={img.url} alt={img.caption} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 55%)", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: 10 }}>
+                    <div style={{ color: C.white, fontSize: 12, fontWeight: 600, marginBottom: 6 }}>{img.caption}</div>
+                    <button onClick={() => setGallery(p => p.filter(i => i.id!==img.id))} style={{ alignSelf: "flex-start", background: C.red, color: C.white, border: "none", padding: "5px 10px", borderRadius: 7, fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>🗑 Delete</button>
+                  </div>
+                </div>
+              ))}
+              <div onClick={() => fileRef.current?.click()} style={{ borderRadius: 14, border: `2px dashed ${C.g200}`, aspectRatio: "4/3", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", cursor: "pointer", color: C.g400, gap: 6, transition: "all 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor=C.accent; e.currentTarget.style.color=C.accent; e.currentTarget.style.background=C.accentL; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor=C.g200; e.currentTarget.style.color=C.g400; e.currentTarget.style.background="transparent"; }}>
+                <div style={{ fontSize: 28 }}>+</div>
+                <div style={{ fontSize: 13, fontWeight: 600 }}>Add Photo</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+      </main>
+
+      {/* CALENDAR MODAL */}
+      {calModal && (
+        <Modal onClose={() => setCalModal(null)} maxW={440}>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, marginBottom: 6 }}>Add Booking</h3>
+          <p style={{ fontSize: 14, color: C.g400, marginBottom: 24 }}>{calModal.date} at {calModal.time}</p>
+          <label style={{ display: "block", marginBottom: 16 }}>
+            <span style={{ fontSize: 13, fontWeight: 600, display: "block", marginBottom: 6 }}>Select Client</span>
+            <select value={newBk.clientId} onChange={e => setNewBk(p => ({...p, clientId: e.target.value}))} style={{ ...inp() }}>
+              <option value="">— Choose a client —</option>
+              {clients.map(c => <option key={c.id} value={c.id}>{c.name} · {c.address.split(",")[0]}</option>)}
+            </select>
+          </label>
+          <label style={{ display: "block", marginBottom: 24 }}>
+            <span style={{ fontSize: 13, fontWeight: 600, display: "block", marginBottom: 6 }}>Service</span>
+            <select value={newBk.service} onChange={e => setNewBk(p => ({...p, service: e.target.value}))} style={{ ...inp() }}>
+              <option value="">— Choose a service —</option>
+              {SERVICES.map(s => <option key={s.id} value={s.id}>{s.title} — {s.price}</option>)}
+            </select>
+          </label>
+          <div style={{ display: "flex", gap: 12 }}>
+            <button onClick={() => setCalModal(null)} style={{ flex: 1, ...btn(C.g100, C.g800, { padding: "13px" }) }}>Cancel</button>
+            <button onClick={addBooking} disabled={!newBk.clientId||!newBk.service}
+              style={{ flex: 2, ...btn(!newBk.clientId||!newBk.service?C.g200:C.black, !newBk.clientId||!newBk.service?C.g400:C.white, { padding: "13px", cursor: !newBk.clientId||!newBk.service?"not-allowed":"pointer" }) }}>
+              Add to Calendar ✓
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      {/* ADD CLIENT MODAL */}
+      {addClientModal && (
+        <Modal onClose={() => setAddClientModal(false)} maxW={440}>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, marginBottom: 24 }}>Add New Client</h3>
+          {[["name","Full Name","text"],["phone","Phone Number","tel"],["address","Address","text"],["notes","Notes","text"]].map(([f,l,t]) => (
+            <label key={f} style={{ display: "block", marginBottom: 16 }}>
+              <span style={{ fontSize: 13, fontWeight: 600, display: "block", marginBottom: 6 }}>{l}</span>
+              <input type={t} value={newClient[f]} onChange={e => setNewClient(p => ({...p,[f]:e.target.value}))} style={inp()} />
+            </label>
+          ))}
+          <div style={{ display: "flex", gap: 12, marginTop: 8 }}>
+            <button onClick={() => setAddClientModal(false)} style={{ flex: 1, ...btn(C.g100, C.g800, { padding: "13px" }) }}>Cancel</button>
+            <button onClick={addClient} disabled={!newClient.name||!newClient.phone}
+              style={{ flex: 2, ...btn(!newClient.name||!newClient.phone?C.g200:C.black, !newClient.name||!newClient.phone?C.g400:C.white, { padding: "13px", cursor: !newClient.name||!newClient.phone?"not-allowed":"pointer" }) }}>Save Client ✓</button>
+          </div>
+        </Modal>
+      )}
+
+      {/* EDIT CLIENT MODAL */}
+      {editClientModal && (
+        <Modal onClose={() => setEditClientModal(null)} maxW={440}>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, marginBottom: 24 }}>Edit Client</h3>
+          {[["name","Full Name","text"],["phone","Phone Number","tel"],["address","Address","text"],["notes","Notes","text"]].map(([f,l,t]) => (
+            <label key={f} style={{ display: "block", marginBottom: 16 }}>
+              <span style={{ fontSize: 13, fontWeight: 600, display: "block", marginBottom: 6 }}>{l}</span>
+              <input type={t} value={editClientModal[f]||""} onChange={e => setEditClientModal(p => ({...p,[f]:e.target.value}))} style={inp()} />
+            </label>
+          ))}
+          <div style={{ display: "flex", gap: 12, marginTop: 8 }}>
+            <button onClick={() => setEditClientModal(null)} style={{ flex: 1, ...btn(C.g100, C.g800, { padding: "13px" }) }}>Cancel</button>
+            <button onClick={saveClient} style={{ flex: 2, ...btn(C.black, C.white, { padding: "13px" }) }}>Save Changes ✓</button>
+          </div>
+        </Modal>
+      )}
+
+      {/* INVOICE MODAL */}
+      {invoiceModal && (
+        <Modal onClose={() => setInvoiceModal(null)} maxW={480}>
+          <div style={{ background: C.black, margin: "-40px -40px 28px", padding: "28px 32px", borderRadius: "24px 24px 0 0", color: C.white }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div>
+                <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.1em", opacity: 0.5, marginBottom: 6 }}>Invoice</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700 }}>Brightway Cleaning</div>
+                <div style={{ fontSize: 13, opacity: 0.6, marginTop: 4 }}>London, UK · +44 7308 102037</div>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: 11, opacity: 0.5 }}>Invoice #</div>
+                <div style={{ fontSize: 15, fontWeight: 700 }}>BW-{invoiceModal.id}</div>
+                <div style={{ fontSize: 12, opacity: 0.6, marginTop: 4 }}>{new Date().toLocaleDateString("en-GB")}</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ marginBottom: 20 }}>
+            <div style={{ fontSize: 12, color: C.g400, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 6 }}>Bill To</div>
+            <div style={{ fontSize: 17, fontWeight: 700, color: C.black }}>{invoiceModal.clientName}</div>
+            {(() => { const c=clients.find(cl => cl.id===invoiceModal.clientId); return c?<div style={{ fontSize: 13, color: C.g600, marginTop: 2 }}>{c.address}<br />{c.phone}</div>:null; })()}
+          </div>
+          <div style={{ background: C.g100, borderRadius: 12, padding: "16px 20px", marginBottom: 20 }}>
+            {[["Service",invoiceModal.service],["Date",`${invoiceModal.date} at ${invoiceModal.time}`]].map(([k,v]) => (
+              <div key={k} style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                <span style={{ fontSize: 14, color: C.g600 }}>{k}</span><span style={{ fontSize: 14, fontWeight: 600 }}>{v}</span>
+              </div>
+            ))}
+            <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 12, borderTop: `1px solid ${C.g200}`, marginTop: 8 }}>
+              <span style={{ fontSize: 16, fontWeight: 700 }}>Total</span>
+              <span style={{ fontSize: 24, fontWeight: 700, color: C.black }}>£{invoiceModal.amount}</span>
+            </div>
+          </div>
+          <div style={{ display: "flex", gap: 12 }}>
+            <button onClick={() => setInvoiceModal(null)} style={{ flex: 1, ...btn(C.g100, C.g800, { padding: "12px" }) }}>Close</button>
+            <a href={`https://wa.me/447308102037?text=Invoice%20BW-${invoiceModal.id}%20for%20${encodeURIComponent(invoiceModal.clientName)}%20-%20${encodeURIComponent(invoiceModal.service)}%20-%20£${invoiceModal.amount}`}
+              target="_blank" rel="noreferrer"
+              style={{ flex: 2, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "#25D366", color: C.white, borderRadius: 12, fontSize: 14, fontWeight: 600, textDecoration: "none", padding: "12px" }}>
+              📤 Send via WhatsApp
+            </a>
+          </div>
+        </Modal>
+      )}
     </div>
-  </div>
-</div>
-
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import{getFirestore,collection,doc,addDoc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,orderBy,where}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
-// Firebase config (inalterada)
-const cfg={
-  apiKey:"AIzaSyCAb51j-0XS91Kcn4jBLnCj5BE1c7wv-HQ",
-  authDomain:"brightway-cleaning.firebaseapp.com",
-  projectId:"brightway-cleaning",
-  storageBucket:"brightway-cleaning.firebasestorage.app",
-  messagingSenderId:"810845585338",
-  appId:"1:810845585338:web:2aa8eceaeb632a88f4e783"
-};
-const app=initializeApp(cfg);
-const db=getFirestore(app);
-
-// NAV
-window.goPage=function(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(p).classList.add('active');window.scrollTo(0,0);if(p==='admin')checkAuth();};
-window.goSec=function(id){document.getElementById('home').classList.add('active');document.querySelectorAll('.page').forEach(x=>{if(x.id!=='home')x.classList.remove('active');});setTimeout(()=>document.getElementById(id).scrollIntoView({behavior:'smooth'}),50);};
-window.toggleMenu=function(){document.getElementById('mobile-menu').classList.toggle('open');};
-window.closeMM=function(){document.getElementById('mobile-menu').classList.remove('open');};
-
-function toast(msg,type='ok'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type+' show';setTimeout(()=>t.classList.remove('show'),3500);}
-
-document.getElementById('f-date').min=new Date().toISOString().split('T')[0];
-
-// BOOKING (CORRIGIDO – sempre abre WhatsApp)
-window.submitBooking=async function(){
-  const name=document.getElementById('f-name').value.trim();
-  const phone=document.getElementById('f-phone').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  const address=document.getElementById('f-address').value.trim();
-  const service=document.getElementById('f-service').value;
-  const date=document.getElementById('f-date').value;
-  const time=document.getElementById('f-time').value;
-  const notes=document.getElementById('f-notes').value.trim();
-  const err=document.getElementById('form-err');
-  if(!name||!phone||!email||!address||!service||!date||!time){err.style.display='block';return;}
-  err.style.display='none';
-  const sl=service==='cleaning'?'Cleaning':service==='ironing'?'Ironing':'Cleaning + Ironing';
-  // Tenta guardar no Firestore, mas não impede o WhatsApp se falhar
-  try{
-    await addDoc(collection(db,'bookings'),{name,phone,email,address,service,date,time,notes,status:'pending',paymentStatus:'pending',createdAt:new Date().toISOString()});
-    await upsertClient({name,phone,email,address});
-  }catch(e){}
-  const msg=`Hello Brightway Cleaning! 🏠\n\nI'd like to book a service:\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📧 *Email:* ${email}\n📍 *Address:* ${address}\n🧹 *Service:* ${sl}\n📅 *Date:* ${date}\n🕐 *Time:* ${time}${notes?'\n📝 *Notes:* '+notes:''}\n\nPlease confirm my booking. Thank you!`;
-  window.open(`https://wa.me/447308102037?text=${encodeURIComponent(msg)}`,'_blank');
-  ['f-name','f-phone','f-email','f-address','f-notes'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('f-service').value='';
-  document.getElementById('f-date').value='';
-  document.getElementById('f-time').value='';
-  toast('✅ Booking sent! WhatsApp opened.');
-};
-
-async function upsertClient(d){
-  try{
-    const q=await getDocs(query(collection(db,'clients'),where('email','==',d.email)));
-    if(q.empty)await addDoc(collection(db,'clients'),{...d,totalBookings:1,totalSpent:0,createdAt:new Date().toISOString()});
-    else await updateDoc(q.docs[0].ref,{totalBookings:(q.docs[0].data().totalBookings||0)+1});
-  }catch(e){}
+  );
 }
 
-// LOAD SITE CONTENT
-async function loadSite(){
-  try{
-    const snap=await getDoc(doc(db,'siteConfig','main'));
-    if(snap.exists()){
-      const c=snap.data();
-      if(c.heroImg){document.getElementById('hero-bg').style.backgroundImage=`url('${c.heroImg}')`;document.getElementById('hero-bg').style.opacity='0.18';}
-      if(c.heroTitle){const t=document.getElementById('h-title');t.childNodes[0].textContent=c.heroTitle+' ';}
-      if(c.heroEm)document.getElementById('h-em').textContent=c.heroEm;
-      if(c.heroSub)document.getElementById('h-sub').textContent=c.heroSub;
-      if(c.s1v)document.getElementById('h-s1v').textContent=c.s1v;
-      if(c.s1l)document.getElementById('h-s1l').textContent=c.s1l;
-      if(c.s2v)document.getElementById('h-s2v').textContent=c.s2v;
-      if(c.s2l)document.getElementById('h-s2l').textContent=c.s2l;
-    }
-  }catch(e){}
-  renderSvcGrid();
+// ─── ROOT ─────────────────────────────────────────────────────────────────────
+export default function App() {
+  const [view, setView] = useState("public");
+  const [clients, setClients] = useState(CLIENTS_INIT);
+  const [bookings, setBookings] = useState(BOOKINGS_INIT);
+  const [gallery, setGallery] = useState(GALLERY_INIT);
+
+  if (view==="login") return <AdminLogin onLogin={() => setView("admin")} onBack={() => setView("public")} />;
+  if (view==="admin") return <AdminPanel clients={clients} setClients={setClients} bookings={bookings} setBookings={setBookings} gallery={gallery} setGallery={setGallery} onLogout={() => setView("public")} onViewSite={() => setView("public")} />;
+  return <PublicSite gallery={gallery} setBookings={setBookings} onAdminClick={() => setView("login")} />;
 }
-
-async function renderSvcGrid(){
-  const grid=document.getElementById('svc-grid');
-  try{
-    const[cs,is,cp,ip]=await Promise.all([
-      getDoc(doc(db,'siteConfig','cleaning')),
-      getDoc(doc(db,'siteConfig','ironing')),
-      getDocs(collection(db,'cleaningPrices')),
-      getDocs(collection(db,'ironingPrices'))
-    ]);
-    const cl=cs.exists()?cs.data():{title:'Cleaning',desc:'Professional home cleaning services.',img:''};
-    const ir=is.exists()?is.data():{title:'Ironing',desc:'Professional ironing for all your garments.',img:''};
-    const clP=cp.docs.map(d=>({id:d.id,...d.data()}));
-    const irP=ip.docs.map(d=>({id:d.id,...d.data()}));
-    const buildPT=p=>p.length?`<table class="price-tbl"><thead><tr><th>Service</th><th style="text-align:right">Price</th></tr></thead><tbody>${p.map(x=>`<tr><td>${x.item}</td><td>${x.price}</td></tr>`).join('')}</tbody></table>`:`<div class="no-prices">Prices coming soon. Contact us for a quote!</div>`;
-    const buildCard=(svc,prices,icon,bg)=>`<div class="svc-card">
-      ${svc.img?`<img class="svc-img" src="${svc.img}" alt="${svc.title}">`:`<div class="svc-img-ph" style="background:${bg}">${icon}</div>`}
-      <div class="svc-body">
-        <span class="svc-icon">${icon}</span>
-        <div class="svc-title">${svc.title||'Service'}</div>
-        <div class="svc-desc">${svc.desc||''}</div>
-        ${buildPT(prices)}
-        <button class="btn-book" onclick="goSec('booking')">Book This Service →</button>
-      </div>
-    </div>`;
-    grid.innerHTML=buildCard(cl,clP,'🧹','linear-gradient(135deg,#0B1F3A,#1A3A6B)')+buildCard(ir,irP,'👔','linear-gradient(135deg,#1e293b,#475569)');
-  }catch(e){grid.innerHTML='<div class="loading">Could not load services.</div>';}
-}
-
-// ADMIN AUTH (senha fixa 120121)
-let loggedIn=false;
-let bks=[],cls=[],invs=[];
-
-function checkAuth(){
-  if(loggedIn){document.getElementById('adm-login').style.display='none';document.getElementById('adm-panel').style.display='block';loadAdmin();loadSiteCfg();}
-  else{document.getElementById('adm-login').style.display='block';document.getElementById('adm-panel').style.display='none';}
-}
-
-window.adminLogin=function(){
-  const pass=document.getElementById('adm-pass').value;
-  const err=document.getElementById('adm-err');
-  err.style.display='none';
-  if(pass==='120121'){
-    loggedIn=true;
-    document.getElementById('adm-login').style.display='none';
-    document.getElementById('adm-panel').style.display='block';
-    loadAdmin();
-    loadSiteCfg();
-    toast('✅ Welcome!');
-  }else{
-    err.style.display='block';
-  }
-};
-
-window.adminLogout=function(){loggedIn=false;goPage('home');toast('Logged out');};
-
-window.switchTab=function(t){
-  const tabs=['dashboard','bookings','clients','finance','invoices','site'];
-  document.querySelectorAll('.adm-tab').forEach((x,i)=>x.classList.toggle('active',tabs[i]===t));
-  document.querySelectorAll('.adm-content').forEach(x=>x.classList.remove('active'));
-  document.getElementById('tab-'+t).classList.add('active');
-};
-
-async function loadAdmin(){
-  try{
-    const[b,c,i]=await Promise.all([getDocs(query(collection(db,'bookings'),orderBy('createdAt','desc'))),getDocs(query(collection(db,'clients'),orderBy('createdAt','desc'))),getDocs(query(collection(db,'invoices'),orderBy('createdAt','desc')))]);
-    bks=b.docs.map(d=>({id:d.id,...d.data()}));
-    cls=c.docs.map(d=>({id:d.id,...d.data()}));
-    invs=i.docs.map(d=>({id:d.id,...d.data()}));
-    renderDash();renderBookings();renderClients();renderFin();renderInvoices();
-  }catch(e){toast('Error loading data','err');}
-}
-
-const fmt=d=>{try{return new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}catch{return d||'—';}};
-const fC=n=>'£'+(n||0).toFixed(2);
-const sL=s=>s==='cleaning'?'Cleaning':s==='ironing'?'Ironing':'Cleaning+Ironing';
-const sB=s=>({pending:'<span class="badge bp">pending</span>',confirmed:'<span class="badge bc">confirmed</span>',completed:'<span class="badge bd">completed</span>',cancelled:'<span class="badge bx">cancelled</span>'})[s]||`<span class="badge bp">${s}</span>`;
-const pB=s=>({pending:'<span class="badge bp">pending</span>',paid:'<span class="badge bpd">paid</span>',overdue:'<span class="badge bov">overdue</span>'})[s]||`<span class="badge bp">${s}</span>`;
-
-function renderDash(){
-  document.getElementById('s-tot').textContent=bks.length;
-  document.getElementById('s-pen').textContent=bks.filter(b=>b.status==='pending').length;
-  document.getElementById('s-don').textContent=bks.filter(b=>b.status==='completed').length;
-  document.getElementById('s-rev').textContent=fC(bks.filter(b=>b.paymentStatus==='paid').reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('dash-tbody').innerHTML=bks.slice(0,5).map(b=>`<tr><td><strong>${b.name}</strong><br><small style="color:var(--gray-mid)">${b.phone}</small></td><td>${sL(b.service)}</td><td>${fmt(b.date)}</td><td>${sB(b.status)}</td><td>${pB(b.paymentStatus)}</td></tr>`).join('')||'<tr><td colspan="5" class="loading">No bookings yet.</td></tr>';
-}
-
-window.renderBookings=function(){
-  const s=(document.getElementById('sb')||{}).value||'';
-  const f=(document.getElementById('fs')||{}).value||'';
-  const fl=bks.filter(b=>(b.name.toLowerCase().includes(s.toLowerCase())||b.email.toLowerCase().includes(s.toLowerCase()))&&(!f||b.status===f));
-  document.getElementById('bookings-tbody').innerHTML=fl.map(b=>`<tr>
-    <td><strong>${b.name}</strong><br><small style="color:var(--gray-mid)">${b.email}</small><br><small style="color:var(--gray-mid)">${b.phone}</small></td>
-    <td>${sL(b.service)}</td>
-    <td>${fmt(b.date)}<br><small style="color:var(--gray-mid)">${b.time}</small></td>
-    <td><select onchange="updS('${b.id}',this.value)" style="border:none;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.8rem">${['pending','confirmed','completed','cancelled'].map(s=>`<option value="${s}"${b.status===s?' selected':''}>${s}</option>`).join('')}</select></td>
-    <td><select onchange="updP('${b.id}',this.value)" style="border:none;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.8rem">${['pending','paid','overdue'].map(s=>`<option value="${s}"${b.paymentStatus===s?' selected':''}>${s}</option>`).join('')}</select></td>
-    <td><div style="display:flex;align-items:center;gap:4px"><span style="color:var(--gray-mid);font-size:0.8rem">£</span><input type="number" value="${b.amount||''}" placeholder="0" style="width:60px;border:1px solid #e2e8f0;border-radius:6px;padding:4px 6px;font-size:0.8rem;font-family:'DM Sans',sans-serif" onblur="updA('${b.id}',this.value)"></div></td>
-    <td><div style="display:flex;gap:4px;flex-wrap:wrap"><a class="abtn g" href="${buildWA(b)}" target="_blank" style="text-decoration:none">💬</a><button class="abtn b" onclick="genInv('${b.id}')">🧾</button><button class="abtn r" onclick="delBk('${b.id}')">🗑️</button></div></td>
-  </tr>`).join('')||'<tr><td colspan="7" class="loading">No bookings found.</td></tr>';
-};
-
-function buildWA(b){const msg=`Hello ${b.name}! Brightway Cleaning here confirming your ${sL(b.service)} on ${b.date} at ${b.time}. See you soon! 🏠✨`;return `https://wa.me/${b.phone.replace(/\D/g,'')}?text=${encodeURIComponent(msg)}`;}
-
-window.updS=async function(id,status){try{await updateDoc(doc(db,'bookings',id),{status});bks=bks.map(b=>b.id===id?{...b,status}:b);renderDash();renderFin();toast('✅ Status updated');}catch(e){toast('Error','err');}};
-window.updP=async function(id,paymentStatus){try{await updateDoc(doc(db,'bookings',id),{paymentStatus});bks=bks.map(b=>b.id===id?{...b,paymentStatus}:b);renderDash();renderFin();toast('✅ Payment updated');}catch(e){toast('Error','err');}};
-window.updA=async function(id,val){const amount=parseFloat(val)||0;try{await updateDoc(doc(db,'bookings',id),{amount});bks=bks.map(b=>b.id===id?{...b,amount}:b);renderDash();renderFin();toast('✅ Amount saved');}catch(e){toast('Error','err');}};
-window.delBk=async function(id){if(!confirm('Delete this booking?'))return;try{await deleteDoc(doc(db,'bookings',id));bks=bks.filter(b=>b.id!==id);renderDash();renderBookings();renderFin();toast('✅ Deleted');}catch(e){toast('Error','err');}};
-
-window.renderClients=function(){
-  const s=(document.getElementById('sc')||{}).value||'';
-  const f=cls.filter(c=>c.name.toLowerCase().includes(s.toLowerCase())||c.email.toLowerCase().includes(s.toLowerCase()));
-  document.getElementById('clients-grid').innerHTML=f.map(c=>`<div class="client-card">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem"><div class="cav">${c.name.charAt(0)}</div><div><div style="font-weight:700;color:var(--navy)">${c.name}</div><div style="font-size:0.75rem;color:var(--gray-mid)">Since ${fmt(c.createdAt)}</div></div></div>
-    <div style="font-size:0.82rem;margin-bottom:5px">📧 ${c.email}</div>
-    <div style="font-size:0.82rem;margin-bottom:5px">📞 ${c.phone}</div>
-    <div style="font-size:0.82rem;margin-bottom:1rem">📍 ${c.address}</div>
-    <div style="display:flex;gap:1.5rem;border-top:1px solid #f1f5f9;padding-top:1rem">
-      <div><div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--navy)">${c.totalBookings||0}</div><div style="font-size:0.7rem;color:var(--gray-mid);text-transform:uppercase">Bookings</div></div>
-      <div><div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--navy)">${fC(c.totalSpent||0)}</div><div style="font-size:0.7rem;color:var(--gray-mid);text-transform:uppercase">Spent</div></div>
-    </div>
-  </div>`).join('')||'<div class="loading">No clients yet.</div>';
-};
-
-function renderFin(){
-  const paid=bks.filter(b=>b.paymentStatus==='paid');
-  const unpaid=bks.filter(b=>b.paymentStatus==='pending');
-  const over=bks.filter(b=>b.paymentStatus==='overdue');
-  document.getElementById('fr').textContent=fC(paid.reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('fp').textContent=fC(unpaid.reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('fo').textContent=fC(over.reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('fin-tbody').innerHTML=[...unpaid,...over].map(b=>`<tr><td><strong>${b.name}</strong><br><small style="color:var(--gray-mid)">${b.email}</small></td><td>${sL(b.service)}</td><td>${fmt(b.date)}</td><td><strong>${b.amount?fC(b.amount):'—'}</strong></td><td>${pB(b.paymentStatus)}</td><td><button class="abtn g" onclick="updP('${b.id}','paid')">✓ Mark Paid</button></td></tr>`).join('')||'<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--gray-mid)">✅ All payments up to date!</td></tr>';
-  document.getElementById('paid-tbody').innerHTML=paid.map(b=>`<tr><td><strong>${b.name}</strong></td><td>${sL(b.service)}</td><td>${fmt(b.date)}</td><td style="color:#166534;font-weight:700">${b.amount?fC(b.amount):'—'}</td></tr>`).join('')||'<tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--gray-mid)">No paid bookings yet.</td></tr>';
-}
-
-window.genInv=async function(bid){
-  const b=bks.find(x=>x.id===bid);if(!b)return;
-  if(!b.amount){toast('⚠️ Set an amount first','err');return;}
-  const num='BW-'+new Date().getFullYear()+'-'+String(invs.length+1).padStart(3,'0');
-  const due=new Date();due.setDate(due.getDate()+14);
-  try{
-    const inv={invoiceNumber:num,bookingId:bid,clientName:b.name,clientEmail:b.email,clientAddress:b.address,service:b.service,serviceDate:b.date,dueDate:due.toISOString().split('T')[0],amount:b.amount,status:b.paymentStatus==='paid'?'paid':'pending',createdAt:new Date().toISOString()};
-    const ref=await addDoc(collection(db,'invoices'),inv);
-    await updateDoc(doc(db,'bookings',bid),{invoiceId:ref.id});
-    invs.unshift({id:ref.id,...inv});renderInvoices();toast('✅ Invoice '+num+' created!');printInv({id:ref.id,...inv});
-  }catch(e){toast('Error','err');}
-};
-
-window.renderInvoices=function(){
-  const s=(document.getElementById('si')||{}).value||'';
-  const f=invs.filter(i=>i.clientName.toLowerCase().includes(s.toLowerCase())||i.invoiceNumber.toLowerCase().includes(s.toLowerCase()));
-  document.getElementById('inv-tbody').innerHTML=f.map(inv=>`<tr>
-    <td style="font-family:monospace;font-weight:700;font-size:0.8rem">${inv.invoiceNumber}</td>
-    <td><strong>${inv.clientName}</strong><br><small style="color:var(--gray-mid)">${inv.clientEmail}</small></td>
-    <td>${sL(inv.service)}</td><td>${fmt(inv.serviceDate)}</td><td>${fmt(inv.dueDate)}</td>
-    <td><strong>${fC(inv.amount)}</strong></td><td>${pB(inv.status)}</td>
-    <td><div style="display:flex;gap:4px"><button class="abtn b" onclick='printInv(${JSON.stringify(inv).replace(/'/g,"&#39;")})'>🖨️</button>${inv.status!=='paid'?`<button class="abtn g" onclick="markPaid('${inv.id}')">✓</button>`:''}</div></td>
-  </tr>`).join('')||'<tr><td colspan="8" class="loading">No invoices yet.</td></tr>';
-};
-
-window.markPaid=async function(id){try{await updateDoc(doc(db,'invoices',id),{status:'paid'});invs=invs.map(i=>i.id===id?{...i,status:'paid'}:i);renderInvoices();toast('✅ Marked as paid');}catch(e){toast('Error','err');}};
-
-window.printInv=function(inv){
-  const w=window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html><head><title>Invoice ${inv.invoiceNumber}</title>
-  <style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Helvetica Neue',sans-serif;color:#1e293b;padding:48px;}
-  .h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;}
-  .logo{font-family:Georgia,serif;font-size:22px;font-weight:900;color:#0B1F3A;}
-  .logo span{display:block;font-size:10px;font-weight:400;color:#94a3b8;letter-spacing:0.15em;margin-top:2px;}
-  .ir{text-align:right;}.ir h1{font-size:2.5rem;font-weight:900;color:#0B1F3A;font-family:Georgia,serif;}
-  .ir p{color:#94a3b8;font-size:0.85rem;margin-top:4px;}
-  .div{height:3px;background:#0B1F3A;margin:2rem 0;}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
-  .lbl{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#94a3b8;margin-bottom:6px;}
-  .val{font-size:0.9rem;}
-  table{width:100%;border-collapse:collapse;margin-bottom:2rem;}
-  th{text-align:left;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#94a3b8;padding:10px 0;border-bottom:1px solid #e2e8f0;}
-  td{padding:16px 0;border-bottom:1px solid #f1f5f9;font-size:0.9rem;}
-  .tb{display:flex;justify-content:flex-end;margin-bottom:3rem;}
-  .tbox{background:#0B1F3A;color:#fff;padding:20px 32px;border-radius:12px;min-width:200px;}
-  .tl{font-size:0.65rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.1em;}
-  .tv{font-size:2rem;font-weight:900;font-family:Georgia,serif;margin-top:4px;}
-  .badge{display:inline-block;padding:4px 14px;border-radius:100px;font-size:0.7rem;font-weight:700;}
-  .paid{background:#dcfce7;color:#166534;}.pending{background:#fef3c7;color:#92400e;}
-  .ft{text-align:center;font-size:0.75rem;color:#94a3b8;border-top:1px solid #f1f5f9;padding-top:1.5rem;}
-  </style></head><body>
-  <div class="h"><div class="logo">Brightway Cleaning<span>UNITED KINGDOM</span></div><div class="ir"><h1>INVOICE</h1><p>${inv.invoiceNumber}</p><p style="margin-top:8px"><span class="badge ${inv.status}">${inv.status}</span></p></div></div>
-  <div class="div"></div>
-  <div class="two"><div><div class="lbl">Bill To</div><div class="val" style="font-weight:700">${inv.clientName}</div><div class="val">${inv.clientEmail}</div><div class="val">${inv.clientAddress}</div></div>
-  <div><div style="margin-bottom:1rem"><div class="lbl">Invoice Date</div><div class="val">${fmt(inv.createdAt)}</div></div><div><div class="lbl">Due Date</div><div class="val">${fmt(inv.dueDate)}</div></div></div></div>
-  <table><thead><tr><th>Description</th><th>Service Date</th><th style="text-align:right">Amount</th></tr></thead>
-  <tbody><tr><td>${sL(inv.service)} Service</td><td>${fmt(inv.serviceDate)}</td><td style="text-align:right;font-weight:700">${fC(inv.amount)}</td></tr></tbody></table>
-  <div class="tb"><div class="tbox"><div class="tl">Total Due</div><div class="tv">${fC(inv.amount)}</div></div></div>
-  <div class="ft">Brightway Cleaning · +44 7308 102037 · United Kingdom<br>Thank you for your business! 🏠✨</div>
-  <script>window.print()<\/script></body></html>`);
-  w.document.close();
-};
-
-// SITE SETTINGS
-async function loadSiteCfg(){
-  try{
-    const[m,cl,ir,cp,ip]=await Promise.all([getDoc(doc(db,'siteConfig','main')),getDoc(doc(db,'siteConfig','cleaning')),getDoc(doc(db,'siteConfig','ironing')),getDocs(collection(db,'cleaningPrices')),getDocs(collection(db,'ironingPrices'))]);
-    if(m.exists()){const c=m.data();if(c.heroImg){document.getElementById('cfg-hi').value=c.heroImg;setP('prev-hero',c.heroImg);}if(c.heroTitle)document.getElementById('cfg-ht').value=c.heroTitle;if(c.heroEm)document.getElementById('cfg-he').value=c.heroEm;if(c.heroSub)document.getElementById('cfg-hs').value=c.heroSub;if(c.s1v)document.getElementById('cfg-s1v').value=c.s1v;if(c.s1l)document.getElementById('cfg-s1l').value=c.s1l;if(c.s2v)document.getElementById('cfg-s2v').value=c.s2v;if(c.s2l)document.getElementById('cfg-s2l').value=c.s2l;}
-    if(cl.exists()){const c=cl.data();if(c.img){document.getElementById('cfg-cli').value=c.img;setP('prev-cl',c.img);}if(c.title)document.getElementById('cfg-clt').value=c.title;if(c.desc)document.getElementById('cfg-cld').value=c.desc;}
-    if(ir.exists()){const c=ir.data();if(c.img){document.getElementById('cfg-iri').value=c.img;setP('prev-ir',c.img);}if(c.title)document.getElementById('cfg-irt').value=c.title;if(c.desc)document.getElementById('cfg-ird').value=c.desc;}
-    renderPL('cleaning',cp.docs.map(d=>({id:d.id,...d.data()})));
-    renderPL('ironing',ip.docs.map(d=>({id:d.id,...d.data()})));
-  }catch(e){}
-}
-
-function setP(elId,url){const el=document.getElementById(elId);if(url){el.innerHTML=`<img class="img-prev" src="${url}" alt="preview" onerror="this.parentElement.innerHTML='<div class=img-ph>Image not found</div>'">`;}else{el.innerHTML='<div class="img-ph">No image set</div>';}}
-
-function renderPL(type,prices){
-  const key=type==='cleaning'?'cl':'ir';
-  document.getElementById(key+'-prices').innerHTML=prices.length?prices.map(p=>`<div class="prow"><span class="prow-name">${p.item}</span><span class="prow-price">${p.price}</span><button class="abtn r" onclick="delPrice('${type}','${p.id}')" style="padding:4px 8px">✕</button></div>`).join(''):'<div style="color:var(--gray-mid);font-size:0.85rem;padding:0.5rem 0">No prices added yet.</div>';
-}
-
-window.saveHero=async function(){
-  const d={heroImg:document.getElementById('cfg-hi').value.trim(),heroTitle:document.getElementById('cfg-ht').value.trim(),heroEm:document.getElementById('cfg-he').value.trim(),heroSub:document.getElementById('cfg-hs').value.trim(),s1v:document.getElementById('cfg-s1v').value.trim(),s1l:document.getElementById('cfg-s1l').value.trim(),s2v:document.getElementById('cfg-s2v').value.trim(),s2l:document.getElementById('cfg-s2l').value.trim()};
-  try{await setDoc(doc(db,'siteConfig','main'),d,{merge:true});setP('prev-hero',d.heroImg);loadSite();toast('✅ Hero saved!');}catch(e){toast('Error','err');}
-};
-
-window.saveSvc=async function(type){
-  const pre=type==='cleaning'?'cl':'ir';
-  const d={img:document.getElementById('cfg-'+pre+'i').value.trim(),title:document.getElementById('cfg-'+pre+'t').value.trim(),desc:document.getElementById('cfg-'+pre+'d').value.trim()};
-  try{await setDoc(doc(db,'siteConfig',type),d,{merge:true});setP('prev-'+pre,d.img);renderSvcGrid();toast('✅ '+type.charAt(0).toUpperCase()+type.slice(1)+' saved!');}catch(e){toast('Error','err');}
-};
-
-window.addPrice=async function(type){
-  const pre=type==='cleaning'?'cl':'ir';
-  const item=document.getElementById('new-'+pre+'-item').value.trim();
-  const price=document.getElementById('new-'+pre+'-price').value.trim();
-  if(!item||!price){toast('⚠️ Fill in both fields','err');return;}
-  try{
-    await addDoc(collection(db,type+'Prices'),{item,price,createdAt:new Date().toISOString()});
-    document.getElementById('new-'+pre+'-item').value='';
-    document.getElementById('new-'+pre+'-price').value='';
-    const snap=await getDocs(collection(db,type+'Prices'));
-    renderPL(type,snap.docs.map(d=>({id:d.id,...d.data()})));
-    renderSvcGrid();toast('✅ Price added!');
-  }catch(e){toast('Error','err');}
-};
-
-window.delPrice=async function(type,id){
-  if(!confirm('Remove this price item?'))return;
-  try{
-    await deleteDoc(doc(db,type+'Prices',id));
-    const snap=await getDocs(collection(db,type+'Prices'));
-    renderPL(type,snap.docs.map(d=>({id:d.id,...d.data()})));
-    renderSvcGrid();toast('✅ Removed!');
-  }catch(e){toast('Error','err');}
-};
-
-// Image preview on input blur
-document.getElementById('cfg-hi').addEventListener('blur',function(){setP('prev-hero',this.value);});
-document.getElementById('cfg-cli').addEventListener('blur',function(){setP('prev-cl',this.value);});
-document.getElementById('cfg-iri').addEventListener('blur',function(){setP('prev-ir',this.value);});
-
-loadSite();
-</script>
-</body>
-        </html>
