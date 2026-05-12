@@ -1,860 +1,1018 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brightway Cleaning | Professional Cleaning Services UK</title>
-<meta name="description" content="Premium residential cleaning and ironing services across the UK.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{--navy:#0B1F3A;--blue:#1A3A6B;--mid:#2563EB;--light:#DBEAFE;--gray:#F1F5F9;--gray-mid:#94A3B8;--gray-dark:#334155;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--gray-dark);overflow-x:hidden;}
-h1,h2,h3,h4{font-family:'Playfair Display',serif;}
-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f0;box-shadow:0 1px 20px rgba(0,0,0,0.06);}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
-.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
-.logo-icon{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;}
-.logo-name{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--navy);}
-.logo-sub{display:block;font-size:0.6rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:0.15em;}
-.nav-links{display:none;align-items:center;gap:2rem;}
-.nav-links a{font-size:0.875rem;font-weight:500;color:var(--gray-dark);cursor:pointer;transition:color 0.2s;}
-.nav-links a:hover{color:var(--mid);}
-.nav-cta{background:var(--mid);color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:0.875rem;font-weight:600;cursor:pointer;display:none;font-family:'DM Sans',sans-serif;}
-.nav-cta:hover{background:var(--blue);}
-.menu-btn{background:none;border:none;cursor:pointer;padding:6px;color:var(--navy);}
-.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid #e2e8f0;z-index:999;padding:1rem 1.5rem;}
-.mobile-menu.open{display:block;}
-.mobile-menu a{display:block;padding:0.9rem 0;font-weight:500;color:var(--gray-dark);border-bottom:1px solid #f1f5f9;cursor:pointer;}
-.page{display:none;}.page.active{display:block;}
-.hero{min-height:100vh;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:center;padding-top:68px;}
-.hero-orb1{position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:rgba(37,99,235,0.25);border-radius:50%;filter:blur(80px);}
-.hero-orb2{position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:rgba(26,58,107,0.4);border-radius:50%;filter:blur(60px);}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:50px 50px;}
-.hero-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:4rem 1.5rem;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:100px;padding:6px 16px;margin-bottom:1.5rem;}
-.hero-badge span{font-size:0.75rem;color:rgba(255,255,255,0.85);font-weight:500;}
-.stars{color:#FBBF24;font-size:12px;letter-spacing:1px;}
-.hero h1{font-size:clamp(2.8rem,8vw,5rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:1.2rem;}
-.hero h1 em{color:var(--light);font-style:normal;display:block;}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2rem;max-width:480px;}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
-.btn-white{background:#fff;color:var(--navy);border:none;padding:13px 26px;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;}
-.btn-white:hover{background:var(--light);}
-.btn-wa{background:#25D366;color:#fff;border:none;padding:13px 26px;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:'DM Sans',sans-serif;}
-.btn-wa:hover{background:#1ebe5d;}
-.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;}
-.stat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#fff;}
-.stat-l{font-size:0.72rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;}
-.sec{padding:5rem 1.5rem;}
-.sec-inner{max-width:1200px;margin:0 auto;}
-.sec-label{display:inline-block;background:var(--light);color:var(--mid);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;padding:6px 14px;border-radius:100px;margin-bottom:1rem;}
-.sec-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--navy);margin-bottom:0.5rem;}
-.sec-sub{color:var(--gray-mid);font-size:0.95rem;line-height:1.7;}
-.svc-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:3rem;}
-.svc-card{border-radius:24px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,0.08);}
-.svc-img{width:100%;height:220px;object-fit:cover;display:block;}
-.svc-img-ph{width:100%;height:220px;display:flex;align-items:center;justify-content:center;font-size:4rem;}
-.svc-body{padding:2rem;background:#fff;}
-.svc-icon{font-size:1.8rem;display:block;margin-bottom:0.8rem;}
-.svc-title{font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
-.svc-desc{font-size:0.88rem;color:var(--gray-mid);line-height:1.6;margin-bottom:1.5rem;}
-.price-tbl{width:100%;border-collapse:collapse;margin-bottom:1.5rem;}
-.price-tbl th{text-align:left;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-mid);padding:8px 0;border-bottom:2px solid #f1f5f9;}
-.price-tbl td{padding:10px 0;border-bottom:1px solid #f8fafc;font-size:0.88rem;color:var(--gray-dark);}
-.price-tbl td:last-child{text-align:right;font-weight:700;color:var(--navy);}
-.no-prices{text-align:center;padding:1.2rem;color:var(--gray-mid);font-size:0.85rem;background:var(--gray);border-radius:12px;margin-bottom:1.5rem;}
-.btn-book{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;border-radius:12px;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
-.btn-book:hover{background:var(--blue);}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;}
-.why-card{background:#fff;border-radius:20px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
-.why-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:0.8rem;}
-.why-card h4{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
-.why-card p{font-size:0.8rem;color:var(--gray-mid);line-height:1.6;}
-.booking-inner{max-width:1200px;margin:0 auto;display:grid;gap:3rem;align-items:start;}
-.booking-steps{margin-top:1.5rem;}
-.step{display:flex;gap:1rem;margin-bottom:1.2rem;}
-.step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--light);line-height:1;min-width:2rem;}
-.step-text{font-size:0.88rem;color:var(--gray-dark);line-height:1.6;padding-top:6px;}
-.form-wrap{background:var(--gray);border-radius:24px;padding:2rem;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.fg{margin-bottom:1rem;}
-.fl{display:block;font-size:0.68rem;font-weight:700;color:var(--gray-dark);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px;}
-.fi{width:100%;border:1.5px solid #e2e8f0;border-radius:10px;padding:11px 14px;font-size:0.88rem;font-family:'DM Sans',sans-serif;outline:none;background:#fff;transition:border-color 0.2s;color:var(--gray-dark);}
-.fi:focus{border-color:var(--mid);}
-.fi::placeholder{color:#cbd5e1;}
-.btn-sub{width:100%;background:#25D366;color:#fff;border:none;padding:15px;border-radius:12px;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'DM Sans',sans-serif;}
-.btn-sub:hover{background:#1ebe5d;}
-.err-msg{color:#EF4444;font-size:0.78rem;margin-top:4px;display:none;}
-.cta-sec{background:var(--navy);padding:5rem 1.5rem;text-align:center;position:relative;overflow:hidden;}
-.cta-orb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:rgba(37,99,235,0.2);border-radius:50%;filter:blur(60px);}
-.cta-sec h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;margin-bottom:0.8rem;position:relative;z-index:2;}
-.cta-sec p{color:rgba(255,255,255,0.55);margin-bottom:2rem;position:relative;z-index:2;}
-.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;}
-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.08);padding:3rem 1.5rem 2rem;}
-.footer-inner{max-width:1200px;margin:0 auto;}
-.footer-top{display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:2rem;}
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
-.footer-logo-icon{width:36px;height:36px;background:var(--mid);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:900;}
-.footer-tagline{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.6;}
-.footer-social{display:flex;gap:10px;margin-top:1rem;}
-.social-btn{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;font-size:1rem;transition:all 0.2s;}
-.social-btn:hover{background:var(--mid);color:#fff;}
-.footer-links h4{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:1rem;}
-.footer-links a{display:block;font-size:0.85rem;color:rgba(255,255,255,0.55);margin-bottom:0.6rem;cursor:pointer;text-decoration:none;}
-.footer-links a:hover{color:#fff;}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
-.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.3);}
-.admin-page{min-height:100vh;background:var(--gray);padding-top:68px;}
-.adm-login-wrap{max-width:420px;margin:0 auto;padding:4rem 1.5rem;}
-.adm-login-card{background:#fff;border-radius:24px;padding:2.5rem;box-shadow:0 4px 30px rgba(0,0,0,0.08);}
-.adm-logo{text-align:center;margin-bottom:2rem;}
-.adm-logo-icon{width:60px;height:60px;background:var(--navy);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.8rem;margin:0 auto 1rem;}
-.adm-wrap{max-width:1200px;margin:0 auto;padding:2rem 1.5rem;}
-.adm-tabs{display:flex;background:#fff;border-radius:16px;padding:6px;gap:4px;margin-bottom:2rem;overflow-x:auto;box-shadow:0 2px 15px rgba(0,0,0,0.06);}
-.adm-tab{flex:1;min-width:fit-content;padding:10px 14px;background:none;border:none;border-radius:12px;font-size:0.78rem;font-weight:600;color:var(--gray-mid);cursor:pointer;white-space:nowrap;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
-.adm-tab.active{background:var(--navy);color:#fff;}
-.adm-content{display:none;}.adm-content.active{display:block;}
-.card-box{background:#fff;border-radius:16px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);margin-bottom:1.5rem;}
-.card-box h3{font-size:1rem;color:var(--navy);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid #f1f5f9;}
-.stat-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem;}
-.stat-card{background:#fff;border-radius:16px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
-.sc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1rem;}
-.sc-val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--navy);}
-.sc-lbl{font-size:0.7rem;color:var(--gray-mid);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;}
-.tbl-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,0.05);margin-bottom:1.5rem;}
-.tbl-header{padding:1.2rem 1.5rem;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;}
-.tbl-header h3{font-size:1rem;color:var(--navy);}
-.adm-tbl{width:100%;border-collapse:collapse;font-size:0.82rem;}
-.adm-tbl th{text-align:left;padding:10px 16px;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-mid);background:var(--gray);}
-.adm-tbl td{padding:12px 16px;border-bottom:1px solid #f8fafc;color:var(--gray-dark);vertical-align:middle;}
-.adm-tbl tr:hover td{background:#fafbff;}
-.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-size:0.68rem;font-weight:700;}
-.bp{background:#FEF3C7;color:#92400E;}.bc{background:#DBEAFE;color:#1E40AF;}.bd{background:#DCFCE7;color:#166534;}.bx{background:#FEE2E2;color:#991B1B;}.bpd{background:#DCFCE7;color:#166534;}.bov{background:#FEE2E2;color:#991B1B;}
-.abtn{border:none;border-radius:8px;padding:5px 10px;font-size:0.72rem;font-weight:700;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
-.abtn.g{background:#DCFCE7;color:#166534;}.abtn.b{background:#DBEAFE;color:#1E40AF;}.abtn.r{background:#FEE2E2;color:#991B1B;}
-.img-prev{width:100%;height:140px;object-fit:cover;border-radius:10px;display:block;margin-bottom:0.5rem;}
-.img-ph{width:100%;height:140px;border-radius:10px;background:var(--gray);display:flex;align-items:center;justify-content:center;color:var(--gray-mid);font-size:0.85rem;margin-bottom:0.5rem;}
-.prow{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #f1f5f9;}
-.prow:last-child{border-bottom:none;}
-.prow-name{flex:1;font-size:0.88rem;color:var(--gray-dark);}
-.prow-price{font-weight:700;color:var(--navy);font-size:0.88rem;min-width:80px;text-align:right;}
-.client-grid{display:grid;grid-template-columns:1fr;gap:1rem;}
-.client-card{background:#fff;border-radius:16px;padding:1.5rem;box-shadow:0 2px 15px rgba(0,0,0,0.05);}
-.cav{width:44px;height:44px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;flex-shrink:0;}
-.loading{text-align:center;padding:2rem;color:var(--gray-mid);font-size:0.88rem;}
-.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9000;background:var(--navy);color:#fff;padding:14px 20px;border-radius:14px;font-size:0.875rem;font-weight:500;transform:translateY(80px);opacity:0;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.2);max-width:300px;}
-.toast.show{transform:translateY(0);opacity:1;}
-.toast.ok{border-left:4px solid #22C55E;}.toast.err{border-left:4px solid #EF4444;}
-@media(min-width:768px){
-  .nav-links{display:flex;}.nav-cta{display:block;}.menu-btn{display:none;}
-  .svc-grid{grid-template-columns:1fr 1fr;}
-  .booking-inner{grid-template-columns:1fr 1fr;}
-  .footer-top{grid-template-columns:1fr 1fr 1fr;}
-  .why-grid{grid-template-columns:repeat(4,1fr);}
-  .stat-cards{grid-template-columns:repeat(4,1fr);}
-  .client-grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(min-width:1024px){.client-grid{grid-template-columns:repeat(3,1fr);}}
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brightway Cleaning</title>
+  <meta name="description" content="Premium residential and commercial cleaning. Book online in minutes."/>
+  <link rel="icon" href="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Firebase SDKs (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --black:#0A0A0A;--white:#FFFFFF;--bg:#FAFAFA;
+      --g100:#F5F5F5;--g200:#EBEBEB;--g400:#A3A3A3;--g600:#525252;--g800:#262626;
+      --accent:#1A6BFF;--accentL:#EEF4FF;
+      --green:#16A34A;--greenL:#DCFCE7;
+      --orange:#EA580C;--orangeL:#FFF0E6;
+      --red:#DC2626;--redL:#FEE2E2;
+      --purple:#7C3AED;--purpleL:#EDE9FE;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--black)}
+
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--g200);height:64px;display:flex;align-items:center}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;width:100%}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo img{width:36px;height:36px;border-radius:8px;object-fit:cover}
+    .logo span{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--black)}
+    .logo span em{color:var(--accent);font-style:normal}
+    nav{display:flex;gap:6px;align-items:center}
+    nav a{background:none;border:none;padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;color:var(--g600);cursor:pointer;text-decoration:none;font-family:inherit}
+    .btn-book{background:var(--black)!important;color:var(--white)!important;padding:10px 20px!important;border-radius:10px!important;font-weight:600!important}
+    .btn-admin{border:1.5px solid var(--g200)!important;color:var(--g400)!important;border-radius:10px!important}
+
+    /* HERO */
+    #hero{padding-top:64px;min-height:90vh;display:flex;align-items:center;background:var(--white);position:relative;overflow:hidden}
+    .hero-blob{position:absolute;top:0;right:0;width:45%;height:100%;background:linear-gradient(135deg,var(--accentL) 0%,#F0F7FF 100%);border-radius:0 0 0 80px}
+    .hero-inner{max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;width:100%}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accentL);color:var(--accent);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:24px}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:700;line-height:1.1;margin-bottom:20px}
+    .hero-title span{color:var(--accent)}
+    .hero-desc{font-size:16px;color:var(--g600);line-height:1.7;margin-bottom:36px;max-width:420px}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+    .btn-primary{display:inline-block;background:var(--black);color:var(--white);border:none;padding:16px 32px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit;transition:background .2s}
+    .btn-primary:hover{background:var(--accent)}
+    .btn-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:var(--white);padding:16px 24px;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none}
+    .hero-stats{display:flex;gap:32px}
+    .stat-n{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+    .stat-l{font-size:13px;color:var(--g400);margin-top:2px}
+    .hero-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .hero-photos div{border-radius:14px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 8px 32px rgba(0,0,0,.1)}
+    .hero-photos div:first-child{aspect-ratio:1/1.2;border-radius:20px 20px 10px 10px}
+    .hero-photos img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* WHY */
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+    .why-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px 22px;text-align:center;transition:all .2s}
+    .why-card:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+    .why-icon{font-size:36px;margin-bottom:14px}
+    .why-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:8px}
+    .why-card p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+
+    /* BOOKING SECTION */
+    .section-label{font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--black);margin-bottom:40px}
+    .text-center{text-align:center}
+
+    /* PRICE PANELS */
+    .price-panels{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
+    .price-panel{border-radius:20px;overflow:hidden;border:1.5px solid var(--g200);background:var(--white)}
+    .price-panel-label{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--g200);font-size:15px;font-weight:700;color:var(--black)}
+    .price-img-wrap{min-height:180px;background:var(--g100);display:flex;align-items:center;justify-content:center}
+    .price-img-wrap img{width:100%;display:block;object-fit:contain}
+    .price-img-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px;gap:10px;color:var(--g400);text-align:center;width:100%}
+    .price-img-empty .big{font-size:48px}
+    .price-img-empty p{font-size:13px;color:var(--g400)}
+
+    /* BOOKING FORM */
+    .booking-form-wrap{background:var(--white);border-radius:24px;border:1.5px solid var(--g200);padding:40px;max-width:680px;margin:0 auto}
+    .booking-form-wrap h3{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:6px}
+    .booking-form-wrap>p{font-size:14px;color:var(--g400);margin-bottom:28px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{margin-bottom:16px}
+    .field label{display:block;font-size:13px;font-weight:600;color:var(--g800);margin-bottom:6px}
+    .field input,.field select,.field textarea{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--g200);font-size:15px;font-family:inherit;outline:none;background:var(--white);color:var(--black);transition:border-color .2s}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+    .field textarea{resize:none}
+    .time-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .time-btn{padding:10px 6px;border-radius:10px;border:1.5px solid var(--g200);background:var(--white);color:var(--g600);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+    .time-btn.selected{border-color:var(--accent);background:var(--accentL);color:var(--accent)}
+    .btn-submit{width:100%;background:var(--black);color:var(--white);border:none;padding:16px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:8px;transition:background .2s}
+    .btn-submit:hover{background:var(--accent)}
+    .booking-success{text-align:center;padding:40px 20px}
+    .booking-success .emoji{font-size:64px;margin-bottom:16px}
+    .booking-success h3{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:12px}
+    .booking-success p{color:var(--g600);line-height:1.6;margin-bottom:28px}
+
+    /* GALLERY */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .gallery-item{border-radius:16px;overflow:hidden;aspect-ratio:4/3;cursor:zoom-in;position:relative}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+    .gallery-item:hover img{transform:scale(1.04)}
+    .gallery-ov{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:flex-end;padding:16px;opacity:0;transition:opacity .2s}
+    .gallery-item:hover .gallery-ov{opacity:1}
+    .gallery-ov span{color:var(--white);font-size:14px;font-weight:600}
+
+    /* CONTACT / FOOTER */
+    .contact-inner{max-width:760px;margin:0 auto;text-align:center}
+    .contact-inner h2{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,46px);color:var(--white);margin-bottom:16px}
+    .contact-inner p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:36px}
+    .contact-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-white{background:var(--white);color:var(--black);border:none;padding:16px 32px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block}
+    footer{background:#050505;padding:28px 24px;text-align:center;color:rgba(255,255,255,.4);font-size:13px}
+    .wa-float{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:200;text-decoration:none;transition:transform .2s}
+    .wa-float:hover{transform:scale(1.1)}
+
+    /* LIGHTBOX */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:400;display:none;align-items:center;justify-content:center}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:90vw;max-height:80vh;border-radius:16px;object-fit:contain}
+    .lightbox-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.1);border:none;width:36px;height:36px;border-radius:50%;color:white;font-size:18px;cursor:pointer}
+
+    /* ADMIN LOGIN */
+    #page-login{display:none;min-height:100vh;background:var(--black);align-items:center;justify-content:center}
+    #page-login.open{display:flex}
+    .login-box{background:var(--white);border-radius:24px;padding:48px;width:100%;max-width:380px;text-align:center}
+    .login-box img{width:52px;height:52px;border-radius:12px;object-fit:cover;margin-bottom:16px}
+    .login-box h2{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:4px}
+    .login-box>p{font-size:14px;color:var(--g400);margin-bottom:28px}
+    .login-box input{width:100%;padding:14px 16px;border-radius:12px;border:2px solid var(--g200);font-size:15px;font-family:inherit;outline:none}
+    .login-box input.error{border-color:var(--red)}
+    .login-err{font-size:13px;color:var(--red);margin-top:8px;display:none}
+    .btn-login{width:100%;margin-top:20px;background:var(--black);color:var(--white);border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+    .btn-back-site{width:100%;margin-top:10px;background:none;color:var(--g400);border:1.5px solid var(--g200);padding:12px;border-radius:12px;font-size:14px;cursor:pointer;font-family:inherit}
+    @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+    .shake{animation:shake .4s}
+
+    /* ADMIN PANEL */
+    #page-admin{display:none;min-height:100vh;background:var(--bg)}
+    #page-admin.open{display:block}
+    .admin-topbar{display:none;position:fixed;top:0;left:0;right:0;z-index:50;background:var(--black);height:56px;align-items:center;justify-content:space-between;padding:0 16px}
+    .admin-topbar-logo{font-size:15px;font-weight:700;color:var(--white);font-family:'Playfair Display',serif}
+    .admin-topbar-menu{background:none;border:none;color:var(--white);font-size:24px;cursor:pointer;padding:4px}
+    .sidebar{width:220px;background:var(--black);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:50;transition:transform .3s}
+    .sidebar-logo{padding:24px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+    .sidebar-logo img{width:32px;height:32px;border-radius:8px;object-fit:cover}
+    .s-name{font-size:13px;font-weight:700;color:var(--white)}
+    .s-sub{font-size:11px;color:rgba(255,255,255,.4)}
+    .sidebar-nav{flex:1;padding:16px 12px;overflow-y:auto}
+    .tab-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:10px;border:none;background:none;color:rgba(255,255,255,.5);font-size:14px;cursor:pointer;font-family:inherit;margin-bottom:4px;text-align:left;transition:all .15s}
+    .tab-btn.active{background:rgba(255,255,255,.1);color:var(--white);font-weight:600}
+    .sidebar-foot{padding:16px 12px;border-top:1px solid rgba(255,255,255,.08)}
+    .btn-view-site{display:block;width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.6);font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:8px}
+    .btn-signout{display:block;width:100%;padding:10px;border-radius:10px;border:none;background:rgba(220,38,38,.15);color:#FCA5A5;font-size:13px;cursor:pointer;font-family:inherit}
+    .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:49}
+    .sidebar-overlay.open{display:block}
+    .admin-main{margin-left:220px;padding:32px;min-height:100vh}
+    .admin-title{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:8px;color:var(--black)}
+    .admin-sub{color:var(--g400);font-size:14px;margin-bottom:24px}
+    .admin-tab{display:none}
+    .admin-tab.active{display:block}
+
+    /* DASH */
+    .dash-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+    .dash-card{background:var(--white);border-radius:16px;padding:20px;border:1.5px solid var(--g200)}
+    .d-label{font-size:13px;color:var(--g400);margin-bottom:8px}
+    .d-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:6px}
+    .badge{display:inline-block;font-size:12px;padding:3px 10px;border-radius:20px;font-weight:600}
+    .badge-green{background:var(--greenL);color:var(--green)}
+    .badge-orange{background:var(--orangeL);color:var(--orange)}
+    .badge-blue{background:var(--accentL);color:var(--accent)}
+    .badge-gray{background:var(--g100);color:var(--g800)}
+
+    /* TABLE */
+    .table-card{background:var(--white);border-radius:16px;border:1.5px solid var(--g200);overflow:hidden;margin-bottom:24px}
+    .table-head{padding:18px 20px;border-bottom:1px solid var(--g200);display:flex;justify-content:space-between;align-items:center}
+    .table-head h3{margin:0;font-size:16px;font-weight:700}
+    .table-row{padding:14px 20px;border-bottom:1px solid var(--g100);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+    .table-row:last-child{border-bottom:none}
+    .row-name{font-size:15px;font-weight:600}
+    .row-sub{font-size:13px;color:var(--g400);margin-top:2px}
+    .row-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .row-amount{font-size:15px;font-weight:700}
+    .icon-btn{background:var(--redL);border:none;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:14px;flex-shrink:0}
+    .icon-btn-edit{background:var(--g100)}
+    .small-btn{background:var(--black);color:var(--white);border:none;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+    /* CALENDAR */
+    .cal-toolbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+    .cal-nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .cal-nav-btn{width:36px;height:36px;border-radius:10px;border:1.5px solid var(--g200);background:var(--white);cursor:pointer;font-size:16px}
+    .cal-range{font-size:13px;font-weight:600;min-width:180px;text-align:center}
+    .cal-wrap{background:var(--white);border-radius:20px;border:1.5px solid var(--g200);overflow:auto;-webkit-overflow-scrolling:touch}
+    .cal-grid{display:grid;grid-template-columns:60px repeat(7,1fr);min-width:720px}
+    .cal-header-cell{padding:12px 4px;border-bottom:1.5px solid var(--g200);text-align:center}
+    .cal-day-name{font-size:11px;color:var(--g400);font-weight:500}
+    .cal-day-num{font-size:16px;font-weight:700;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:4px auto 0}
+    .cal-day-num.today{background:var(--accentL);color:var(--accent)}
+    .cal-time-label{padding:0 8px 0 0;text-align:right;font-size:11px;color:var(--g400);border-bottom:1px solid var(--g100);display:flex;align-items:center;justify-content:flex-end;min-height:56px}
+    .cal-slot{min-height:56px;padding:3px 4px;border-bottom:1px solid var(--g100);border-left:1px solid var(--g100);cursor:pointer;transition:background .15s;position:relative}
+    .cal-slot:hover{background:var(--accentL)}
+    .cal-slot.has-b:hover{background:transparent}
+    .cal-booking-chip{border-radius:7px;padding:4px 7px;font-size:10px;font-weight:700;margin-bottom:2px;color:var(--white);cursor:pointer;transition:opacity .15s;line-height:1.3}
+    .cal-booking-chip:hover{opacity:.85}
+    .cal-booking-chip.paid{background:var(--green)}
+    .cal-booking-chip.pending{background:var(--orange)}
+    .cal-booking-chip.confirmed{background:var(--accent)}
+
+    /* CLIENTS */
+    .clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+    .client-card{background:var(--white);border-radius:16px;padding:22px;border:1.5px solid var(--g200)}
+    .client-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+    .client-avatar{width:42px;height:42px;border-radius:50%;background:var(--accentL);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:var(--accent);flex-shrink:0}
+    .client-name{font-size:16px;font-weight:700;margin-bottom:6px}
+    .client-info{font-size:13px;color:var(--g600);line-height:1.7;margin-bottom:14px}
+    .client-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+
+    /* GALLERY ADMIN */
+    .gallery-admin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+    .gallery-admin-item{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3}
+    .gallery-admin-item img{width:100%;height:100%;object-fit:cover}
+    .g-admin-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:10px}
+    .g-admin-name{color:var(--white);font-size:11px;font-weight:600;margin-bottom:6px}
+    .btn-del-img{align-self:flex-start;background:var(--red);color:var(--white);border:none;padding:5px 10px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit}
+    .gallery-upload-box{border-radius:14px;border:2px dashed var(--g200);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;color:var(--g400);gap:6px;transition:all .2s;font-size:13px;font-weight:600}
+    .gallery-upload-box:hover{border-color:var(--accent);color:var(--accent);background:var(--accentL)}
+    .gallery-url-box{grid-column:1/-1;background:var(--white);border-radius:14px;padding:16px 20px;border:1.5px solid var(--g200);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .gallery-url-box label{font-size:13px;font-weight:600;color:var(--g800);white-space:nowrap}
+    .gallery-url-box input{flex:1;min-width:200px;padding:10px 14px;border-radius:10px;border:1.5px solid var(--g200);font-size:14px;font-family:inherit;outline:none}
+    .gallery-url-box input:focus{border-color:var(--accent)}
+    .gallery-url-box button{background:var(--black);color:var(--white);border:none;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+
+    /* PRICE IMAGES ADMIN */
+    .price-img-admin{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+    .price-img-card{background:var(--white);border-radius:16px;border:1.5px solid var(--g200);overflow:hidden}
+    .price-img-card-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--g200)}
+    .price-img-card-head span{font-size:15px;font-weight:700}
+    .price-img-card-body{min-height:160px;background:var(--g100);display:flex;align-items:center;justify-content:center;position:relative}
+    .price-img-card-body img{width:100%;display:block;object-fit:contain}
+    .price-img-card-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;color:var(--g400);text-align:center;font-size:13px}
+    .price-img-card-empty .big{font-size:40px}
+    .price-upload-btn{background:var(--black);color:var(--white);border:none;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
+    .price-delete-btn{background:var(--redL);color:var(--red);border:none;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
+
+    /* MODAL */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:none;align-items:center;justify-content:center;padding:16px}
+    .overlay.open{display:flex}
+    .modal{background:var(--white);border-radius:24px;padding:32px;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;position:relative}
+    .modal-close{position:absolute;top:14px;right:14px;background:var(--g100);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px}
+
+    /* INVOICE */
+    .invoice-header{background:var(--black);margin:-32px -32px 22px;padding:24px 28px;border-radius:24px 24px 0 0;color:var(--white);display:flex;justify-content:space-between;align-items:flex-start}
+    .inv-brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:700}
+    .inv-sub{font-size:12px;opacity:.6;margin-top:4px}
+    .invoice-line-box{background:var(--g100);border-radius:12px;padding:16px;margin-bottom:20px}
+    .invoice-line{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px}
+    .invoice-total{display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--g200);margin-top:8px}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-secondary{flex:1;background:var(--g100);color:var(--g800);border:none;padding:12px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;min-width:80px}
+    .btn-wa-send{flex:2;display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:var(--white);border:none;padding:12px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;min-width:140px}
+
+    /* STATUS TOGGLE */
+    .status-toggle{display:flex;gap:8px;margin-top:4px}
+    .status-opt{flex:1;padding:10px 8px;border-radius:10px;border:1.5px solid var(--g200);background:var(--white);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-align:center;transition:all .2s}
+    .status-opt.active-pending{border-color:var(--orange);background:var(--orangeL);color:var(--orange)}
+    .status-opt.active-paid{border-color:var(--green);background:var(--greenL);color:var(--green)}
+    .status-opt.active-confirmed{border-color:var(--accent);background:var(--accentL);color:var(--accent)}
+
+    /* PAGE HEADER */
+    .page-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+    .page-header .add-btn{background:var(--black);color:var(--white);border:none;padding:11px 22px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+
+    /* MOBILE */
+    @media(max-width:768px){
+      .admin-topbar{display:flex}
+      .sidebar{transform:translateX(-100%)}
+      .sidebar.mobile-open{transform:translateX(0)}
+      .admin-main{margin-left:0;padding:16px;padding-top:72px}
+      .dash-cards{grid-template-columns:repeat(2,1fr)}
+      .table-row{flex-direction:column;align-items:flex-start}
+      .row-right{width:100%;justify-content:flex-start}
+      .hero-inner{grid-template-columns:1fr;padding:60px 20px 40px}
+      .hero-photos{display:none}
+      .hero-blob{width:100%;height:200px;top:auto;bottom:0;border-radius:0;opacity:.2}
+      .price-panels{grid-template-columns:1fr}
+      .price-img-admin{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .time-grid{grid-template-columns:repeat(3,1fr)}
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      nav a:not(.btn-book):not(.btn-admin){display:none}
+      .booking-form-wrap{padding:24px 18px}
+    }
+    @media(max-width:480px){
+      .dash-cards{grid-template-columns:1fr 1fr}
+    }
+  </style>
 </head>
 <body>
 
-<div class="toast" id="toast"></div>
+<!-- ══════════════════════ PUBLIC SITE ══════════════════════ -->
+<div id="page-public">
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <img src="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg" alt="Brightway" onerror="this.style.display='none'"/>
+        <span>Brightway <em>Cleaning</em></span>
+      </a>
+      <nav>
+        <a href="#why">Why Us</a>
+        <a href="#book">Book</a>
+        <a href="#our-work">Gallery</a>
+        <a href="#book" class="btn-book">Book Now</a>
+        <a href="#" class="btn-admin" onclick="showLogin(event)">Admin</a>
+      </nav>
+    </div>
+  </header>
 
-<nav>
-  <div class="nav-inner">
-    <div class="logo" onclick="goPage('home')">
-      <div class="logo-icon">B</div>
-      <div><span class="logo-name">Brightway Cleaning</span><span class="logo-sub">UK</span></div>
-    </div>
-    <div class="nav-links">
-      <a onclick="goSec('services')">Services</a>
-      <a onclick="goSec('booking')">Book Now</a>
-      <a onclick="goSec('about')">About</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:10px">
-      <button class="nav-cta" onclick="goSec('booking')">Book Now</button>
-      <button class="menu-btn" onclick="toggleMenu()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobile-menu">
-    <a onclick="goSec('services');closeMM()">Services</a>
-    <a onclick="goSec('booking');closeMM()">Book Now</a>
-    <a onclick="goSec('about');closeMM()">About</a>
-    <a onclick="goPage('admin');closeMM()" style="color:var(--mid)">⚙️ Admin</a>
-  </div>
-</nav>
-
-<!-- HOME -->
-<div id="home" class="page active">
-  <section class="hero">
-    <div class="hero-orb1"></div><div class="hero-orb2"></div><div class="hero-grid"></div>
-    <div class="hero-img-bg" id="hero-bg"></div>
+  <section id="hero">
+    <div class="hero-blob"></div>
     <div class="hero-inner">
       <div>
-        <div class="hero-badge"><span class="stars">★★★★★</span><span id="h-badge">Trusted by 200+ families across the UK</span></div>
-        <h1 id="h-title">Your Home,<em id="h-em">Perfectly Clean.</em></h1>
-        <p class="hero-sub" id="h-sub">Premium residential cleaning and ironing services across the UK. Trusted, reliable, and always spotless.</p>
-        <div class="hero-btns">
-          <button class="btn-white" onclick="goSec('booking')">📅 Book a Service</button>
-          <a class="btn-wa" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
+        <div class="hero-badge">✦ Professional Cleaning Service</div>
+        <h1 class="hero-title">Your Space,<br><span>Spotlessly</span><br>Clean.</h1>
+        <p class="hero-desc">Premium residential and commercial cleaning. Trusted by over 200 families. Book in minutes.</p>
+        <div class="hero-ctas">
+          <a href="#book" class="btn-primary">Book a Clean →</a>
+          <a href="https://wa.me/447308102037" target="_blank" class="btn-wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
         </div>
         <div class="hero-stats">
-          <div><div class="stat-n" id="h-s1v">200+</div><div class="stat-l" id="h-s1l">Happy Clients</div></div>
-          <div><div class="stat-n" id="h-s2v">5★</div><div class="stat-l" id="h-s2l">Avg Rating</div></div>
-          <div><div class="stat-n" id="h-s3v">3yr</div><div class="stat-l" id="h-s3l">Experience</div></div>
+          <div><div class="stat-n">200+</div><div class="stat-l">Families served</div></div>
+          <div><div class="stat-n">5★</div><div class="stat-l">Average rating</div></div>
+          <div><div class="stat-n">100%</div><div class="stat-l">Insured</div></div>
         </div>
       </div>
-    </div>
-    <svg style="position:absolute;bottom:0;left:0;right:0" viewBox="0 0 1440 60" fill="none"><path d="M0 60V20C240 0 480 40 720 20C960 0 1200 40 1440 20V60H0Z" fill="white"/></svg>
-  </section>
-
-  <section class="sec" id="services" style="background:#fff">
-    <div class="sec-inner">
-      <div style="text-align:center">
-        <span class="sec-label">What We Offer</span>
-        <h2 class="sec-title">Our Services</h2>
-        <p class="sec-sub" style="margin:0 auto">Professional cleaning and ironing services tailored to your needs.</p>
+      <div class="hero-photos">
+        <div><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt=""/></div>
+        <div><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&q=80" alt=""/></div>
+        <div><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=500&q=80" alt=""/></div>
+        <div><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt=""/></div>
       </div>
-      <div class="svc-grid" id="svc-grid"><div class="loading">Loading services...</div></div>
     </div>
   </section>
 
-  <section class="sec" id="about" style="background:var(--gray)">
-    <div class="sec-inner">
-      <div style="text-align:center">
-        <span class="sec-label" style="background:var(--navy);color:#fff">Our Promise</span>
-        <h2 class="sec-title">Why Choose Brightway?</h2>
-        <p class="sec-sub" style="margin:0 auto">We combine professionalism with a personal touch.</p>
-      </div>
+  <section id="why" style="background:var(--black);padding:80px 24px">
+    <div style="max-width:1200px;margin:0 auto">
+      <p class="section-label text-center" style="color:rgba(255,255,255,.4)">Why Brightway</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--white);text-align:center;margin-bottom:12px">Why Choose Us?</h2>
+      <p style="text-align:center;color:rgba(255,255,255,.55);font-size:16px;margin-bottom:48px">We don't just clean — we care about your home and your peace of mind.</p>
       <div class="why-grid">
-        <div class="why-card"><div class="why-icon" style="background:var(--light)">🛡️</div><h4>Trusted & Verified</h4><p>All our cleaners are fully vetted, insured, and background-checked.</p></div>
-        <div class="why-card"><div class="why-icon" style="background:#FEF3C7">🕐</div><h4>Flexible Scheduling</h4><p>Morning, afternoon, or weekend — we work around your timetable.</p></div>
-        <div class="why-card"><div class="why-icon" style="background:#DCFCE7">👍</div><h4>Guaranteed Quality</h4><p>Not satisfied? We come back. Your happiness is our priority.</p></div>
-        <div class="why-card"><div class="why-icon" style="background:#F3E8FF">📍</div><h4>Local & Reliable</h4><p>A UK-based team that knows your area and values your home.</p></div>
+        <div class="why-card"><div class="why-icon">🔒</div><h3>Background Checked</h3><p>All staff go through a full background check before joining.</p></div>
+        <div class="why-card"><div class="why-icon">🛡️</div><h3>Fully Insured</h3><p>Every job is fully insured — your home is always protected.</p></div>
+        <div class="why-card"><div class="why-icon">🚗</div><h3>We Come to You</h3><p>No need to go anywhere. We arrive at your door, ready to work.</p></div>
+        <div class="why-card"><div class="why-icon">🎓</div><h3>Trained Professionals</h3><p>Our team holds certified cleaning training.</p></div>
+        <div class="why-card"><div class="why-icon">👨‍👩‍👧</div><h3>200+ Families Served</h3><p>Over 200 happy families across the UK trust Brightway.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="booking" style="background:#fff">
-    <div class="booking-inner">
-      <div>
-        <span class="sec-label">Book Online</span>
-        <h2 class="sec-title">Book a Service</h2>
-        <p class="sec-sub">Fill in your details and we'll confirm via WhatsApp.</p>
-        <div class="booking-steps">
-          <div class="step"><span class="step-num">01</span><span class="step-text">Fill in your details and choose your service.</span></div>
-          <div class="step"><span class="step-num">02</span><span class="step-text">Click confirm — WhatsApp opens automatically with all your booking details.</span></div>
-          <div class="step"><span class="step-num">03</span><span class="step-text">We reply to confirm your date, time and pricing.</span></div>
+  <section id="book" style="background:var(--bg);padding:80px 24px">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="text-center">
+        <p class="section-label">Our Services & Pricing</p>
+        <h2 class="section-title">Choose Your Service</h2>
+      </div>
+
+      <!-- PRICE PANELS -->
+      <div class="price-panels">
+        <div class="price-panel">
+          <div class="price-panel-label"><span>🏠</span> Cleaning Services</div>
+          <div class="price-img-wrap" id="public-price-cleaning">
+            <div class="price-img-empty"><div class="big">🏠</div><p>Price table coming soon</p></div>
+          </div>
         </div>
-        <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.8rem">
-          <a href="https://wa.me/447308102037" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#25D366;font-weight:600;font-size:0.9rem;text-decoration:none">💬 Or message us directly on WhatsApp</a>
-          <a href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#1877F2;font-weight:600;font-size:0.9rem;text-decoration:none">📘 Find us on Facebook</a>
+        <div class="price-panel">
+          <div class="price-panel-label"><span>👕</span> Ironing Services</div>
+          <div class="price-img-wrap" id="public-price-ironing">
+            <div class="price-img-empty"><div class="big">👕</div><p>Price table coming soon</p></div>
+          </div>
         </div>
       </div>
-      <div class="form-wrap">
+
+      <!-- BOOKING FORM -->
+      <div class="booking-form-wrap" id="booking-form-wrap">
+        <h3>Book Your Service</h3>
+        <p>Fill in your details and we'll confirm shortly.</p>
         <div class="form-row">
-          <div class="fg"><label class="fl">Full Name *</label><input class="fi" id="f-name" placeholder="Jane Smith"></div>
-          <div class="fg"><label class="fl">Phone *</label><input class="fi" id="f-phone" placeholder="+44 7XXX XXXXXX" type="tel"></div>
+          <div class="field"><label>Full Name</label><input type="text" id="bk-name" placeholder="Your name"/></div>
+          <div class="field"><label>Phone Number</label><input type="tel" id="bk-phone" placeholder="+44 7000 000000"/></div>
         </div>
-        <div class="fg"><label class="fl">Email *</label><input class="fi" id="f-email" placeholder="jane@email.com" type="email"></div>
-        <div class="fg"><label class="fl">Property Address *</label><input class="fi" id="f-address" placeholder="123 High Street, London, E1 6RF"></div>
-        <div class="fg">
-          <label class="fl">Service *</label>
-          <select class="fi" id="f-service">
-            <option value="">Select a service</option>
-            <option value="cleaning">Cleaning</option>
-            <option value="ironing">Ironing</option>
-            <option value="both">Cleaning + Ironing</option>
-          </select>
-        </div>
+        <div class="field"><label>Address</label><input type="text" id="bk-address" placeholder="Your full address"/></div>
         <div class="form-row">
-          <div class="fg"><label class="fl">Preferred Date *</label><input class="fi" id="f-date" type="date"></div>
-          <div class="fg">
-            <label class="fl">Preferred Time *</label>
-            <select class="fi" id="f-time">
-              <option value="">Select time</option>
-              <option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option>
-              <option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option>
-              <option>16:00</option><option>17:00</option><option>18:00</option>
+          <div class="field"><label>Service</label>
+            <select id="bk-service">
+              <option value="">— Select service —</option>
+              <option value="House Cleaning">🏠 House Cleaning</option>
+              <option value="Deep Clean">🧹 Deep Clean</option>
+              <option value="Oven Cleaning">🔥 Oven Cleaning</option>
+              <option value="Ironing">👕 Ironing</option>
+              <option value="Office Cleaning">🏢 Office Cleaning</option>
+              <option value="Airbnb Cleaning">🛏 Airbnb Cleaning</option>
             </select>
           </div>
+          <div class="field"><label>Date</label><input type="date" id="bk-date"/></div>
         </div>
-        <div class="fg"><label class="fl">Additional Notes</label><textarea class="fi" id="f-notes" rows="3" placeholder="Any special instructions..." style="resize:none"></textarea></div>
-        <p class="err-msg" id="form-err">Please fill in all required fields.</p>
-        <button class="btn-sub" onclick="submitBooking()">💬 Confirm Booking via WhatsApp</button>
+        <div class="field"><label>Preferred Time</label><div class="time-grid" id="time-grid"></div></div>
+        <div class="field"><label>Notes (optional)</label><textarea id="bk-notes" rows="3" placeholder="Access codes, pets, special instructions..."></textarea></div>
+        <button class="btn-submit" onclick="submitBooking()">Confirm Booking →</button>
+      </div>
+
+      <div class="booking-form-wrap booking-success" id="booking-success" style="display:none">
+        <div class="emoji">✅</div>
+        <h3>Booking Requested!</h3>
+        <p>Thank you! We'll confirm your booking via WhatsApp shortly.</p>
+        <a href="https://wa.me/447308102037" target="_blank" class="btn-wa" style="display:inline-flex;margin-bottom:16px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat on WhatsApp</a><br>
+        <button class="btn-primary" style="display:inline-block;margin-top:8px" onclick="resetBooking()">Make Another Booking</button>
       </div>
     </div>
   </section>
 
-  <section class="cta-sec">
-    <div class="cta-orb"></div>
-    <h2>Ready for a Spotless Home?</h2>
-    <p>Book in under 2 minutes. We confirm via WhatsApp.</p>
-    <div class="cta-btns">
-      <button class="btn-white" onclick="goSec('booking')">Book Now</button>
-      <a class="btn-wa" href="https://wa.me/447308102037" target="_blank">💬 Chat on WhatsApp</a>
+  <section id="our-work" style="background:var(--white);padding:80px 24px">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="text-center" style="margin-bottom:48px">
+        <p class="section-label">Before & After</p>
+        <h2 class="section-title" style="margin-bottom:0">Our Work</h2>
+      </div>
+      <div class="gallery-grid" id="public-gallery"></div>
     </div>
   </section>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <div class="footer-logo">
-            <div class="footer-logo-icon">B</div>
-            <div><div style="font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1rem">Brightway Cleaning</div><div style="font-size:0.6rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.15em">UK</div></div>
-          </div>
-          <p class="footer-tagline">Premium cleaning services for UK homes.</p>
-          <div class="footer-social">
-            <a class="social-btn" href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank">📘</a>
-            <a class="social-btn" href="https://wa.me/447308102037" target="_blank">💬</a>
-          </div>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a onclick="goSec('services')">Services</a>
-          <a onclick="goSec('booking')">Book a Service</a>
-          <a onclick="goSec('about')">About Us</a>
-          <a onclick="goPage('admin')">Admin Portal</a>
-        </div>
-        <div class="footer-links">
-          <h4>Contact</h4>
-          <a href="tel:+447308102037">📞 +44 7308 102037</a>
-          <a href="https://wa.me/447308102037" target="_blank">💬 WhatsApp</a>
-          <a href="https://www.facebook.com/share/18QqcXfLvL/" target="_blank">📘 Facebook</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Brightway Cleaning. All rights reserved.</p>
-        <p class="footer-copy">United Kingdom 🇬🇧</p>
+  <section id="contact" style="background:var(--black);padding:80px 24px">
+    <div class="contact-inner">
+      <h2>Ready for a spotless space?</h2>
+      <p>Book online or reach out — we respond within hours.</p>
+      <div class="contact-ctas">
+        <a href="#book" class="btn-white">Book Online</a>
+        <a href="https://wa.me/447308102037" target="_blank" class="btn-wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat on WhatsApp</a>
       </div>
     </div>
-  </footer>
+  </section>
+  <footer>© 2026 Brightway Cleaning · All rights reserved</footer>
+  <a href="https://wa.me/447308102037" target="_blank" class="wa-float"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 </div>
 
-<!-- ADMIN -->
-<div id="admin" class="page">
-  <div class="admin-page">
-    <div id="adm-login">
-      <div class="adm-login-wrap">
-        <div class="adm-login-card">
-          <div class="adm-logo">
-            <div class="adm-logo-icon">B</div>
-            <h2 style="font-size:1.3rem;color:var(--navy)">Admin Access</h2>
-            <p style="font-size:0.85rem;color:var(--gray-mid);margin-top:4px">Brightway Cleaning Management</p>
-          </div>
-          <!-- Apenas senha (e-mail removido) -->
-          <div class="fg"><label class="fl">Password</label><input class="fi" type="password" id="adm-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')adminLogin()"></div>
-          <p class="err-msg" id="adm-err" style="display:none;margin-bottom:0.8rem">Incorrect password.</p>
-          <button class="btn-sub" onclick="adminLogin()">Sign In →</button>
-          <p style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:var(--gray-mid)">Use a senha de administrador.</p>
-        </div>
-      </div>
-    </div>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close">✕</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
 
-    <div id="adm-panel" style="display:none">
-      <div class="adm-wrap">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
-          <div><h2 style="font-size:1.5rem;color:var(--navy)">Admin Panel</h2><p style="font-size:0.85rem;color:var(--gray-mid)">Brightway Cleaning</p></div>
-          <div style="display:flex;gap:8px">
-            <button onclick="goPage('home')" style="background:var(--gray);border:none;border-radius:10px;padding:8px 14px;font-size:0.8rem;cursor:pointer;font-weight:600;font-family:'DM Sans',sans-serif">🌐 View Site</button>
-            <button onclick="adminLogout()" style="background:#FEE2E2;color:#991B1B;border:none;border-radius:10px;padding:8px 14px;font-size:0.8rem;cursor:pointer;font-weight:600;font-family:'DM Sans',sans-serif">Logout</button>
-          </div>
-        </div>
-        <div class="adm-tabs">
-          <button class="adm-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
-          <button class="adm-tab" onclick="switchTab('bookings')">📅 Bookings</button>
-          <button class="adm-tab" onclick="switchTab('clients')">👥 Clients</button>
-          <button class="adm-tab" onclick="switchTab('finance')">💷 Finance</button>
-          <button class="adm-tab" onclick="switchTab('invoices')">🧾 Invoices</button>
-          <button class="adm-tab" onclick="switchTab('site')">🎨 Edit Site</button>
-        </div>
-
-        <!-- DASHBOARD -->
-        <div class="adm-content active" id="tab-dashboard">
-          <div class="stat-cards">
-            <div class="stat-card"><div class="sc-icon" style="background:#DBEAFE">📅</div><div class="sc-val" id="s-tot">0</div><div class="sc-lbl">Total Bookings</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#FEF3C7">⏳</div><div class="sc-val" id="s-pen">0</div><div class="sc-lbl">Pending</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#DCFCE7">✅</div><div class="sc-val" id="s-don">0</div><div class="sc-lbl">Completed</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#F3E8FF">💷</div><div class="sc-val" id="s-rev">£0</div><div class="sc-lbl">Revenue</div></div>
-          </div>
-          <div class="tbl-card">
-            <div class="tbl-header"><h3>Recent Bookings</h3><button class="abtn b" onclick="switchTab('bookings')">View All →</button></div>
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date</th><th>Status</th><th>Payment</th></tr></thead><tbody id="dash-tbody"><tr><td colspan="5" class="loading">Loading...</td></tr></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- BOOKINGS -->
-        <div class="adm-content" id="tab-bookings">
-          <div class="card-box" style="display:flex;gap:10px;flex-wrap:wrap">
-            <input class="fi" id="sb" placeholder="Search by name or email..." style="flex:1;min-width:180px" oninput="renderBookings()">
-            <select class="fi" id="fs" style="width:150px" onchange="renderBookings()">
-              <option value="">All Statuses</option>
-              <option value="pending">Pending</option><option value="confirmed">Confirmed</option>
-              <option value="completed">Completed</option><option value="cancelled">Cancelled</option>
-            </select>
-          </div>
-          <div class="tbl-card">
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date/Time</th><th>Status</th><th>Payment</th><th>Amount</th><th>Actions</th></tr></thead><tbody id="bookings-tbody"><tr><td colspan="7" class="loading">Loading...</td></tr></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- CLIENTS -->
-        <div class="adm-content" id="tab-clients">
-          <div class="card-box" style="margin-bottom:1rem"><input class="fi" id="sc" placeholder="Search clients..." oninput="renderClients()"></div>
-          <div class="client-grid" id="clients-grid"><div class="loading">Loading...</div></div>
-        </div>
-
-        <!-- FINANCE -->
-        <div class="adm-content" id="tab-finance">
-          <div class="stat-cards">
-            <div class="stat-card"><div class="sc-icon" style="background:#DCFCE7">💷</div><div class="sc-val" id="fr">£0</div><div class="sc-lbl">Revenue</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#FEF3C7">⏳</div><div class="sc-val" id="fp">£0</div><div class="sc-lbl">Pending</div></div>
-            <div class="stat-card"><div class="sc-icon" style="background:#FEE2E2">⚠️</div><div class="sc-val" id="fo">£0</div><div class="sc-lbl">Overdue</div></div>
-          </div>
-          <div class="tbl-card">
-            <div class="tbl-header"><h3>Outstanding Payments</h3></div>
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody id="fin-tbody"></tbody></table></div>
-          </div>
-          <div class="tbl-card">
-            <div class="tbl-header"><h3>Payment History</h3></div>
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Client</th><th>Service</th><th>Date</th><th>Amount</th></tr></thead><tbody id="paid-tbody"></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- INVOICES -->
-        <div class="adm-content" id="tab-invoices">
-          <div class="card-box" style="margin-bottom:1rem"><input class="fi" id="si" placeholder="Search invoices..." oninput="renderInvoices()"></div>
-          <div class="tbl-card">
-            <div style="overflow-x:auto"><table class="adm-tbl"><thead><tr><th>Invoice #</th><th>Client</th><th>Service</th><th>Date</th><th>Due</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead><tbody id="inv-tbody"><tr><td colspan="8" class="loading">Loading...</td></tr></tbody></table></div>
-          </div>
-        </div>
-
-        <!-- EDIT SITE -->
-        <div class="adm-content" id="tab-site">
-          <!-- HERO -->
-          <div class="card-box">
-            <h3>🖼️ Hero Section</h3>
-            <div class="fg">
-              <label class="fl">Background Image URL</label>
-              <div id="prev-hero" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-hi" placeholder="https://images.unsplash.com/photo-...">
-              <small style="color:var(--gray-mid);font-size:0.75rem;margin-top:4px;display:block">Paste any image URL from Unsplash, imgbb, etc.</small>
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Main Title</label><input class="fi" id="cfg-ht" placeholder="Your Home,"></div>
-              <div class="fg"><label class="fl">Highlight Text (blue)</label><input class="fi" id="cfg-he" placeholder="Perfectly Clean."></div>
-            </div>
-            <div class="fg"><label class="fl">Subtitle</label><textarea class="fi" id="cfg-hs" rows="2" style="resize:none"></textarea></div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Stat 1 Number</label><input class="fi" id="cfg-s1v" placeholder="200+"></div>
-              <div class="fg"><label class="fl">Stat 1 Label</label><input class="fi" id="cfg-s1l" placeholder="Happy Clients"></div>
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Stat 2 Number</label><input class="fi" id="cfg-s2v" placeholder="5★"></div>
-              <div class="fg"><label class="fl">Stat 2 Label</label><input class="fi" id="cfg-s2l" placeholder="Avg Rating"></div>
-            </div>
-            <button class="btn-sub" style="background:var(--navy)" onclick="saveHero()">💾 Save Hero</button>
-          </div>
-
-          <!-- CLEANING -->
-          <div class="card-box">
-            <h3>🧹 Cleaning Service</h3>
-            <div class="fg">
-              <label class="fl">Photo URL</label>
-              <div id="prev-cl" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-cli" placeholder="https://...">
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-clt" placeholder="Cleaning"></div>
-            </div>
-            <div class="fg"><label class="fl">Description</label><textarea class="fi" id="cfg-cld" rows="2" style="resize:none" placeholder="Professional home cleaning services..."></textarea></div>
-            <button class="btn-sub" style="background:var(--navy);margin-bottom:1.5rem" onclick="saveSvc('cleaning')">💾 Save Cleaning Info</button>
-            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem">
-              <div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div>
-              <div id="cl-prices"></div>
-              <div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap">
-                <input class="fi" id="new-cl-item" placeholder="e.g. Regular Cleaning" style="flex:1;min-width:140px">
-                <input class="fi" id="new-cl-price" placeholder="e.g. From £20/hr" style="width:140px">
-                <button class="abtn b" onclick="addPrice('cleaning')" style="padding:10px 16px">+ Add</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- IRONING -->
-          <div class="card-box">
-            <h3>👔 Ironing Service</h3>
-            <div class="fg">
-              <label class="fl">Photo URL</label>
-              <div id="prev-ir" class="img-ph">No image set</div>
-              <input class="fi" id="cfg-iri" placeholder="https://...">
-            </div>
-            <div class="form-row">
-              <div class="fg"><label class="fl">Service Title</label><input class="fi" id="cfg-irt" placeholder="Ironing"></div>
-            </div>
-            <div class="fg"><label class="fl">Description</label><textarea class="fi" id="cfg-ird" rows="2" style="resize:none" placeholder="Professional ironing service..."></textarea></div>
-            <button class="btn-sub" style="background:var(--navy);margin-bottom:1.5rem" onclick="saveSvc('ironing')">💾 Save Ironing Info</button>
-            <div style="border-top:1px solid #f1f5f9;padding-top:1.2rem">
-              <div style="font-weight:700;color:var(--navy);margin-bottom:0.8rem">Price List</div>
-              <div id="ir-prices"></div>
-              <div style="display:flex;gap:8px;margin-top:1rem;flex-wrap:wrap">
-                <input class="fi" id="new-ir-item" placeholder="e.g. Shirt" style="flex:1;min-width:140px">
-                <input class="fi" id="new-ir-price" placeholder="e.g. £2.50" style="width:140px">
-                <button class="abtn b" onclick="addPrice('ironing')" style="padding:10px 16px">+ Add</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ══════════════════════ ADMIN LOGIN ══════════════════════ -->
+<div id="page-login">
+  <div class="login-box" id="login-box">
+    <img src="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg" alt="" onerror="this.style.display='none'"/>
+    <h2>Admin Panel</h2>
+    <p>Brightway Cleaning</p>
+    <input type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')attemptLogin()"/>
+    <div class="login-err" id="login-err">Incorrect password.</div>
+    <button class="btn-login" onclick="attemptLogin()">Sign In →</button>
+    <button class="btn-back-site" onclick="showPublic()">← Back to Site</button>
   </div>
 </div>
 
-<script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import{getFirestore,collection,doc,addDoc,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,orderBy,where}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
-// Firebase config (inalterada)
-const cfg={
-  apiKey:"AIzaSyCAb51j-0XS91Kcn4jBLnCj5BE1c7wv-HQ",
-  authDomain:"brightway-cleaning.firebaseapp.com",
-  projectId:"brightway-cleaning",
-  storageBucket:"brightway-cleaning.firebasestorage.app",
-  messagingSenderId:"810845585338",
-  appId:"1:810845585338:web:2aa8eceaeb632a88f4e783"
-};
-const app=initializeApp(cfg);
-const db=getFirestore(app);
-
-// NAV
-window.goPage=function(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(p).classList.add('active');window.scrollTo(0,0);if(p==='admin')checkAuth();};
-window.goSec=function(id){document.getElementById('home').classList.add('active');document.querySelectorAll('.page').forEach(x=>{if(x.id!=='home')x.classList.remove('active');});setTimeout(()=>document.getElementById(id).scrollIntoView({behavior:'smooth'}),50);};
-window.toggleMenu=function(){document.getElementById('mobile-menu').classList.toggle('open');};
-window.closeMM=function(){document.getElementById('mobile-menu').classList.remove('open');};
-
-function toast(msg,type='ok'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type+' show';setTimeout(()=>t.classList.remove('show'),3500);}
-
-document.getElementById('f-date').min=new Date().toISOString().split('T')[0];
-
-// BOOKING (CORRIGIDO – sempre abre WhatsApp)
-window.submitBooking=async function(){
-  const name=document.getElementById('f-name').value.trim();
-  const phone=document.getElementById('f-phone').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  const address=document.getElementById('f-address').value.trim();
-  const service=document.getElementById('f-service').value;
-  const date=document.getElementById('f-date').value;
-  const time=document.getElementById('f-time').value;
-  const notes=document.getElementById('f-notes').value.trim();
-  const err=document.getElementById('form-err');
-  if(!name||!phone||!email||!address||!service||!date||!time){err.style.display='block';return;}
-  err.style.display='none';
-  const sl=service==='cleaning'?'Cleaning':service==='ironing'?'Ironing':'Cleaning + Ironing';
-  // Tenta guardar no Firestore, mas não impede o WhatsApp se falhar
-  try{
-    await addDoc(collection(db,'bookings'),{name,phone,email,address,service,date,time,notes,status:'pending',paymentStatus:'pending',createdAt:new Date().toISOString()});
-    await upsertClient({name,phone,email,address});
-  }catch(e){}
-  const msg=`Hello Brightway Cleaning! 🏠\n\nI'd like to book a service:\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📧 *Email:* ${email}\n📍 *Address:* ${address}\n🧹 *Service:* ${sl}\n📅 *Date:* ${date}\n🕐 *Time:* ${time}${notes?'\n📝 *Notes:* '+notes:''}\n\nPlease confirm my booking. Thank you!`;
-  window.open(`https://wa.me/447308102037?text=${encodeURIComponent(msg)}`,'_blank');
-  ['f-name','f-phone','f-email','f-address','f-notes'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('f-service').value='';
-  document.getElementById('f-date').value='';
-  document.getElementById('f-time').value='';
-  toast('✅ Booking sent! WhatsApp opened.');
-};
-
-async function upsertClient(d){
-  try{
-    const q=await getDocs(query(collection(db,'clients'),where('email','==',d.email)));
-    if(q.empty)await addDoc(collection(db,'clients'),{...d,totalBookings:1,totalSpent:0,createdAt:new Date().toISOString()});
-    else await updateDoc(q.docs[0].ref,{totalBookings:(q.docs[0].data().totalBookings||0)+1});
-  }catch(e){}
-}
-
-// LOAD SITE CONTENT
-async function loadSite(){
-  try{
-    const snap=await getDoc(doc(db,'siteConfig','main'));
-    if(snap.exists()){
-      const c=snap.data();
-      if(c.heroImg){document.getElementById('hero-bg').style.backgroundImage=`url('${c.heroImg}')`;document.getElementById('hero-bg').style.opacity='0.18';}
-      if(c.heroTitle){const t=document.getElementById('h-title');t.childNodes[0].textContent=c.heroTitle+' ';}
-      if(c.heroEm)document.getElementById('h-em').textContent=c.heroEm;
-      if(c.heroSub)document.getElementById('h-sub').textContent=c.heroSub;
-      if(c.s1v)document.getElementById('h-s1v').textContent=c.s1v;
-      if(c.s1l)document.getElementById('h-s1l').textContent=c.s1l;
-      if(c.s2v)document.getElementById('h-s2v').textContent=c.s2v;
-      if(c.s2l)document.getElementById('h-s2l').textContent=c.s2l;
-    }
-  }catch(e){}
-  renderSvcGrid();
-}
-
-async function renderSvcGrid(){
-  const grid=document.getElementById('svc-grid');
-  try{
-    const[cs,is,cp,ip]=await Promise.all([
-      getDoc(doc(db,'siteConfig','cleaning')),
-      getDoc(doc(db,'siteConfig','ironing')),
-      getDocs(collection(db,'cleaningPrices')),
-      getDocs(collection(db,'ironingPrices'))
-    ]);
-    const cl=cs.exists()?cs.data():{title:'Cleaning',desc:'Professional home cleaning services.',img:''};
-    const ir=is.exists()?is.data():{title:'Ironing',desc:'Professional ironing for all your garments.',img:''};
-    const clP=cp.docs.map(d=>({id:d.id,...d.data()}));
-    const irP=ip.docs.map(d=>({id:d.id,...d.data()}));
-    const buildPT=p=>p.length?`<table class="price-tbl"><thead><tr><th>Service</th><th style="text-align:right">Price</th></tr></thead><tbody>${p.map(x=>`<tr><td>${x.item}</td><td>${x.price}</td></tr>`).join('')}</tbody></table>`:`<div class="no-prices">Prices coming soon. Contact us for a quote!</div>`;
-    const buildCard=(svc,prices,icon,bg)=>`<div class="svc-card">
-      ${svc.img?`<img class="svc-img" src="${svc.img}" alt="${svc.title}">`:`<div class="svc-img-ph" style="background:${bg}">${icon}</div>`}
-      <div class="svc-body">
-        <span class="svc-icon">${icon}</span>
-        <div class="svc-title">${svc.title||'Service'}</div>
-        <div class="svc-desc">${svc.desc||''}</div>
-        ${buildPT(prices)}
-        <button class="btn-book" onclick="goSec('booking')">Book This Service →</button>
-      </div>
-    </div>`;
-    grid.innerHTML=buildCard(cl,clP,'🧹','linear-gradient(135deg,#0B1F3A,#1A3A6B)')+buildCard(ir,irP,'👔','linear-gradient(135deg,#1e293b,#475569)');
-  }catch(e){grid.innerHTML='<div class="loading">Could not load services.</div>';}
-}
-
-// ADMIN AUTH (senha fixa 120121)
-let loggedIn=false;
-let bks=[],cls=[],invs=[];
-
-function checkAuth(){
-  if(loggedIn){document.getElementById('adm-login').style.display='none';document.getElementById('adm-panel').style.display='block';loadAdmin();loadSiteCfg();}
-  else{document.getElementById('adm-login').style.display='block';document.getElementById('adm-panel').style.display='none';}
-}
-
-window.adminLogin=function(){
-  const pass=document.getElementById('adm-pass').value;
-  const err=document.getElementById('adm-err');
-  err.style.display='none';
-  if(pass==='120121'){
-    loggedIn=true;
-    document.getElementById('adm-login').style.display='none';
-    document.getElementById('adm-panel').style.display='block';
-    loadAdmin();
-    loadSiteCfg();
-    toast('✅ Welcome!');
-  }else{
-    err.style.display='block';
-  }
-};
-
-window.adminLogout=function(){loggedIn=false;goPage('home');toast('Logged out');};
-
-window.switchTab=function(t){
-  const tabs=['dashboard','bookings','clients','finance','invoices','site'];
-  document.querySelectorAll('.adm-tab').forEach((x,i)=>x.classList.toggle('active',tabs[i]===t));
-  document.querySelectorAll('.adm-content').forEach(x=>x.classList.remove('active'));
-  document.getElementById('tab-'+t).classList.add('active');
-};
-
-async function loadAdmin(){
-  try{
-    const[b,c,i]=await Promise.all([getDocs(query(collection(db,'bookings'),orderBy('createdAt','desc'))),getDocs(query(collection(db,'clients'),orderBy('createdAt','desc'))),getDocs(query(collection(db,'invoices'),orderBy('createdAt','desc')))]);
-    bks=b.docs.map(d=>({id:d.id,...d.data()}));
-    cls=c.docs.map(d=>({id:d.id,...d.data()}));
-    invs=i.docs.map(d=>({id:d.id,...d.data()}));
-    renderDash();renderBookings();renderClients();renderFin();renderInvoices();
-  }catch(e){toast('Error loading data','err');}
-}
-
-const fmt=d=>{try{return new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}catch{return d||'—';}};
-const fC=n=>'£'+(n||0).toFixed(2);
-const sL=s=>s==='cleaning'?'Cleaning':s==='ironing'?'Ironing':'Cleaning+Ironing';
-const sB=s=>({pending:'<span class="badge bp">pending</span>',confirmed:'<span class="badge bc">confirmed</span>',completed:'<span class="badge bd">completed</span>',cancelled:'<span class="badge bx">cancelled</span>'})[s]||`<span class="badge bp">${s}</span>`;
-const pB=s=>({pending:'<span class="badge bp">pending</span>',paid:'<span class="badge bpd">paid</span>',overdue:'<span class="badge bov">overdue</span>'})[s]||`<span class="badge bp">${s}</span>`;
-
-function renderDash(){
-  document.getElementById('s-tot').textContent=bks.length;
-  document.getElementById('s-pen').textContent=bks.filter(b=>b.status==='pending').length;
-  document.getElementById('s-don').textContent=bks.filter(b=>b.status==='completed').length;
-  document.getElementById('s-rev').textContent=fC(bks.filter(b=>b.paymentStatus==='paid').reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('dash-tbody').innerHTML=bks.slice(0,5).map(b=>`<tr><td><strong>${b.name}</strong><br><small style="color:var(--gray-mid)">${b.phone}</small></td><td>${sL(b.service)}</td><td>${fmt(b.date)}</td><td>${sB(b.status)}</td><td>${pB(b.paymentStatus)}</td></tr>`).join('')||'<tr><td colspan="5" class="loading">No bookings yet.</td></tr>';
-}
-
-window.renderBookings=function(){
-  const s=(document.getElementById('sb')||{}).value||'';
-  const f=(document.getElementById('fs')||{}).value||'';
-  const fl=bks.filter(b=>(b.name.toLowerCase().includes(s.toLowerCase())||b.email.toLowerCase().includes(s.toLowerCase()))&&(!f||b.status===f));
-  document.getElementById('bookings-tbody').innerHTML=fl.map(b=>`<tr>
-    <td><strong>${b.name}</strong><br><small style="color:var(--gray-mid)">${b.email}</small><br><small style="color:var(--gray-mid)">${b.phone}</small></td>
-    <td>${sL(b.service)}</td>
-    <td>${fmt(b.date)}<br><small style="color:var(--gray-mid)">${b.time}</small></td>
-    <td><select onchange="updS('${b.id}',this.value)" style="border:none;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.8rem">${['pending','confirmed','completed','cancelled'].map(s=>`<option value="${s}"${b.status===s?' selected':''}>${s}</option>`).join('')}</select></td>
-    <td><select onchange="updP('${b.id}',this.value)" style="border:none;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.8rem">${['pending','paid','overdue'].map(s=>`<option value="${s}"${b.paymentStatus===s?' selected':''}>${s}</option>`).join('')}</select></td>
-    <td><div style="display:flex;align-items:center;gap:4px"><span style="color:var(--gray-mid);font-size:0.8rem">£</span><input type="number" value="${b.amount||''}" placeholder="0" style="width:60px;border:1px solid #e2e8f0;border-radius:6px;padding:4px 6px;font-size:0.8rem;font-family:'DM Sans',sans-serif" onblur="updA('${b.id}',this.value)"></div></td>
-    <td><div style="display:flex;gap:4px;flex-wrap:wrap"><a class="abtn g" href="${buildWA(b)}" target="_blank" style="text-decoration:none">💬</a><button class="abtn b" onclick="genInv('${b.id}')">🧾</button><button class="abtn r" onclick="delBk('${b.id}')">🗑️</button></div></td>
-  </tr>`).join('')||'<tr><td colspan="7" class="loading">No bookings found.</td></tr>';
-};
-
-function buildWA(b){const msg=`Hello ${b.name}! Brightway Cleaning here confirming your ${sL(b.service)} on ${b.date} at ${b.time}. See you soon! 🏠✨`;return `https://wa.me/${b.phone.replace(/\D/g,'')}?text=${encodeURIComponent(msg)}`;}
-
-window.updS=async function(id,status){try{await updateDoc(doc(db,'bookings',id),{status});bks=bks.map(b=>b.id===id?{...b,status}:b);renderDash();renderFin();toast('✅ Status updated');}catch(e){toast('Error','err');}};
-window.updP=async function(id,paymentStatus){try{await updateDoc(doc(db,'bookings',id),{paymentStatus});bks=bks.map(b=>b.id===id?{...b,paymentStatus}:b);renderDash();renderFin();toast('✅ Payment updated');}catch(e){toast('Error','err');}};
-window.updA=async function(id,val){const amount=parseFloat(val)||0;try{await updateDoc(doc(db,'bookings',id),{amount});bks=bks.map(b=>b.id===id?{...b,amount}:b);renderDash();renderFin();toast('✅ Amount saved');}catch(e){toast('Error','err');}};
-window.delBk=async function(id){if(!confirm('Delete this booking?'))return;try{await deleteDoc(doc(db,'bookings',id));bks=bks.filter(b=>b.id!==id);renderDash();renderBookings();renderFin();toast('✅ Deleted');}catch(e){toast('Error','err');}};
-
-window.renderClients=function(){
-  const s=(document.getElementById('sc')||{}).value||'';
-  const f=cls.filter(c=>c.name.toLowerCase().includes(s.toLowerCase())||c.email.toLowerCase().includes(s.toLowerCase()));
-  document.getElementById('clients-grid').innerHTML=f.map(c=>`<div class="client-card">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem"><div class="cav">${c.name.charAt(0)}</div><div><div style="font-weight:700;color:var(--navy)">${c.name}</div><div style="font-size:0.75rem;color:var(--gray-mid)">Since ${fmt(c.createdAt)}</div></div></div>
-    <div style="font-size:0.82rem;margin-bottom:5px">📧 ${c.email}</div>
-    <div style="font-size:0.82rem;margin-bottom:5px">📞 ${c.phone}</div>
-    <div style="font-size:0.82rem;margin-bottom:1rem">📍 ${c.address}</div>
-    <div style="display:flex;gap:1.5rem;border-top:1px solid #f1f5f9;padding-top:1rem">
-      <div><div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--navy)">${c.totalBookings||0}</div><div style="font-size:0.7rem;color:var(--gray-mid);text-transform:uppercase">Bookings</div></div>
-      <div><div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--navy)">${fC(c.totalSpent||0)}</div><div style="font-size:0.7rem;color:var(--gray-mid);text-transform:uppercase">Spent</div></div>
+<!-- ══════════════════════ ADMIN PANEL ══════════════════════ -->
+<div id="page-admin">
+  <div class="admin-topbar">
+    <span class="admin-topbar-logo">Brightway Admin</span>
+    <button class="admin-topbar-menu" onclick="toggleSidebar()">☰</button>
+  </div>
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg" alt="" onerror="this.style.display='none'"/>
+      <div><div class="s-name">Brightway</div><div class="s-sub">Admin Panel</div></div>
     </div>
-  </div>`).join('')||'<div class="loading">No clients yet.</div>';
-};
+    <nav class="sidebar-nav">
+      <button class="tab-btn active" onclick="showTab('dashboard',this)">⬛ Dashboard</button>
+      <button class="tab-btn" onclick="showTab('calendar',this)">📅 Calendar</button>
+      <button class="tab-btn" onclick="showTab('clients',this)">👥 Clients</button>
+      <button class="tab-btn" onclick="showTab('invoices',this)">📄 Invoices</button>
+      <button class="tab-btn" onclick="showTab('gallery',this)">🖼 Gallery</button>
+      <button class="tab-btn" onclick="showTab('editsite',this)">✏️ Edit Site</button>
+    </nav>
+    <div class="sidebar-foot">
+      <button class="btn-view-site" onclick="showPublic()">← View Site</button>
+      <button class="btn-signout" onclick="showPublic()">Sign Out</button>
+    </div>
+  </aside>
+  <div class="admin-main">
 
-function renderFin(){
-  const paid=bks.filter(b=>b.paymentStatus==='paid');
-  const unpaid=bks.filter(b=>b.paymentStatus==='pending');
-  const over=bks.filter(b=>b.paymentStatus==='overdue');
-  document.getElementById('fr').textContent=fC(paid.reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('fp').textContent=fC(unpaid.reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('fo').textContent=fC(over.reduce((a,b)=>a+(b.amount||0),0));
-  document.getElementById('fin-tbody').innerHTML=[...unpaid,...over].map(b=>`<tr><td><strong>${b.name}</strong><br><small style="color:var(--gray-mid)">${b.email}</small></td><td>${sL(b.service)}</td><td>${fmt(b.date)}</td><td><strong>${b.amount?fC(b.amount):'—'}</strong></td><td>${pB(b.paymentStatus)}</td><td><button class="abtn g" onclick="updP('${b.id}','paid')">✓ Mark Paid</button></td></tr>`).join('')||'<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--gray-mid)">✅ All payments up to date!</td></tr>';
-  document.getElementById('paid-tbody').innerHTML=paid.map(b=>`<tr><td><strong>${b.name}</strong></td><td>${sL(b.service)}</td><td>${fmt(b.date)}</td><td style="color:#166534;font-weight:700">${b.amount?fC(b.amount):'—'}</td></tr>`).join('')||'<tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--gray-mid)">No paid bookings yet.</td></tr>';
+    <!-- DASHBOARD -->
+    <div class="admin-tab active" id="tab-dashboard">
+      <h1 class="admin-title">Dashboard</h1>
+      <p class="admin-sub">Welcome back. Here's your overview.</p>
+      <div class="dash-cards" id="dash-cards"></div>
+      <div class="table-card">
+        <div class="table-head"><h3>Recent Bookings</h3><button class="small-btn" onclick="showTab('calendar',document.querySelectorAll('.tab-btn')[1])">Calendar →</button></div>
+        <div id="dash-bookings"></div>
+      </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="admin-tab" id="tab-calendar">
+      <div class="cal-toolbar">
+        <div><h1 class="admin-title" style="margin-bottom:4px">Calendar</h1><p class="admin-sub" style="margin:0;font-size:13px">Tap empty slot to add · Tap booking to edit</p></div>
+        <div class="cal-nav">
+          <button class="cal-nav-btn" onclick="moveWeek(-1)">‹</button>
+          <span class="cal-range" id="cal-range"></span>
+          <button class="cal-nav-btn" onclick="moveWeek(1)">›</button>
+          <button class="small-btn" onclick="weekOffset=0;renderCalendar()">Today</button>
+        </div>
+      </div>
+      <div class="cal-wrap"><div class="cal-grid" id="cal-grid"></div></div>
+    </div>
+
+    <!-- CLIENTS -->
+    <div class="admin-tab" id="tab-clients">
+      <div class="page-header">
+        <div><h1 class="admin-title" style="margin-bottom:4px">Clients</h1><p class="admin-sub" style="margin:0;font-size:13px" id="clients-count"></p></div>
+        <button class="add-btn" onclick="openAddClient()">+ Add Client</button>
+      </div>
+      <div class="clients-grid" id="clients-grid"></div>
+    </div>
+
+    <!-- INVOICES -->
+    <div class="admin-tab" id="tab-invoices">
+      <h1 class="admin-title">Invoices</h1>
+      <p class="admin-sub">All bookings and invoices</p>
+      <div class="table-card">
+        <div class="table-head"><h3>All Bookings</h3></div>
+        <div id="invoices-list"></div>
+      </div>
+    </div>
+
+    <!-- GALLERY (UPLOAD + LINK) -->
+    <div class="admin-tab" id="tab-gallery">
+      <div class="page-header">
+        <div><h1 class="admin-title" style="margin-bottom:4px">Gallery</h1><p class="admin-sub" style="margin:0;font-size:13px">Upload files or add via link (ImgBB, Unsplash, etc.)</p></div>
+        <button class="add-btn" onclick="document.getElementById('file-upload').click()">+ Upload</button>
+      </div>
+      <input type="file" id="file-upload" accept="image/*" multiple style="display:none" onchange="handleUpload(event)"/>
+      <!-- ADD VIA LINK -->
+      <div class="gallery-url-box" style="margin-bottom:16px">
+        <label>🔗 Link:</label>
+        <input type="text" id="img-url-input" placeholder="Cole o link da imagem (ImgBB, etc.)"/>
+        <button onclick="addImageFromUrl()">Adicionar via Link</button>
+      </div>
+      <div class="gallery-admin-grid" id="admin-gallery"></div>
+    </div>
+
+    <!-- EDIT SITE -->
+    <div class="admin-tab" id="tab-editsite">
+      <h1 class="admin-title">Edit Site</h1>
+      <p class="admin-sub">Upload your price table images — they appear live on the website instantly.</p>
+      <div class="price-img-admin">
+        <div class="price-img-card">
+          <div class="price-img-card-head">
+            <span>🏠 Cleaning Price Table</span>
+            <div style="display:flex;gap:8px">
+              <button class="price-upload-btn" onclick="document.getElementById('upload-cleaning').click()">📤 Upload</button>
+              <button class="price-delete-btn" onclick="deletePriceImg('cleaning')" id="del-cleaning" style="display:none">🗑</button>
+            </div>
+          </div>
+          <div class="price-img-card-body" id="admin-price-cleaning">
+            <div class="price-img-card-empty"><div class="big">🏠</div><p>No image yet.<br>Click Upload to add your cleaning price table.</p></div>
+          </div>
+          <input type="file" id="upload-cleaning" accept="image/*" style="display:none" onchange="uploadPriceImg(event,'cleaning')"/>
+        </div>
+        <div class="price-img-card">
+          <div class="price-img-card-head">
+            <span>👕 Ironing Price Table</span>
+            <div style="display:flex;gap:8px">
+              <button class="price-upload-btn" onclick="document.getElementById('upload-ironing').click()">📤 Upload</button>
+              <button class="price-delete-btn" onclick="deletePriceImg('ironing')" id="del-ironing" style="display:none">🗑</button>
+            </div>
+          </div>
+          <div class="price-img-card-body" id="admin-price-ironing">
+            <div class="price-img-card-empty"><div class="big">👕</div><p>No image yet.<br>Click Upload to add your ironing price table.</p></div>
+          </div>
+          <input type="file" id="upload-ironing" accept="image/*" style="display:none" onchange="uploadPriceImg(event,'ironing')"/>
+        </div>
+      </div>
+      <div style="background:var(--accentL);border-radius:14px;padding:18px 20px;border:1.5px solid #C7DEFF">
+        <p style="font-size:14px;color:var(--accent);font-weight:600;margin-bottom:4px">💡 How it works</p>
+        <p style="font-size:13px;color:var(--g600);line-height:1.6">Upload the photo of your price list here. It will appear immediately on the public website in the "Choose Your Service" section. You can replace it anytime by uploading a new one.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODALS (mantidos iguais) -->
+<div class="overlay" id="cal-new-overlay" onclick="if(event.target===this)closeCalNew()">
+  <div class="modal" style="max-width:440px">
+    <button class="modal-close" onclick="closeCalNew()">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;margin-bottom:4px">New Booking</h3>
+    <p style="font-size:13px;color:var(--g400);margin-bottom:20px" id="cal-new-date"></p>
+    <div class="field"><label>Client</label><select id="cal-client-sel"><option value="">— Choose client —</option></select></div>
+    <div class="field"><label>Service</label><select id="cal-service-sel" onchange="autoFillPrice()"><option value="">— Choose service —</option><option value="house">House Cleaning</option><option value="deepclean">Deep Clean</option><option value="oven">Oven Cleaning</option><option value="ironing">Ironing</option><option value="office">Office Cleaning</option><option value="airbnb">Airbnb Cleaning</option></select></div>
+    <div class="form-row" style="margin-bottom:0"><div class="field"><label>Start Time</label><select id="cal-time-start"></select></div><div class="field"><label>End Time</label><select id="cal-time-end"></select></div></div>
+    <div class="field"><label>Value (£)</label><input type="number" id="cal-amount" placeholder="e.g. 80" min="0"/></div>
+    <div class="field"><label>Status</label><div class="status-toggle"><button type="button" class="status-opt active-pending" id="new-st-pending" onclick="setNewStatus('pending')">⏳ Pending</button><button type="button" class="status-opt" id="new-st-confirmed" onclick="setNewStatus('confirmed')">✅ Confirmed</button><button type="button" class="status-opt" id="new-st-paid" onclick="setNewStatus('paid')">💰 Paid</button></div></div>
+    <div class="btn-row" style="margin-top:16px"><button class="btn-secondary" onclick="closeCalNew()">Cancel</button><button class="btn-primary" style="flex:2;padding:12px;font-size:14px;border-radius:12px" onclick="addBookingFromCal()">Add to Calendar ✓</button></div>
+  </div>
+</div>
+<div class="overlay" id="cal-edit-overlay" onclick="if(event.target===this)closeCalEdit()">
+  <div class="modal" style="max-width:440px">
+    <button class="modal-close" onclick="closeCalEdit()">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;margin-bottom:4px">Edit Booking</h3>
+    <p style="font-size:13px;color:var(--g400);margin-bottom:20px" id="cal-edit-date"></p>
+    <div class="field"><label>Client</label><input type="text" id="edit-client-name" readonly style="background:var(--g100);color:var(--g600)"/></div>
+    <div class="field"><label>Address</label><input type="text" id="edit-client-addr" readonly style="background:var(--g100);color:var(--g600)"/></div>
+    <div class="field"><label>Service</label><select id="edit-service"><option value="House Cleaning">House Cleaning</option><option value="Deep Clean">Deep Clean</option><option value="Oven Cleaning">Oven Cleaning</option><option value="Ironing">Ironing</option><option value="Office Cleaning">Office Cleaning</option><option value="Airbnb Cleaning">Airbnb Cleaning</option></select></div>
+    <div class="form-row" style="margin-bottom:0"><div class="field"><label>Start Time</label><select id="edit-time-start"></select></div><div class="field"><label>End Time</label><select id="edit-time-end"></select></div></div>
+    <div class="field"><label>Value (£)</label><input type="number" id="edit-amount" min="0"/></div>
+    <div class="field"><label>Status</label><div class="status-toggle"><button type="button" class="status-opt" id="edit-st-pending" onclick="setEditStatus('pending')">⏳ Pending</button><button type="button" class="status-opt" id="edit-st-confirmed" onclick="setEditStatus('confirmed')">✅ Confirmed</button><button type="button" class="status-opt" id="edit-st-paid" onclick="setEditStatus('paid')">💰 Paid</button></div></div>
+    <div class="btn-row" style="margin-top:16px"><button class="btn-secondary" style="background:var(--redL);color:var(--red)" onclick="deleteEditBooking()">🗑 Delete</button><button class="btn-primary" style="flex:2;padding:12px;font-size:14px;border-radius:12px" onclick="saveEditBooking()">Save Changes ✓</button></div>
+  </div>
+</div>
+<div class="overlay" id="client-overlay" onclick="if(event.target===this)closeClientModal()">
+  <div class="modal" style="max-width:420px">
+    <button class="modal-close" onclick="closeClientModal()">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;margin-bottom:20px" id="client-modal-title">Add Client</h3>
+    <input type="hidden" id="client-edit-id"/>
+    <div class="field"><label>Full Name</label><input type="text" id="cf-name"/></div>
+    <div class="field"><label>Phone</label><input type="tel" id="cf-phone"/></div>
+    <div class="field"><label>Address</label><input type="text" id="cf-address"/></div>
+    <div class="field"><label>Notes</label><input type="text" id="cf-notes"/></div>
+    <div class="btn-row" style="margin-top:8px"><button class="btn-secondary" onclick="closeClientModal()">Cancel</button><button class="btn-primary" style="flex:2;padding:12px;font-size:14px;border-radius:12px" onclick="saveClient()">Save ✓</button></div>
+  </div>
+</div>
+<div class="overlay" id="invoice-overlay" onclick="if(event.target===this)closeInvoice()">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="closeInvoice()">✕</button>
+    <div id="invoice-content"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ JAVASCRIPT (FIREBASE + LINK) ══════════════════════ -->
+<script>
+// ═══════════════ FIREBASE INIT ═══════════════
+const firebaseConfig = {
+  apiKey: "AIzaSyA9H0k09yjAfB-dXVXKSk-Xe95GuSZVfAc",
+  authDomain: "brightway-cleaning-4df0e.firebaseapp.com",
+  projectId: "brightway-cleaning-4df0e",
+  storageBucket: "brightway-cleaning-4df0e.firebasestorage.app",
+  messagingSenderId: "394648345931",
+  appId: "1:394648345931:web:bff501c3c0807d460f9cce"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+const SVCMAP = {
+  house: {title:'House Cleaning', price:80},
+  deepclean: {title:'Deep Clean', price:120},
+  oven: {title:'Oven Cleaning', price:60},
+  ironing: {title:'Ironing', price:25},
+  office: {title:'Office Cleaning', price:120},
+  airbnb: {title:'Airbnb Cleaning', price:95},
+};
+const TIME_SLOTS = ['07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
+const WEEK_DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+let priceImgs = { cleaning: null, ironing: null };
+let gallery = [];
+let clients = [];
+let bookings = [];
+let weekOffset = 0;
+let calSlotDate = '';
+let calSlotTime = '';
+let editBkId = null;
+let newStatus = 'pending';
+let editStatus = 'pending';
+let selTime = '';
+
+async function loadAllData() {
+  try {
+    const priceDoc = await db.collection('siteData').doc('priceImages').get();
+    priceImgs = priceDoc.exists ? priceDoc.data() : { cleaning: null, ironing: null };
+
+    const gallerySnap = await db.collection('gallery').orderBy('createdAt', 'desc').get();
+    gallery = [];
+    gallerySnap.forEach(doc => gallery.push({ id: doc.id, ...doc.data() }));
+
+    const clientsSnap = await db.collection('clients').get();
+    clients = [];
+    clientsSnap.forEach(doc => clients.push({ id: doc.id, ...doc.data(), services: doc.data().services || 0 }));
+
+    const bookingsSnap = await db.collection('bookings').get();
+    bookings = [];
+    bookingsSnap.forEach(doc => bookings.push({ id: doc.id, ...doc.data() }));
+
+    renderPublicGallery(); renderPublicPriceImgs(); renderTimeGrid();
+    console.log('✅ Dados carregados do Firebase');
+  } catch (err) {
+    console.error('Erro ao carregar dados:', err);
+    renderPublicGallery(); renderPublicPriceImgs(); renderTimeGrid();
+  }
 }
 
-window.genInv=async function(bid){
-  const b=bks.find(x=>x.id===bid);if(!b)return;
-  if(!b.amount){toast('⚠️ Set an amount first','err');return;}
-  const num='BW-'+new Date().getFullYear()+'-'+String(invs.length+1).padStart(3,'0');
-  const due=new Date();due.setDate(due.getDate()+14);
-  try{
-    const inv={invoiceNumber:num,bookingId:bid,clientName:b.name,clientEmail:b.email,clientAddress:b.address,service:b.service,serviceDate:b.date,dueDate:due.toISOString().split('T')[0],amount:b.amount,status:b.paymentStatus==='paid'?'paid':'pending',createdAt:new Date().toISOString()};
-    const ref=await addDoc(collection(db,'invoices'),inv);
-    await updateDoc(doc(db,'bookings',bid),{invoiceId:ref.id});
-    invs.unshift({id:ref.id,...inv});renderInvoices();toast('✅ Invoice '+num+' created!');printInv({id:ref.id,...inv});
-  }catch(e){toast('Error','err');}
-};
-
-window.renderInvoices=function(){
-  const s=(document.getElementById('si')||{}).value||'';
-  const f=invs.filter(i=>i.clientName.toLowerCase().includes(s.toLowerCase())||i.invoiceNumber.toLowerCase().includes(s.toLowerCase()));
-  document.getElementById('inv-tbody').innerHTML=f.map(inv=>`<tr>
-    <td style="font-family:monospace;font-weight:700;font-size:0.8rem">${inv.invoiceNumber}</td>
-    <td><strong>${inv.clientName}</strong><br><small style="color:var(--gray-mid)">${inv.clientEmail}</small></td>
-    <td>${sL(inv.service)}</td><td>${fmt(inv.serviceDate)}</td><td>${fmt(inv.dueDate)}</td>
-    <td><strong>${fC(inv.amount)}</strong></td><td>${pB(inv.status)}</td>
-    <td><div style="display:flex;gap:4px"><button class="abtn b" onclick='printInv(${JSON.stringify(inv).replace(/'/g,"&#39;")})'>🖨️</button>${inv.status!=='paid'?`<button class="abtn g" onclick="markPaid('${inv.id}')">✓</button>`:''}</div></td>
-  </tr>`).join('')||'<tr><td colspan="8" class="loading">No invoices yet.</td></tr>';
-};
-
-window.markPaid=async function(id){try{await updateDoc(doc(db,'invoices',id),{status:'paid'});invs=invs.map(i=>i.id===id?{...i,status:'paid'}:i);renderInvoices();toast('✅ Marked as paid');}catch(e){toast('Error','err');}};
-
-window.printInv=function(inv){
-  const w=window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html><head><title>Invoice ${inv.invoiceNumber}</title>
-  <style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Helvetica Neue',sans-serif;color:#1e293b;padding:48px;}
-  .h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:40px;}
-  .logo{font-family:Georgia,serif;font-size:22px;font-weight:900;color:#0B1F3A;}
-  .logo span{display:block;font-size:10px;font-weight:400;color:#94a3b8;letter-spacing:0.15em;margin-top:2px;}
-  .ir{text-align:right;}.ir h1{font-size:2.5rem;font-weight:900;color:#0B1F3A;font-family:Georgia,serif;}
-  .ir p{color:#94a3b8;font-size:0.85rem;margin-top:4px;}
-  .div{height:3px;background:#0B1F3A;margin:2rem 0;}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;}
-  .lbl{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#94a3b8;margin-bottom:6px;}
-  .val{font-size:0.9rem;}
-  table{width:100%;border-collapse:collapse;margin-bottom:2rem;}
-  th{text-align:left;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#94a3b8;padding:10px 0;border-bottom:1px solid #e2e8f0;}
-  td{padding:16px 0;border-bottom:1px solid #f1f5f9;font-size:0.9rem;}
-  .tb{display:flex;justify-content:flex-end;margin-bottom:3rem;}
-  .tbox{background:#0B1F3A;color:#fff;padding:20px 32px;border-radius:12px;min-width:200px;}
-  .tl{font-size:0.65rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.1em;}
-  .tv{font-size:2rem;font-weight:900;font-family:Georgia,serif;margin-top:4px;}
-  .badge{display:inline-block;padding:4px 14px;border-radius:100px;font-size:0.7rem;font-weight:700;}
-  .paid{background:#dcfce7;color:#166534;}.pending{background:#fef3c7;color:#92400e;}
-  .ft{text-align:center;font-size:0.75rem;color:#94a3b8;border-top:1px solid #f1f5f9;padding-top:1.5rem;}
-  </style></head><body>
-  <div class="h"><div class="logo">Brightway Cleaning<span>UNITED KINGDOM</span></div><div class="ir"><h1>INVOICE</h1><p>${inv.invoiceNumber}</p><p style="margin-top:8px"><span class="badge ${inv.status}">${inv.status}</span></p></div></div>
-  <div class="div"></div>
-  <div class="two"><div><div class="lbl">Bill To</div><div class="val" style="font-weight:700">${inv.clientName}</div><div class="val">${inv.clientEmail}</div><div class="val">${inv.clientAddress}</div></div>
-  <div><div style="margin-bottom:1rem"><div class="lbl">Invoice Date</div><div class="val">${fmt(inv.createdAt)}</div></div><div><div class="lbl">Due Date</div><div class="val">${fmt(inv.dueDate)}</div></div></div></div>
-  <table><thead><tr><th>Description</th><th>Service Date</th><th style="text-align:right">Amount</th></tr></thead>
-  <tbody><tr><td>${sL(inv.service)} Service</td><td>${fmt(inv.serviceDate)}</td><td style="text-align:right;font-weight:700">${fC(inv.amount)}</td></tr></tbody></table>
-  <div class="tb"><div class="tbox"><div class="tl">Total Due</div><div class="tv">${fC(inv.amount)}</div></div></div>
-  <div class="ft">Brightway Cleaning · +44 7308 102037 · United Kingdom<br>Thank you for your business! 🏠✨</div>
-  <script>window.print()<\/script></body></html>`);
-  w.document.close();
-};
-
-// SITE SETTINGS
-async function loadSiteCfg(){
-  try{
-    const[m,cl,ir,cp,ip]=await Promise.all([getDoc(doc(db,'siteConfig','main')),getDoc(doc(db,'siteConfig','cleaning')),getDoc(doc(db,'siteConfig','ironing')),getDocs(collection(db,'cleaningPrices')),getDocs(collection(db,'ironingPrices'))]);
-    if(m.exists()){const c=m.data();if(c.heroImg){document.getElementById('cfg-hi').value=c.heroImg;setP('prev-hero',c.heroImg);}if(c.heroTitle)document.getElementById('cfg-ht').value=c.heroTitle;if(c.heroEm)document.getElementById('cfg-he').value=c.heroEm;if(c.heroSub)document.getElementById('cfg-hs').value=c.heroSub;if(c.s1v)document.getElementById('cfg-s1v').value=c.s1v;if(c.s1l)document.getElementById('cfg-s1l').value=c.s1l;if(c.s2v)document.getElementById('cfg-s2v').value=c.s2v;if(c.s2l)document.getElementById('cfg-s2l').value=c.s2l;}
-    if(cl.exists()){const c=cl.data();if(c.img){document.getElementById('cfg-cli').value=c.img;setP('prev-cl',c.img);}if(c.title)document.getElementById('cfg-clt').value=c.title;if(c.desc)document.getElementById('cfg-cld').value=c.desc;}
-    if(ir.exists()){const c=ir.data();if(c.img){document.getElementById('cfg-iri').value=c.img;setP('prev-ir',c.img);}if(c.title)document.getElementById('cfg-irt').value=c.title;if(c.desc)document.getElementById('cfg-ird').value=c.desc;}
-    renderPL('cleaning',cp.docs.map(d=>({id:d.id,...d.data()})));
-    renderPL('ironing',ip.docs.map(d=>({id:d.id,...d.data()})));
-  }catch(e){}
+function showPublic() {
+  document.getElementById('page-public').style.display='block';
+  document.getElementById('page-login').classList.remove('open');
+  document.getElementById('page-admin').classList.remove('open');
+  loadAllData();
+}
+function showLogin(e) { e.preventDefault(); document.getElementById('page-public').style.display='none'; document.getElementById('page-login').classList.add('open'); document.getElementById('pw-input').value=''; document.getElementById('login-err').style.display='none'; document.getElementById('pw-input').classList.remove('error'); }
+function showAdmin() {
+  document.getElementById('page-public').style.display='none';
+  document.getElementById('page-login').classList.remove('open');
+  document.getElementById('page-admin').classList.add('open');
+  loadAllData().then(() => { renderDashboard();renderCalendar();renderClients();renderInvoices();renderAdminGallery();renderAdminPriceImgs(); });
+}
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('mobile-open'); document.getElementById('sidebar-overlay').classList.toggle('open'); }
+function closeSidebar() { document.getElementById('sidebar').classList.remove('mobile-open'); document.getElementById('sidebar-overlay').classList.remove('open'); }
+function attemptLogin() {
+  if (document.getElementById('pw-input').value==='120121') { showAdmin(); }
+  else { document.getElementById('login-err').style.display='block'; document.getElementById('pw-input').classList.add('error'); const b=document.getElementById('login-box'); b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),500); }
+}
+function showTab(name, btn) {
+  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+  closeSidebar();
+  if (name==='calendar') renderCalendar();
+  if (name==='clients') renderClients();
+  if (name==='invoices') renderInvoices();
+  if (name==='gallery') renderAdminGallery();
+  if (name==='dashboard') renderDashboard();
+  if (name==='editsite') renderAdminPriceImgs();
 }
 
-function setP(elId,url){const el=document.getElementById(elId);if(url){el.innerHTML=`<img class="img-prev" src="${url}" alt="preview" onerror="this.parentElement.innerHTML='<div class=img-ph>Image not found</div>'">`;}else{el.innerHTML='<div class="img-ph">No image set</div>';}}
-
-function renderPL(type,prices){
-  const key=type==='cleaning'?'cl':'ir';
-  document.getElementById(key+'-prices').innerHTML=prices.length?prices.map(p=>`<div class="prow"><span class="prow-name">${p.item}</span><span class="prow-price">${p.price}</span><button class="abtn r" onclick="delPrice('${type}','${p.id}')" style="padding:4px 8px">✕</button></div>`).join(''):'<div style="color:var(--gray-mid);font-size:0.85rem;padding:0.5rem 0">No prices added yet.</div>';
+// ═════ PRICE IMAGES ═════
+async function uploadPriceImg(e, type) {
+  const file = e.target.files[0]; if(!file) return;
+  try {
+    const storageRef = storage.ref(`priceImages/${type}`);
+    await storageRef.put(file);
+    const url = await storageRef.getDownloadURL();
+    priceImgs[type] = url;
+    await db.collection('siteData').doc('priceImages').set(priceImgs, { merge: true });
+    renderAdminPriceImgs(); renderPublicPriceImgs();
+  } catch (err) { console.error(err); alert('Upload falhou. Verifique as regras do Storage.'); }
+  e.target.value='';
+}
+async function deletePriceImg(type) {
+  try { await storage.ref(`priceImages/${type}`).delete(); } catch(e) {}
+  priceImgs[type] = null;
+  await db.collection('siteData').doc('priceImages').set(priceImgs, { merge: true });
+  renderAdminPriceImgs(); renderPublicPriceImgs();
+}
+function renderAdminPriceImgs() {
+  ['cleaning','ironing'].forEach(type => {
+    const body = document.getElementById('admin-price-'+type);
+    const delBtn = document.getElementById('del-'+type);
+    if (priceImgs[type]) {
+      body.innerHTML = `<img src="${priceImgs[type]}" alt="Price table" style="width:100%;display:block;object-fit:contain"/>`;
+      if(delBtn) delBtn.style.display='block';
+    } else {
+      const icon = type==='cleaning'?'🏠':'👕';
+      body.innerHTML = `<div class="price-img-card-empty"><div class="big">${icon}</div><p>No image yet.<br>Click Upload to add.</p></div>`;
+      if(delBtn) delBtn.style.display='none';
+    }
+  });
+}
+function renderPublicPriceImgs() {
+  ['cleaning','ironing'].forEach(type => {
+    const wrap = document.getElementById('public-price-'+type);
+    if(!wrap) return;
+    if (priceImgs[type]) wrap.innerHTML = `<img src="${priceImgs[type]}" alt="Price table" style="width:100%;display:block;object-fit:contain"/>`;
+    else { const icon = type==='cleaning'?'🏠':'👕'; wrap.innerHTML = `<div class="price-img-empty"><div class="big">${icon}</div><p>Price table coming soon</p></div>`; }
+  });
 }
 
-window.saveHero=async function(){
-  const d={heroImg:document.getElementById('cfg-hi').value.trim(),heroTitle:document.getElementById('cfg-ht').value.trim(),heroEm:document.getElementById('cfg-he').value.trim(),heroSub:document.getElementById('cfg-hs').value.trim(),s1v:document.getElementById('cfg-s1v').value.trim(),s1l:document.getElementById('cfg-s1l').value.trim(),s2v:document.getElementById('cfg-s2v').value.trim(),s2l:document.getElementById('cfg-s2l').value.trim()};
-  try{await setDoc(doc(db,'siteConfig','main'),d,{merge:true});setP('prev-hero',d.heroImg);loadSite();toast('✅ Hero saved!');}catch(e){toast('Error','err');}
-};
+// ═════ GALLERY ═════
+function renderPublicGallery() {
+  const c = document.getElementById('public-gallery'); if(!c) return;
+  c.innerHTML = gallery.map(img => `<div class="gallery-item" onclick="openLightbox('${img.url}')"><img src="${img.url}" alt="${img.caption||''}" loading="lazy"/><div class="gallery-ov"><span>${img.caption||''}</span></div></div>`).join('');
+}
+function openLightbox(url) { document.getElementById('lightbox-img').src=url; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
 
-window.saveSvc=async function(type){
-  const pre=type==='cleaning'?'cl':'ir';
-  const d={img:document.getElementById('cfg-'+pre+'i').value.trim(),title:document.getElementById('cfg-'+pre+'t').value.trim(),desc:document.getElementById('cfg-'+pre+'d').value.trim()};
-  try{await setDoc(doc(db,'siteConfig',type),d,{merge:true});setP('prev-'+pre,d.img);renderSvcGrid();toast('✅ '+type.charAt(0).toUpperCase()+type.slice(1)+' saved!');}catch(e){toast('Error','err');}
-};
+function renderAdminGallery() {
+  const grid = document.getElementById('admin-gallery');
+  grid.innerHTML = gallery.map(img => `
+    <div class="gallery-admin-item">
+      <img src="${img.url}" alt="${img.caption||''}" loading="lazy"/>
+      <div class="g-admin-ov"><div class="g-admin-name">${img.caption||''}</div><button class="btn-del-img" onclick="deleteGalleryImg('${img.id}')">🗑 Delete</button></div>
+    </div>`).join('') +
+    `<div class="gallery-upload-box" onclick="document.getElementById('file-upload').click()"><div style="font-size:28px">+</div><div>Upload Photo</div></div>`;
+}
+async function deleteGalleryImg(id) {
+  if (!confirm('Delete this image?')) return;
+  try {
+    const img = gallery.find(i=>i.id===id);
+    if (img && img.storagePath) await storage.ref(img.storagePath).delete();
+    await db.collection('gallery').doc(id).delete();
+    gallery = gallery.filter(i=>i.id!==id);
+    renderAdminGallery(); renderPublicGallery();
+  } catch (err) { console.error(err); }
+}
 
-window.addPrice=async function(type){
-  const pre=type==='cleaning'?'cl':'ir';
-  const item=document.getElementById('new-'+pre+'-item').value.trim();
-  const price=document.getElementById('new-'+pre+'-price').value.trim();
-  if(!item||!price){toast('⚠️ Fill in both fields','err');return;}
-  try{
-    await addDoc(collection(db,type+'Prices'),{item,price,createdAt:new Date().toISOString()});
-    document.getElementById('new-'+pre+'-item').value='';
-    document.getElementById('new-'+pre+'-price').value='';
-    const snap=await getDocs(collection(db,type+'Prices'));
-    renderPL(type,snap.docs.map(d=>({id:d.id,...d.data()})));
-    renderSvcGrid();toast('✅ Price added!');
-  }catch(e){toast('Error','err');}
-};
+// Upload via arquivo (Firebase Storage)
+async function handleUpload(e) {
+  const files = Array.from(e.target.files);
+  for (const file of files) {
+    try {
+      const ref = storage.ref(`gallery/${Date.now()}_${file.name}`);
+      const snap = await ref.put(file);
+      const url = await snap.ref.getDownloadURL();
+      const docRef = await db.collection('gallery').add({
+        url, caption: file.name.replace(/\.[^/.]+$/,''), storagePath: ref.fullPath,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      gallery.push({ id: docRef.id, url, caption: file.name.replace(/\.[^/.]+$/,''), storagePath: ref.fullPath });
+    } catch (err) {
+      console.error('Upload falhou:', err);
+      alert('Falha no upload. Verifique as regras do Firebase Storage ou use a opção de Link.');
+    }
+  }
+  renderAdminGallery(); renderPublicGallery();
+  e.target.value='';
+}
 
-window.delPrice=async function(type,id){
-  if(!confirm('Remove this price item?'))return;
-  try{
-    await deleteDoc(doc(db,type+'Prices',id));
-    const snap=await getDocs(collection(db,type+'Prices'));
-    renderPL(type,snap.docs.map(d=>({id:d.id,...d.data()})));
-    renderSvcGrid();toast('✅ Removed!');
-  }catch(e){toast('Error','err');}
-};
+// ⭐ NOVA FUNÇÃO: Adicionar via link (ImgBB, Unsplash, etc.)
+async function addImageFromUrl() {
+  const url = document.getElementById('img-url-input').value.trim();
+  if (!url) { alert('Cole o link da imagem.'); return; }
+  if (!url.startsWith('http')) { alert('O link deve começar com http ou https.'); return; }
+  try {
+    const docRef = await db.collection('gallery').add({
+      url, caption: 'Imagem externa', storagePath: null,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    gallery.push({ id: docRef.id, url, caption: 'Imagem externa' });
+    document.getElementById('img-url-input').value = '';
+    renderAdminGallery(); renderPublicGallery();
+  } catch (err) { console.error(err); alert('Erro ao salvar link.'); }
+}
 
-// Image preview on input blur
-document.getElementById('cfg-hi').addEventListener('blur',function(){setP('prev-hero',this.value);});
-document.getElementById('cfg-cli').addEventListener('blur',function(){setP('prev-cl',this.value);});
-document.getElementById('cfg-iri').addEventListener('blur',function(){setP('prev-ir',this.value);});
+// ═════ BOOKING ═════
+function renderTimeGrid() {
+  document.getElementById('time-grid').innerHTML = TIME_SLOTS.map(t =>
+    `<button type="button" class="time-btn ${selTime===t?'selected':''}" onclick="selTime='${t}';renderTimeGrid()">${t}</button>`
+  ).join('');
+}
+async function submitBooking() {
+  const name=document.getElementById('bk-name').value.trim(), phone=document.getElementById('bk-phone').value.trim(), address=document.getElementById('bk-address').value.trim(), service=document.getElementById('bk-service').value, date=document.getElementById('bk-date').value, notes=document.getElementById('bk-notes').value.trim();
+  if(!name||!phone||!address||!service||!date||!selTime) { alert('Preencha todos os campos.'); return; }
+  const svc = Object.values(SVCMAP).find(s=>s.title===service)||{price:0};
+  const newB = { clientName:name, phone, address, service, date, timeStart:selTime, timeEnd:'', status:'pending', amount:svc.price, notes:notes||'', createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+  try {
+    const docRef = await db.collection('bookings').add(newB);
+    bookings.push({ id: docRef.id, ...newB });
+    document.getElementById('booking-form-wrap').style.display='none';
+    document.getElementById('booking-success').style.display='block';
+  } catch (err) { alert('Erro ao enviar reserva.'); }
+}
+function resetBooking() {
+  document.getElementById('booking-form-wrap').style.display='block'; document.getElementById('booking-success').style.display='none';
+  ['bk-name','bk-phone','bk-address','bk-notes'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('bk-service').value=''; document.getElementById('bk-date').value=''; selTime=''; renderTimeGrid();
+}
 
-loadSite();
+// ═════ DASHBOARD / CALENDAR / CLIENTS / INVOICES (mantidas iguais à versão Firebase anterior) ═════
+async function renderDashboard() {
+  await loadAllData();
+  const paid = bookings.filter(b=>b.status==='paid').reduce((s,b)=>s+b.amount,0);
+  const pending = bookings.filter(b=>b.status==='pending').length;
+  const week = getWeekDates(0);
+  const thisWeek = bookings.filter(b=>{const d=new Date(b.date); return d>=week[0]&&d<=week[6];});
+  document.getElementById('dash-cards').innerHTML=[
+    [`£${paid}`,'Revenue','paid jobs','badge-green'],
+    [pending,'Pending','to confirm','badge-orange'],
+    [thisWeek.length,'This Week','jobs','badge-blue'],
+    [clients.length,'Clients','total','badge-gray'],
+  ].map(([v,l,s,c])=>`<div class="dash-card"><div class="d-label">${l}</div><div class="d-val">${v}</div><span class="badge ${c}">${s}</span></div>`).join('');
+  document.getElementById('dash-bookings').innerHTML = [...bookings].sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0)).slice(0,6).map(b=>
+    `<div class="table-row"><div><div class="row-name">${b.clientName}</div><div class="row-sub">${b.service} · ${b.date} ${b.timeStart}${b.timeEnd?' → '+b.timeEnd:''}</div></div><div class="row-right"><span class="row-amount">£${b.amount}</span><span class="badge ${b.status==='paid'?'badge-green':b.status==='pending'?'badge-orange':'badge-blue'}">${b.status}</span></div></div>`).join('');
+}
+function getWeekDates(offset) { const today=new Date(); const day=today.getDay(); const diff=today.getDate()-day+(day===0?-6:1)+offset*7; return Array.from({length:7},(_,i)=>{const d=new Date(today); d.setDate(diff+i); return d;}); }
+function moveWeek(dir) { weekOffset+=dir; renderCalendar(); }
+function renderCalendar() {
+  const dates = getWeekDates(weekOffset); const today = new Date();
+  document.getElementById('cal-range').textContent = dates[0].toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' – '+dates[6].toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  let h = '<div style="padding:12px 8px;border-bottom:1.5px solid var(--g200)"></div>';
+  dates.forEach((d,i)=>{
+    const iT = d.toDateString()===today.toDateString();
+    h += `<div class="cal-header-cell" style="${i?'border-left:1px solid var(--g100)':''}"><div class="cal-day-name">${WEEK_DAYS[i]}</div><div class="cal-day-num ${iT?'today':''}">${d.getDate()}</div></div>`;
+  });
+  TIME_SLOTS.forEach(time=>{
+    h += `<div class="cal-time-label">${time}</div>`;
+    dates.forEach((d,i)=>{
+      const ds = d.toISOString().split('T')[0];
+      const sb = bookings.filter(b=>b.date===ds && b.timeStart===time);
+      h += `<div class="cal-slot ${sb.length?'has-b':''}" ${!sb.length?`onclick="openCalNew('${ds}','${time}')"`:''} style="${i?'border-left:1px solid var(--g100)':''}">${sb.map(b=>`<div class="cal-booking-chip ${b.status}" onclick="event.stopPropagation();openCalEdit('${b.id}')" title="${b.clientName} · £${b.amount}"><div>${b.clientName.split(' ')[0]}</div><div style="font-weight:500;opacity:.9">${b.timeStart}${b.timeEnd?' → '+b.timeEnd:''}</div><div style="font-weight:500">£${b.amount}</div></div>`).join('')}</div>`;
+    });
+  });
+  document.getElementById('cal-grid').innerHTML = h;
+}
+function fillTimeSelect(id, selected) { const el=document.getElementById(id); el.innerHTML='<option value="">—</option>'+TIME_SLOTS.map(t=>`<option value="${t}" ${t===selected?'selected':''}>${t}</option>`).join(''); }
+function openCalNew(date,time) {
+  calSlotDate=date; calSlotTime=time; newStatus='pending';
+  document.getElementById('cal-new-date').textContent=date+' at '+time;
+  document.getElementById('cal-client-sel').innerHTML='<option value="">— Choose client —</option>'+clients.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+  document.getElementById('cal-service-sel').value=''; document.getElementById('cal-amount').value='';
+  fillTimeSelect('cal-time-start',time); fillTimeSelect('cal-time-end',''); setNewStatus('pending');
+  document.getElementById('cal-new-overlay').classList.add('open');
+}
+function closeCalNew() { document.getElementById('cal-new-overlay').classList.remove('open'); }
+function autoFillPrice() { const sid=document.getElementById('cal-service-sel').value; if(sid&&SVCMAP[sid]) document.getElementById('cal-amount').value=SVCMAP[sid].price; }
+function setNewStatus(s) { newStatus=s; ['pending','confirmed','paid'].forEach(x=>{ const el=document.getElementById('new-st-'+x); el.className='status-opt'+(s===x?' active-'+x:''); }); }
+async function addBookingFromCal() {
+  const cid=document.getElementById('cal-client-sel').value, sid=document.getElementById('cal-service-sel').value, ts=document.getElementById('cal-time-start').value, te=document.getElementById('cal-time-end').value, amt=parseFloat(document.getElementById('cal-amount').value)||0;
+  const client = clients.find(c=>c.id===cid);
+  if(!cid||!sid||!client) { alert('Select client and service.'); return; }
+  const newB = { clientId:client.id, clientName:client.name, service:SVCMAP[sid].title, date:calSlotDate, timeStart:ts, timeEnd:te, status:newStatus, amount:amt, createdAt: firebase.firestore.FieldValue.serverTimestamp() };
+  try {
+    const docRef = await db.collection('bookings').add(newB);
+    bookings.push({ id: docRef.id, ...newB });
+    await db.collection('clients').doc(client.id).update({ services: firebase.firestore.FieldValue.increment(1) });
+    client.services = (client.services||0)+1;
+    closeCalNew(); renderCalendar(); renderDashboard();
+  } catch (err) { alert('Erro ao salvar.'); }
+}
+function openCalEdit(id) {
+  const b=bookings.find(x=>x.id===id), c=clients.find(x=>x.id===b.clientId);
+  editBkId=id;
+  document.getElementById('cal-edit-date').textContent=b.date+' · '+b.timeStart+(b.timeEnd?' → '+b.timeEnd:'');
+  document.getElementById('edit-client-name').value=b.clientName;
+  document.getElementById('edit-client-addr').value=c?c.address:(b.address||'—');
+  document.getElementById('edit-service').value=b.service;
+  document.getElementById('edit-amount').value=b.amount;
+  fillTimeSelect('edit-time-start',b.timeStart); fillTimeSelect('edit-time-end',b.timeEnd||'');
+  setEditStatus(b.status);
+  document.getElementById('cal-edit-overlay').classList.add('open');
+}
+function closeCalEdit() { document.getElementById('cal-edit-overlay').classList.remove('open'); editBkId=null; }
+function setEditStatus(s) { editStatus=s; ['pending','confirmed','paid'].forEach(x=>{ const el=document.getElementById('edit-st-'+x); el.className='status-opt'+(s===x?' active-'+x:''); }); }
+async function saveEditBooking() {
+  const b=bookings.find(x=>x.id===editBkId);
+  b.service=document.getElementById('edit-service').value; b.timeStart=document.getElementById('edit-time-start').value; b.timeEnd=document.getElementById('edit-time-end').value; b.amount=parseFloat(document.getElementById('edit-amount').value)||0; b.status=editStatus;
+  try {
+    await db.collection('bookings').doc(editBkId).update({ service:b.service, timeStart:b.timeStart, timeEnd:b.timeEnd, amount:b.amount, status:b.status });
+    closeCalEdit(); renderCalendar(); renderDashboard(); renderInvoices();
+  } catch (err) { alert('Erro ao salvar.'); }
+}
+async function deleteEditBooking() {
+  if(!confirm('Delete?')) return;
+  const b=bookings.find(x=>x.id===editBkId);
+  try {
+    await db.collection('bookings').doc(editBkId).delete();
+    if(b.clientId) {
+      await db.collection('clients').doc(b.clientId).update({ services: firebase.firestore.FieldValue.increment(-1) });
+      const client=clients.find(c=>c.id===b.clientId); if(client) client.services=Math.max((client.services||0)-1,0);
+    }
+    bookings=bookings.filter(x=>x.id!==editBkId);
+    closeCalEdit(); renderCalendar(); renderDashboard(); renderInvoices();
+  } catch (err) { console.error(err); }
+}
+function renderClients() {
+  document.getElementById('clients-count').textContent=clients.length+' clients registered';
+  document.getElementById('clients-grid').innerHTML=clients.map(c=>`
+    <div class="client-card">
+      <div class="client-card-top"><div class="client-avatar">${c.name.charAt(0)}</div><div style="display:flex;gap:6px"><button class="icon-btn icon-btn-edit" onclick="openEditClient('${c.id}')">✏️</button><button class="icon-btn" onclick="deleteClient('${c.id}')">🗑</button></div></div>
+      <div class="client-name">${c.name}</div><div class="client-info">📞 ${c.phone}<br>📍 ${c.address}${c.notes?'<br>💬 '+c.notes:''}</div>
+      <div class="client-foot"><span style="font-size:12px;color:var(--g400)">${c.services||0} service${c.services!==1?'s':''}</span><button class="small-btn" onclick="showTab('calendar',document.querySelectorAll('.tab-btn')[1])">+ Calendar</button></div>
+    </div>`).join('');
+}
+function openAddClient() { document.getElementById('client-modal-title').textContent='Add New Client'; document.getElementById('client-edit-id').value=''; ['name','phone','address','notes'].forEach(f=>document.getElementById('cf-'+f).value=''); document.getElementById('client-overlay').classList.add('open'); }
+function openEditClient(id) { const c=clients.find(x=>x.id===id); if(!c) return; document.getElementById('client-modal-title').textContent='Edit Client'; document.getElementById('client-edit-id').value=id; document.getElementById('cf-name').value=c.name; document.getElementById('cf-phone').value=c.phone; document.getElementById('cf-address').value=c.address; document.getElementById('cf-notes').value=c.notes||''; document.getElementById('client-overlay').classList.add('open'); }
+async function saveClient() {
+  const id=document.getElementById('client-edit-id').value;
+  const data={ name:document.getElementById('cf-name').value, phone:document.getElementById('cf-phone').value, address:document.getElementById('cf-address').value, notes:document.getElementById('cf-notes').value, services:0 };
+  if(!data.name||!data.phone) { alert('Name and phone required.'); return; }
+  try {
+    if(id) { const existing=clients.find(c=>c.id===id); data.services=existing?.services||0; await db.collection('clients').doc(id).update(data); Object.assign(existing, data); }
+    else { const docRef=await db.collection('clients').add(data); data.id=docRef.id; clients.push(data); }
+    closeClientModal(); renderClients();
+  } catch (err) { alert('Erro ao salvar.'); }
+}
+async function deleteClient(id) { if(confirm('Delete?')) { await db.collection('clients').doc(id).delete(); clients=clients.filter(c=>c.id!==id); renderClients(); } }
+function closeClientModal() { document.getElementById('client-overlay').classList.remove('open'); }
+function renderInvoices() {
+  document.getElementById('invoices-list').innerHTML=bookings.map(b=>`
+    <div class="table-row"><div><div class="row-name">${b.clientName}</div><div class="row-sub">${b.service} · ${b.date} ${b.timeStart}${b.timeEnd?' → '+b.timeEnd:''}</div></div><div class="row-right"><span class="row-amount">£${b.amount}</span><span class="badge ${b.status==='paid'?'badge-green':b.status==='pending'?'badge-orange':'badge-blue'}">${b.status}</span><button class="small-btn" onclick="openInvoice('${b.id}')">Invoice</button><button class="icon-btn" onclick="deleteBookingInv('${b.id}')">🗑</button></div></div>`).join('');
+}
+async function deleteBookingInv(id) {
+  if(!confirm('Delete?')) return;
+  const b=bookings.find(x=>x.id===id);
+  try {
+    await db.collection('bookings').doc(id).delete();
+    if(b&&b.clientId) { await db.collection('clients').doc(b.clientId).update({ services: firebase.firestore.FieldValue.increment(-1) }); const c=clients.find(x=>x.id===b.clientId); if(c) c.services=Math.max((c.services||0)-1,0); }
+    bookings=bookings.filter(x=>x.id!==id); renderInvoices(); renderDashboard();
+  } catch (err) { console.error(err); }
+}
+function openInvoice(id) {
+  const b=bookings.find(x=>x.id===id), c=clients.find(x=>x.id===b.clientId);
+  document.getElementById('invoice-content').innerHTML=`
+    <div class="invoice-header"><div><div style="font-size:11px;opacity:.5">Invoice</div><div class="inv-brand">Brightway Cleaning</div><div class="inv-sub">+44 7308 102037</div></div><div style="text-align:right"><div style="font-size:11px;opacity:.5">#</div><div style="font-size:14px;font-weight:700">BW-${b.id}</div><div class="inv-sub">${new Date().toLocaleDateString('en-GB')}</div></div></div>
+    <div style="margin-bottom:18px"><div style="font-size:12px;color:var(--g400);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Bill To</div><div style="font-size:16px;font-weight:700">${b.clientName}</div>${c?`<div style="font-size:13px;color:var(--g600);margin-top:2px">${c.address}<br>${c.phone}</div>`:''}</div>
+    <div class="invoice-line-box"><div class="invoice-line"><span style="color:var(--g600)">Service</span><span style="font-weight:600">${b.service}</span></div><div class="invoice-line"><span style="color:var(--g600)">Date</span><span>${b.date}</span></div><div class="invoice-line"><span style="color:var(--g600)">Time</span><span>${b.timeStart}${b.timeEnd?' → '+b.timeEnd:''}</span></div><div class="invoice-line"><span style="color:var(--g600)">Status</span><span class="badge ${b.status==='paid'?'badge-green':b.status==='pending'?'badge-orange':'badge-blue'}">${b.status}</span></div><div class="invoice-total"><span style="font-size:15px;font-weight:700">Total</span><span style="font-size:22px;font-weight:700">£${b.amount}</span></div></div>
+    <div class="btn-row"><button class="btn-secondary" onclick="closeInvoice()">Close</button><a class="btn-wa-send" href="https://wa.me/447308102037?text=Invoice%20BW-${b.id}%20for%20${encodeURIComponent(b.clientName)}%20-%20${encodeURIComponent(b.service)}%20-%20%C2%A3${b.amount}" target="_blank">📤 Send via WhatsApp</a></div>`;
+  document.getElementById('invoice-overlay').classList.add('open');
+}
+function closeInvoice() { document.getElementById('invoice-overlay').classList.remove('open'); }
+
+window.addEventListener('DOMContentLoaded', loadAllData);
 </script>
 </body>
-                                                                                                                                                                                   </html>
+                </html>
