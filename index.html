@@ -7,6 +7,12 @@
   <meta name="description" content="Premium residential and commercial cleaning. Book online in minutes."/>
   <link rel="icon" href="https://i.ibb.co/BV8MbqYK/FB-IMG-1778539148151.jpg"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Firebase SDKs (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -396,7 +402,7 @@
               <option value="Airbnb Cleaning">🛏 Airbnb Cleaning</option>
             </select>
           </div>
-          <div class="field"><label>Date</label><input type="date" id="bk-date" min="2026-05-12"/></div>
+          <div class="field"><label>Date</label><input type="date" id="bk-date"/></div>
         </div>
         <div class="field"><label>Preferred Time</label><div class="time-grid" id="time-grid"></div></div>
         <div class="field"><label>Notes (optional)</label><textarea id="bk-notes" rows="3" placeholder="Access codes, pets, special instructions..."></textarea></div>
@@ -683,8 +689,22 @@
   </div>
 </div>
 
-<!-- ══════════════════════ JAVASCRIPT ══════════════════════ -->
+<!-- ══════════════════════ JAVASCRIPT (FIREBASE INTEGRADO) ══════════════════════ -->
 <script>
+// ═══════════════ FIREBASE INIT ═══════════════
+const firebaseConfig = {
+  apiKey: "AIzaSyA9H0k09yjAfB-dXVXKSk-Xe95GuSZVfAc",
+  authDomain: "brightway-cleaning-4df0e.firebaseapp.com",
+  projectId: "brightway-cleaning-4df0e",
+  storageBucket: "brightway-cleaning-4df0e.firebasestorage.app",
+  messagingSenderId: "394648345931",
+  appId: "1:394648345931:web:bff501c3c0807d460f9cce"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+// ═══════════════ GLOBAIS ═══════════════
 const SVCMAP = {
   house:     {title:'House Cleaning',  price:80 },
   deepclean: {title:'Deep Clean',      price:120},
@@ -696,28 +716,11 @@ const SVCMAP = {
 const TIME_SLOTS = ['07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
 const WEEK_DAYS  = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
-// Price images (managed via Admin > Edit Site)
+// Dados carregados do Firestore
 let priceImgs = { cleaning: null, ironing: null };
-
-let gallery = [
-  {id:1,url:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',caption:'Spotless kitchen'},
-  {id:2,url:'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80',caption:'Bathroom deep clean'},
-  {id:3,url:'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80',caption:'Living room refresh'},
-  {id:4,url:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',caption:'Office cleaning'},
-  {id:5,url:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',caption:'Airbnb ready'},
-  {id:6,url:'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&q=80',caption:'Bedroom clean'},
-];
-let clients = [
-  {id:1,name:'Sarah Mitchell',phone:'+44 7700 900123',address:'14 King St, London E1 6RF',notes:'Prefers mornings',services:5},
-  {id:2,name:'James Carter',  phone:'+44 7700 900456',address:'8 Queen Ave, London SE5',  notes:'Has a dog',      services:2},
-  {id:3,name:'Emily Rose',    phone:'+44 7700 900789',address:'22 Park Lane, London W1K', notes:'Airbnb host',    services:8},
-];
-let bookings = [
-  {id:1,clientId:1,clientName:'Sarah Mitchell',service:'House Cleaning', date:'2026-05-12',timeStart:'09:00',timeEnd:'12:00',status:'confirmed',amount:80},
-  {id:2,clientId:3,clientName:'Emily Rose',    service:'Airbnb Cleaning',date:'2026-05-12',timeStart:'14:00',timeEnd:'17:00',status:'paid',     amount:95},
-  {id:3,clientId:2,clientName:'James Carter',  service:'Ironing',        date:'2026-05-13',timeStart:'11:00',timeEnd:'12:00',status:'pending',  amount:25},
-  {id:4,clientId:1,clientName:'Sarah Mitchell',service:'House Cleaning', date:'2026-05-14',timeStart:'09:00',timeEnd:'12:00',status:'confirmed',amount:80},
-];
+let gallery = [];
+let clients = [];
+let bookings = [];
 
 let weekOffset  = 0;
 let calSlotDate = '';
@@ -727,13 +730,59 @@ let newStatus   = 'pending';
 let editStatus  = 'pending';
 let selTime     = '';
 
-// ── PAGE NAV ──────────────────────────────────────
+// ═════ CARREGAR DADOS DO FIRESTORE ═════
+async function loadAllData() {
+  try {
+    // Carregar price images
+    const priceDoc = await db.collection('siteData').doc('priceImages').get();
+    if (priceDoc.exists) {
+      priceImgs = priceDoc.data();
+    } else {
+      priceImgs = { cleaning: null, ironing: null };
+    }
+
+    // Carregar galeria
+    const gallerySnap = await db.collection('gallery').orderBy('createdAt', 'desc').get();
+    gallery = [];
+    gallerySnap.forEach(doc => {
+      gallery.push({ id: doc.id, ...doc.data() });
+    });
+
+    // Carregar clientes
+    const clientsSnap = await db.collection('clients').get();
+    clients = [];
+    clientsSnap.forEach(doc => {
+      const data = doc.data();
+      clients.push({ id: doc.id, ...data, services: data.services || 0 });
+    });
+
+    // Carregar bookings
+    const bookingsSnap = await db.collection('bookings').get();
+    bookings = [];
+    bookingsSnap.forEach(doc => {
+      const data = doc.data();
+      bookings.push({ id: doc.id, ...data });
+    });
+
+    // Renderizar interfaces
+    renderPublicGallery();
+    renderPublicPriceImgs();
+    renderTimeGrid();
+    console.log('Dados carregados com sucesso!');
+  } catch (error) {
+    console.error('Erro ao carregar dados:', error);
+    renderPublicGallery();
+    renderPublicPriceImgs();
+    renderTimeGrid();
+  }
+}
+
+// ═════ PAGE NAV ═════
 function showPublic(){
   document.getElementById('page-public').style.display='block';
   document.getElementById('page-login').classList.remove('open');
   document.getElementById('page-admin').classList.remove('open');
-  renderPublicGallery();
-  renderPublicPriceImgs();
+  loadAllData(); // recarrega ao voltar
 }
 function showLogin(e){
   if(e)e.preventDefault();
@@ -747,15 +796,18 @@ function showAdmin(){
   document.getElementById('page-public').style.display='none';
   document.getElementById('page-login').classList.remove('open');
   document.getElementById('page-admin').classList.add('open');
-  renderDashboard();renderCalendar();renderClients();renderInvoices();renderAdminGallery();renderAdminPriceImgs();
+  loadAllData().then(() => {
+    renderDashboard();renderCalendar();renderClients();renderInvoices();renderAdminGallery();renderAdminPriceImgs();
+  });
 }
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('mobile-open');document.getElementById('sidebar-overlay').classList.toggle('open')}
 function closeSidebar(){document.getElementById('sidebar').classList.remove('mobile-open');document.getElementById('sidebar-overlay').classList.remove('open')}
 
-// ── LOGIN ─────────────────────────────────────────
+// ═════ LOGIN ═════
 function attemptLogin(){
-  if(document.getElementById('pw-input').value==='120121'){showAdmin()}
-  else{
+  if(document.getElementById('pw-input').value==='120121'){
+    showAdmin();
+  } else {
     document.getElementById('login-err').style.display='block';
     document.getElementById('pw-input').classList.add('error');
     const b=document.getElementById('login-box');
@@ -763,7 +815,7 @@ function attemptLogin(){
   }
 }
 
-// ── TABS ──────────────────────────────────────────
+// ═════ TABS ═════
 function showTab(name,btn){
   document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -778,23 +830,41 @@ function showTab(name,btn){
   if(name==='editsite')renderAdminPriceImgs();
 }
 
-// ── PRICE IMAGES ──────────────────────────────────
-function uploadPriceImg(e, type){
+// ═════ PRICE IMAGES (Storage + Firestore) ═════
+async function uploadPriceImg(e, type){
   const file = e.target.files[0]; if(!file) return;
-  const r = new FileReader();
-  r.onload = ev => {
-    priceImgs[type] = ev.target.result;
+  try {
+    // Upload para Storage
+    const storageRef = storage.ref(`priceImages/${type}`);
+    await storageRef.put(file);
+    const url = await storageRef.getDownloadURL();
+    // Salvar URL no Firestore
+    priceImgs[type] = url;
+    await db.collection('siteData').doc('priceImages').set(priceImgs, { merge: true });
     renderAdminPriceImgs();
     renderPublicPriceImgs();
-  };
-  r.readAsDataURL(file);
+  } catch (err) {
+    console.error('Erro upload:', err);
+    alert('Falha ao enviar imagem.');
+  }
   e.target.value='';
 }
-function deletePriceImg(type){
-  priceImgs[type] = null;
-  renderAdminPriceImgs();
-  renderPublicPriceImgs();
+
+async function deletePriceImg(type){
+  try {
+    // Deletar do Storage
+    const storageRef = storage.ref(`priceImages/${type}`);
+    try { await storageRef.delete(); } catch(e) {}
+    // Atualizar Firestore
+    priceImgs[type] = null;
+    await db.collection('siteData').doc('priceImages').set(priceImgs, { merge: true });
+    renderAdminPriceImgs();
+    renderPublicPriceImgs();
+  } catch (err) {
+    console.error('Erro ao deletar:', err);
+  }
 }
+
 function renderAdminPriceImgs(){
   ['cleaning','ironing'].forEach(type => {
     const body = document.getElementById('admin-price-'+type);
@@ -810,6 +880,7 @@ function renderAdminPriceImgs(){
     }
   });
 }
+
 function renderPublicPriceImgs(){
   ['cleaning','ironing'].forEach(type => {
     const wrap = document.getElementById('public-price-'+type);
@@ -823,26 +894,28 @@ function renderPublicPriceImgs(){
   });
 }
 
-// ── PUBLIC GALLERY ────────────────────────────────
+// ═════ PUBLIC GALLERY ═════
 function renderPublicGallery(){
-  document.getElementById('public-gallery').innerHTML=gallery.map(img=>`
+  const container = document.getElementById('public-gallery');
+  if (!container) return;
+  container.innerHTML = gallery.map(img => `
     <div class="gallery-item" onclick="openLightbox('${img.url}')">
-      <img src="${img.url}" alt="${img.caption}" loading="lazy"/>
-      <div class="gallery-ov"><span>${img.caption}</span></div>
+      <img src="${img.url}" alt="${img.caption || ''}" loading="lazy"/>
+      <div class="gallery-ov"><span>${img.caption || ''}</span></div>
     </div>`).join('');
 }
 function openLightbox(url){document.getElementById('lightbox-img').src=url;document.getElementById('lightbox').classList.add('open')}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
 
-// ── TIME GRID (public booking) ────────────────────
+// ═════ TIME GRID (public booking) ═════
 function renderTimeGrid(){
   document.getElementById('time-grid').innerHTML=TIME_SLOTS.map(t=>
     `<button type="button" class="time-btn ${selTime===t?'selected':''}" onclick="selTime='${t}';renderTimeGrid()">${t}</button>`
   ).join('');
 }
 
-// ── PUBLIC BOOKING ────────────────────────────────
-function submitBooking(){
+// ═════ PUBLIC BOOKING ═════
+async function submitBooking(){
   const name=document.getElementById('bk-name').value.trim();
   const phone=document.getElementById('bk-phone').value.trim();
   const address=document.getElementById('bk-address').value.trim();
@@ -851,9 +924,20 @@ function submitBooking(){
   const notes=document.getElementById('bk-notes').value.trim();
   if(!name||!phone||!address||!service||!date||!selTime){alert('Please fill all fields and select a time.');return}
   const svc=Object.values(SVCMAP).find(s=>s.title===service)||{price:0};
-  bookings.push({id:Date.now(),clientId:null,clientName:name,service,date,timeStart:selTime,timeEnd:'',status:'pending',amount:svc.price,phone,address,notes});
-  document.getElementById('booking-form-wrap').style.display='none';
-  document.getElementById('booking-success').style.display='block';
+  const newBooking = {
+    clientName: name, phone, address, service, date, timeStart: selTime,
+    timeEnd: '', status: 'pending', amount: svc.price, notes: notes || '',
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  };
+  try {
+    const docRef = await db.collection('bookings').add(newBooking);
+    bookings.push({ id: docRef.id, ...newBooking });
+    document.getElementById('booking-form-wrap').style.display='none';
+    document.getElementById('booking-success').style.display='block';
+  } catch (err) {
+    console.error('Erro ao criar booking:', err);
+    alert('Erro ao enviar reserva. Tente novamente.');
+  }
 }
 function resetBooking(){
   document.getElementById('booking-form-wrap').style.display='block';
@@ -864,8 +948,10 @@ function resetBooking(){
   selTime='';renderTimeGrid();
 }
 
-// ── DASHBOARD ─────────────────────────────────────
-function renderDashboard(){
+// ═════ DASHBOARD ═════
+async function renderDashboard(){
+  // Re-carrega dados pra garantir
+  await loadAllData();
   const paid=bookings.filter(b=>b.status==='paid').reduce((s,b)=>s+b.amount,0);
   const pending=bookings.filter(b=>b.status==='pending').length;
   const week=getWeekDates(0);
@@ -876,16 +962,16 @@ function renderDashboard(){
     [thisWeek.length,'This Week','jobs','badge-blue'],
     [clients.length,'Clients','total','badge-gray'],
   ].map(([v,l,s,c])=>`<div class="dash-card"><div class="d-label">${l}</div><div class="d-val">${v}</div><span class="badge ${c}">${s}</span></div>`).join('');
-  document.getElementById('dash-bookings').innerHTML=[...bookings].reverse().slice(0,6).map(b=>`
+  document.getElementById('dash-bookings').innerHTML=[...bookings].sort((a,b)=> (b.createdAt?.toMillis?.()||0) - (a.createdAt?.toMillis?.()||0)).slice(0,6).map(b=>`
     <div class="table-row">
       <div><div class="row-name">${b.clientName}</div><div class="row-sub">${b.service} · ${b.date} ${b.timeStart}${b.timeEnd?' → '+b.timeEnd:''}</div></div>
       <div class="row-right"><span class="row-amount">£${b.amount}</span><span class="badge ${b.status==='paid'?'badge-green':b.status==='pending'?'badge-orange':'badge-blue'}">${b.status}</span></div>
     </div>`).join('');
 }
 
-// ── CALENDAR ──────────────────────────────────────
+// ═════ CALENDAR ═════
 function getWeekDates(offset){
-  const today=new Date(2026,4,11);
+  const today=new Date(); // data real
   const day=today.getDay();
   const diff=today.getDate()-day+(day===0?-6:1)+offset*7;
   return Array.from({length:7},(_,i)=>{const d=new Date(today);d.setDate(diff+i);return d});
@@ -893,7 +979,7 @@ function getWeekDates(offset){
 function moveWeek(dir){weekOffset+=dir;renderCalendar()}
 function renderCalendar(){
   const dates=getWeekDates(weekOffset);
-  const today=new Date(2026,4,11);
+  const today=new Date();
   document.getElementById('cal-range').textContent=
     dates[0].toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' – '+
     dates[6].toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
@@ -911,7 +997,7 @@ function renderCalendar(){
       const sb=bookings.filter(b=>b.date===ds&&b.timeStart===time);
       h+=`<div class="cal-slot ${sb.length?'has-b':''}" ${!sb.length?`onclick="openCalNew('${ds}','${time}')"`:''} style="${i?'border-left:1px solid var(--g100)':''}">
         ${sb.map(b=>`
-          <div class="cal-booking-chip ${b.status}" onclick="event.stopPropagation();openCalEdit(${b.id})" title="${b.clientName} · £${b.amount}">
+          <div class="cal-booking-chip ${b.status}" onclick="event.stopPropagation();openCalEdit('${b.id}')" title="${b.clientName} · £${b.amount}">
             <div>${b.clientName.split(' ')[0]}</div>
             <div style="font-weight:500;opacity:.9">${b.timeStart}${b.timeEnd?' → '+b.timeEnd:''}</div>
             <div style="font-weight:500">£${b.amount}</div>
@@ -922,13 +1008,13 @@ function renderCalendar(){
   document.getElementById('cal-grid').innerHTML=h;
 }
 
-// ── FILL TIME SELECTS ─────────────────────────────
+// ═ FILL TIME SELECTS ═
 function fillTimeSelect(id,selected){
   const el=document.getElementById(id);
   el.innerHTML='<option value="">—</option>'+TIME_SLOTS.map(t=>`<option value="${t}" ${t===selected?'selected':''}>${t}</option>`).join('');
 }
 
-// ── NEW BOOKING MODAL ─────────────────────────────
+// ═ NEW BOOKING MODAL ═
 function openCalNew(date,time){
   calSlotDate=date;calSlotTime=time;newStatus='pending';
   document.getElementById('cal-new-date').textContent=date+' at '+time;
@@ -953,20 +1039,39 @@ function setNewStatus(s){
     el.className='status-opt'+(s===x?' active-'+x:'');
   });
 }
-function addBookingFromCal(){
-  const cid=parseInt(document.getElementById('cal-client-sel').value);
+async function addBookingFromCal(){
+  const cid=document.getElementById('cal-client-sel').value;
   const sid=document.getElementById('cal-service-sel').value;
   const ts=document.getElementById('cal-time-start').value;
   const te=document.getElementById('cal-time-end').value;
   const amt=parseFloat(document.getElementById('cal-amount').value)||0;
-  if(!cid||!sid){alert('Please select client and service.');return}
-  const client=clients.find(c=>c.id===cid);
-  bookings.push({id:Date.now(),clientId:client.id,clientName:client.name,service:SVCMAP[sid].title,date:calSlotDate,timeStart:ts,timeEnd:te,status:newStatus,amount:amt});
-  client.services++;
-  closeCalNew();renderCalendar();renderDashboard();
+  const client = clients.find(c=>c.id===cid);
+  if(!cid||!sid||!client){alert('Please select client and service.');return}
+  const newBooking = {
+    clientId: client.id,
+    clientName: client.name,
+    service: SVCMAP[sid].title,
+    date: calSlotDate,
+    timeStart: ts,
+    timeEnd: te,
+    status: newStatus,
+    amount: amt,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  };
+  try {
+    const docRef = await db.collection('bookings').add(newBooking);
+    bookings.push({ id: docRef.id, ...newBooking });
+    // Increment services no cliente
+    await db.collection('clients').doc(client.id).update({ services: firebase.firestore.FieldValue.increment(1) });
+    client.services = (client.services || 0) + 1;
+    closeCalNew();renderCalendar();renderDashboard();
+  } catch (err) {
+    console.error('Erro ao adicionar booking:', err);
+    alert('Erro ao salvar na agenda.');
+  }
 }
 
-// ── EDIT BOOKING MODAL ────────────────────────────
+// ═ EDIT BOOKING MODAL ═
 function openCalEdit(id){
   const b=bookings.find(x=>x.id===id);
   const c=clients.find(x=>x.id===b.clientId);
@@ -989,23 +1094,48 @@ function setEditStatus(s){
     el.className='status-opt'+(s===x?' active-'+x:'');
   });
 }
-function saveEditBooking(){
+async function saveEditBooking(){
   const b=bookings.find(x=>x.id===editBkId);
+  const oldStatus = b.status;
   b.service=document.getElementById('edit-service').value;
   b.timeStart=document.getElementById('edit-time-start').value;
   b.timeEnd=document.getElementById('edit-time-end').value;
   b.amount=parseFloat(document.getElementById('edit-amount').value)||0;
   b.status=editStatus;
-  closeCalEdit();renderCalendar();renderDashboard();renderInvoices();
-}
-function deleteEditBooking(){
-  if(confirm('Delete this booking?')){
-    bookings=bookings.filter(x=>x.id!==editBkId);
+  try {
+    await db.collection('bookings').doc(editBkId).update({
+      service: b.service,
+      timeStart: b.timeStart,
+      timeEnd: b.timeEnd,
+      amount: b.amount,
+      status: b.status
+    });
     closeCalEdit();renderCalendar();renderDashboard();renderInvoices();
+  } catch (err) {
+    console.error('Erro ao atualizar:', err);
+    alert('Erro ao salvar alterações.');
+  }
+}
+async function deleteEditBooking(){
+  if(confirm('Delete this booking?')){
+    const b = bookings.find(x=>x.id===editBkId);
+    try {
+      await db.collection('bookings').doc(editBkId).delete();
+      // Se tiver cliente, decrement services
+      if (b.clientId) {
+        await db.collection('clients').doc(b.clientId).update({ services: firebase.firestore.FieldValue.increment(-1) });
+        const client = clients.find(c=>c.id===b.clientId);
+        if (client) client.services = Math.max((client.services||0)-1, 0);
+      }
+      bookings=bookings.filter(x=>x.id!==editBkId);
+      closeCalEdit();renderCalendar();renderDashboard();renderInvoices();
+    } catch (err) {
+      console.error('Erro ao deletar:', err);
+    }
   }
 }
 
-// ── CLIENTS ───────────────────────────────────────
+// ═════ CLIENTS ═════
 function renderClients(){
   document.getElementById('clients-count').textContent=clients.length+' clients registered';
   document.getElementById('clients-grid').innerHTML=clients.map(c=>`
@@ -1013,25 +1143,64 @@ function renderClients(){
       <div class="client-card-top">
         <div class="client-avatar">${c.name.charAt(0)}</div>
         <div style="display:flex;gap:6px">
-          <button class="icon-btn icon-btn-edit" onclick="openEditClient(${c.id})">✏️</button>
-          <button class="icon-btn" onclick="deleteClient(${c.id})">🗑</button>
+          <button class="icon-btn icon-btn-edit" onclick="openEditClient('${c.id}')">✏️</button>
+          <button class="icon-btn" onclick="deleteClient('${c.id}')">🗑</button>
         </div>
       </div>
       <div class="client-name">${c.name}</div>
       <div class="client-info">📞 ${c.phone}<br>📍 ${c.address}${c.notes?'<br>💬 '+c.notes:''}</div>
       <div class="client-foot">
-        <span style="font-size:12px;color:var(--g400)">${c.services} service${c.services!==1?'s':''}</span>
+        <span style="font-size:12px;color:var(--g400)">${c.services||0} service${c.services!==1?'s':''}</span>
         <button class="small-btn" onclick="showTab('calendar',document.querySelectorAll('.tab-btn')[1])">+ Calendar</button>
       </div>
     </div>`).join('');
 }
 function openAddClient(){document.getElementById('client-modal-title').textContent='Add New Client';document.getElementById('client-edit-id').value='';['name','phone','address','notes'].forEach(f=>document.getElementById('cf-'+f).value='');document.getElementById('client-overlay').classList.add('open')}
-function openEditClient(id){const c=clients.find(x=>x.id===id);document.getElementById('client-modal-title').textContent='Edit Client';document.getElementById('client-edit-id').value=id;document.getElementById('cf-name').value=c.name;document.getElementById('cf-phone').value=c.phone;document.getElementById('cf-address').value=c.address;document.getElementById('cf-notes').value=c.notes||'';document.getElementById('client-overlay').classList.add('open')}
-function saveClient(){const id=document.getElementById('client-edit-id').value;const data={name:document.getElementById('cf-name').value,phone:document.getElementById('cf-phone').value,address:document.getElementById('cf-address').value,notes:document.getElementById('cf-notes').value};if(!data.name||!data.phone){alert('Name and phone required.');return}if(id){Object.assign(clients.find(c=>c.id===parseInt(id)),data)}else{clients.push({id:Date.now(),...data,services:0})}closeClientModal();renderClients()}
-function deleteClient(id){if(confirm('Delete this client?')){clients=clients.filter(c=>c.id!==id);renderClients()}}
+function openEditClient(id){const c=clients.find(x=>x.id===id);if(!c) return;document.getElementById('client-modal-title').textContent='Edit Client';document.getElementById('client-edit-id').value=id;document.getElementById('cf-name').value=c.name;document.getElementById('cf-phone').value=c.phone;document.getElementById('cf-address').value=c.address;document.getElementById('cf-notes').value=c.notes||'';document.getElementById('client-overlay').classList.add('open')}
+async function saveClient(){
+  const id=document.getElementById('client-edit-id').value;
+  const data={
+    name:document.getElementById('cf-name').value,
+    phone:document.getElementById('cf-phone').value,
+    address:document.getElementById('cf-address').value,
+    notes:document.getElementById('cf-notes').value,
+    services: 0
+  };
+  if(!data.name||!data.phone){alert('Name and phone required.');return}
+  try {
+    if(id){
+      // Edit
+      const existing = clients.find(c=>c.id===id);
+      data.services = existing?.services || 0;
+      await db.collection('clients').doc(id).update(data);
+      Object.assign(existing, data);
+    } else {
+      // Add new
+      const docRef = await db.collection('clients').add(data);
+      data.id = docRef.id;
+      clients.push(data);
+    }
+    closeClientModal();
+    renderClients();
+  } catch (err) {
+    console.error('Erro ao salvar cliente:', err);
+    alert('Erro ao salvar.');
+  }
+}
+async function deleteClient(id){
+  if(confirm('Delete this client? All related data will remain.')){
+    try {
+      await db.collection('clients').doc(id).delete();
+      clients=clients.filter(c=>c.id!==id);
+      renderClients();
+    } catch (err) {
+      console.error('Erro ao deletar cliente:', err);
+    }
+  }
+}
 function closeClientModal(){document.getElementById('client-overlay').classList.remove('open')}
 
-// ── INVOICES ──────────────────────────────────────
+// ═════ INVOICES ═════
 function renderInvoices(){
   document.getElementById('invoices-list').innerHTML=bookings.map(b=>`
     <div class="table-row">
@@ -1039,12 +1208,28 @@ function renderInvoices(){
       <div class="row-right">
         <span class="row-amount">£${b.amount}</span>
         <span class="badge ${b.status==='paid'?'badge-green':b.status==='pending'?'badge-orange':'badge-blue'}">${b.status}</span>
-        <button class="small-btn" onclick="openInvoice(${b.id})">Invoice</button>
-        <button class="icon-btn" onclick="deleteBookingInv(${b.id})">🗑</button>
+        <button class="small-btn" onclick="openInvoice('${b.id}')">Invoice</button>
+        <button class="icon-btn" onclick="deleteBookingInv('${b.id}')">🗑</button>
       </div>
     </div>`).join('');
 }
-function deleteBookingInv(id){if(confirm('Delete?')){bookings=bookings.filter(b=>b.id!==id);renderInvoices();renderDashboard()}}
+async function deleteBookingInv(id){
+  if(confirm('Delete?')){
+    const b = bookings.find(x=>x.id===id);
+    try {
+      await db.collection('bookings').doc(id).delete();
+      if (b && b.clientId) {
+        await db.collection('clients').doc(b.clientId).update({ services: firebase.firestore.FieldValue.increment(-1) });
+        const client = clients.find(c=>c.id===b.clientId);
+        if (client) client.services = Math.max((client.services||0)-1, 0);
+      }
+      bookings=bookings.filter(b=>b.id!==id);
+      renderInvoices();renderDashboard();
+    } catch (err) {
+      console.error('Erro ao deletar:', err);
+    }
+  }
+}
 function openInvoice(id){
   const b=bookings.find(x=>x.id===id);
   const c=clients.find(x=>x.id===b.clientId);
@@ -1073,29 +1258,58 @@ function openInvoice(id){
 }
 function closeInvoice(){document.getElementById('invoice-overlay').classList.remove('open')}
 
-// ── GALLERY ───────────────────────────────────────
+// ═════ GALLERY ADMIN ═════
 function renderAdminGallery(){
   document.getElementById('admin-gallery').innerHTML=gallery.map(img=>`
     <div class="gallery-admin-item">
-      <img src="${img.url}" alt="${img.caption}" loading="lazy"/>
-      <div class="g-admin-ov"><div class="g-admin-name">${img.caption}</div><button class="btn-del-img" onclick="deleteGalleryImg(${img.id})">🗑 Delete</button></div>
+      <img src="${img.url}" alt="${img.caption || ''}" loading="lazy"/>
+      <div class="g-admin-ov"><div class="g-admin-name">${img.caption || ''}</div><button class="btn-del-img" onclick="deleteGalleryImg('${img.id}')">🗑 Delete</button></div>
     </div>`).join('')+
     `<div class="gallery-upload-box" onclick="document.getElementById('file-upload').click()"><div style="font-size:28px">+</div><div>Add Photo</div></div>`;
 }
-function deleteGalleryImg(id){gallery=gallery.filter(i=>i.id!==id);renderAdminGallery();renderPublicGallery()}
-function handleUpload(e){
-  Array.from(e.target.files).forEach(file=>{
-    const r=new FileReader();
-    r.onload=ev=>{gallery.push({id:Date.now()+Math.random(),url:ev.target.result,caption:file.name.replace(/\.[^/.]+$/,'')});renderAdminGallery();renderPublicGallery()};
-    r.readAsDataURL(file);
-  });
+async function deleteGalleryImg(id){
+  if(confirm('Delete this image?')){
+    try {
+      // Deletar do Storage (opcional, se tiver a URL)
+      const img = gallery.find(i=>i.id===id);
+      if (img && img.storagePath) {
+        await storage.ref(img.storagePath).delete();
+      }
+      await db.collection('gallery').doc(id).delete();
+      gallery=gallery.filter(i=>i.id!==id);
+      renderAdminGallery();renderPublicGallery();
+    } catch (err) {
+      console.error('Erro ao deletar imagem:', err);
+    }
+  }
+}
+async function handleUpload(e){
+  const files = Array.from(e.target.files);
+  for (const file of files) {
+    try {
+      const storageRef = storage.ref(`gallery/${Date.now()}_${file.name}`);
+      const snapshot = await storageRef.put(file);
+      const downloadURL = await snapshot.ref.getDownloadURL();
+      const newDoc = {
+        url: downloadURL,
+        caption: file.name.replace(/\.[^/.]+$/,''),
+        storagePath: storageRef.fullPath,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+      const docRef = await db.collection('gallery').add(newDoc);
+      gallery.push({ id: docRef.id, ...newDoc });
+    } catch (err) {
+      console.error('Upload falhou:', err);
+    }
+  }
+  renderAdminGallery();renderPublicGallery();
   e.target.value='';
 }
 
-// ── INIT ──────────────────────────────────────────
-renderPublicGallery();
-renderPublicPriceImgs();
-renderTimeGrid();
+// ═════ INIT ═════
+window.addEventListener('DOMContentLoaded', () => {
+  loadAllData();
+});
 </script>
 </body>
-</html>
+  </html>
